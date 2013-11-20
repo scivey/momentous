@@ -60,29 +60,6 @@ misc = require inLib("misc.js")
 
 
 
-otro = moment("2010-06-08")
-now = moment()
-
-btdubs = randBetween(otro, now)
-
-console.log btdubs.format()
-
-console.log btdubs.format()
-
-add2yrs = momentous.addBy.years(2)
-addyrsToBtw = momentous.add.years(btdubs)
-
-plusthat = addyrsToBtw(10)
-
-yearGapped = do ->
-	_current = moment(now)
-	_dates = []
-	_count = 10
-	while _count--
-		_dates.push _current
-		_current = momentous.add.years(_current, 1)
-	_dates
-
 oneRand = do ->
 	now = moment()
 	fiveYears = momentous.add.years(now, 5)
@@ -113,27 +90,5 @@ toStrings = (dateList...) ->
 printem = (dateList) ->
 	console.log toStrings(dateList)
 
-mixed = _.shuffle yearGapped
 
-printem mixed
-
-st = momentous.sort mixed
-st2 = momentous.sort.desc mixed
-printem st
-printem st2
-
-otros = randDates()
-
-printem otros
-st3 = momentous.sort.asc(otros)
-printem st3
-st4 = momentous.sort.desc(otros)
-printem st4
-
-st5 = _.map st3, momentous.addBy.years(20)
-
-printem st5
-printem _.filter(st5, momentous.isBetween("2035-10-05", "2037-10-05"))
-
-
-
+module.exports = momentous
