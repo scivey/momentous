@@ -14,5 +14,10 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/scivey/momentous/issues"
+  },
+  "devDependencies": {
+    "marked": "~0.2.10",
+    "underscore.string": "~2.3.3",
+    "yamljs": "~0.1.4"
   }
 }
