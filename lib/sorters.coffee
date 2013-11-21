@@ -36,13 +36,28 @@ sorters = do ->
 	#yearAsc = partial2 _sort, _g.getYear
 	#yearDesc = partial2 _sort, negate(_g.getYear)
 
+	_out = {}
 
-	out =
-		ascending: ascending
-		asc: ascending
-		descending: descending
-		desc: descending
+	###*
+	 * Given an array of moments or a sequence of single moments, return an array of cloned moments sorted in order of earliest to latest.
+	 *
+	 * @param  {Array} momentList An array of moments to sort, or a sequence of single moments (splatted).
+	 * @return {Array}              An array of cloned moments sorted in order of earliest -> latest.
+	###
+	_out.ascending = ascending
 
+	_out.asc = ascending
+
+	###*
+	 * Given an array of moments or a sequence of single moments, return an array of cloned moments sorted in order of latest to earliest.
+	 *
+	 * @param  {Array} momentList An array of moments to sort, or a sequence of single moments (splatted).
+	 * @return {Array}              An array of cloned moments sorted in order of latest -> earliest.
+	###
+	_out.descending = descending
+	_out.desc = descending
+
+	_out
 
 module.exports = sorters
 

@@ -126,7 +126,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var addToNow, against, compare;
         addToNow = _m.add(now);
         compare = now.clone().add("years", 2).add("days", 5);
@@ -157,7 +157,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var add2years5days, against, compare;
         add2years5days = _m.addBy({
           years: 2,
@@ -182,7 +182,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var addYearsToNow, against, compare;
         addYearsToNow = _m.add.years(now);
         compare = now.clone().add("years", 2);
@@ -204,7 +204,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var addMonthsToNow, against, compare;
         addMonthsToNow = _m.add.months(now);
         compare = now.clone().add("months", 2);
@@ -226,7 +226,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var addDaysToNow, against, compare;
         addDaysToNow = _m.add.days(now);
         compare = now.clone().add("days", 10);
@@ -248,7 +248,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var addHoursToNow, against, compare;
         addHoursToNow = _m.add.hours(now);
         compare = now.clone().add("hours", 10);
@@ -270,7 +270,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var addMinutesToNow, against, compare;
         addMinutesToNow = _m.add.minutes(now);
         compare = now.clone().add("minutes", 10);
@@ -292,7 +292,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var addSecondsToNow, against, compare;
         addSecondsToNow = _m.add.seconds(now);
         compare = now.clone().add("seconds", 10);
@@ -300,23 +300,23 @@
         return assert(meq(compare, against));
       });
     });
-    describe("add.milliseconds", function() {
+    describe("add.msec", function() {
       it("accepts a moment instance and a number of seconds to add", function() {
         var against, compare;
         compare = now.clone().add("milliseconds", 2500);
-        against = _m.add.milliseconds(now, 2500);
+        against = _m.add.msec(now, 2500);
         return assert(meq(compare, against));
       });
       it("does not mutate the original moment", function() {
         var against, compare;
         compare = now.clone().add("milliseconds", 2500);
-        against = _m.add.milliseconds(now, 2500);
+        against = _m.add.msec(now, 2500);
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var addMSecToNow, against, compare;
-        addMSecToNow = _m.add.milliseconds(now);
+        addMSecToNow = _m.add.msec(now);
         compare = now.clone().add("milliseconds", 2500);
         against = addMSecToNow(2500);
         return assert(meq(compare, against));
@@ -336,7 +336,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var add2years, against, compare;
         add2years = _m.addBy.years(2);
         compare = now.clone().add("years", 2);
@@ -358,7 +358,7 @@
         assert(meq(compare, against));
         return assert(meq(compare, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var add2months, against, compare;
         add2months = _m.addBy.months(2);
         compare = now.clone().add("months", 2);
@@ -380,7 +380,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var add10days, against, compare;
         add10days = _m.addBy.days(10);
         compare = now.clone().add("days", 10);
@@ -402,7 +402,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var add10hours, against, compare;
         add10hours = _m.addBy.hours(10);
         compare = now.clone().add("hours", 10);
@@ -424,7 +424,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var add10mins, against, compare;
         add10mins = _m.addBy.minutes(10);
         compare = now.clone().add("minutes", 10);
@@ -446,7 +446,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var add10sec, against, compare;
         add10sec = _m.addBy.seconds(10);
         compare = now.clone().add("seconds", 10);
@@ -454,23 +454,23 @@
         return assert(meq(compare, against));
       });
     });
-    return describe("addBy.milliseconds", function() {
+    return describe("addBy.msec", function() {
       it("accepts a number of milliseconds to add and a moment instance", function() {
         var against, compare;
         compare = now.clone().add("milliseconds", 3500);
-        against = _m.addBy.milliseconds(3500, now);
+        against = _m.addBy.msec(3500, now);
         return assert(meq(compare, against));
       });
       it("does not mutate the original moment", function() {
         var against, compare;
         compare = now.clone().add("milliseconds", 3500);
-        against = _m.addBy.milliseconds(3500, now);
+        against = _m.addBy.msec(3500, now);
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var add3500msec, against, compare;
-        add3500msec = _m.addBy.milliseconds(3500);
+        add3500msec = _m.addBy.msec(3500);
         compare = now.clone().add("milliseconds", 3500);
         against = add3500msec(now);
         return assert(meq(compare, against));

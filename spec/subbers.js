@@ -126,7 +126,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var against, compare, subFromNow;
         subFromNow = _m.sub(now);
         compare = now.clone().subtract("years", 2).subtract("days", 5);
@@ -157,7 +157,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var against, compare, sub2y5d;
         sub2y5d = _m.subBy({
           years: 2,
@@ -169,7 +169,7 @@
       });
     });
     describe("sub.years", function() {
-      it("accepts a moment instance and a number of years to add", function() {
+      it("accepts a moment instance and a number of years to subtract", function() {
         var against, compare;
         compare = now.clone().subtract("years", 2);
         against = _m.sub.years(now, 2);
@@ -182,7 +182,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var against, compare, subYearsFromNow;
         subYearsFromNow = _m.sub.years(now);
         compare = now.clone().subtract("years", 2);
@@ -191,7 +191,7 @@
       });
     });
     describe("sub.months", function() {
-      it("accepts a moment instance and a number of months to add", function() {
+      it("accepts a moment instance and a number of months to subtract", function() {
         var against, compare;
         compare = now.clone().subtract("months", 2);
         against = _m.sub.months(now, 2);
@@ -204,7 +204,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var against, compare, subMonthsFromNow;
         subMonthsFromNow = _m.sub.months(now);
         compare = now.clone().subtract("months", 2);
@@ -213,7 +213,7 @@
       });
     });
     describe("sub.days", function() {
-      it("accepts a moment instance and a number of days to add", function() {
+      it("accepts a moment instance and a number of days to subtract", function() {
         var against, compare;
         compare = now.clone().subtract("days", 10);
         against = _m.sub.days(now, 10);
@@ -226,7 +226,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var against, compare, subDaysFromNow;
         subDaysFromNow = _m.sub.days(now);
         compare = now.clone().subtract("days", 10);
@@ -235,7 +235,7 @@
       });
     });
     describe("sub.hours", function() {
-      it("accepts a moment instance and a number of hours to add", function() {
+      it("accepts a moment instance and a number of hours to subtract", function() {
         var against, compare;
         compare = now.clone().subtract("hours", 10);
         against = _m.sub.hours(now, 10);
@@ -248,7 +248,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var against, compare, subHoursFromNow;
         subHoursFromNow = _m.sub.hours(now);
         compare = now.clone().subtract("hours", 10);
@@ -257,7 +257,7 @@
       });
     });
     describe("sub.minutes", function() {
-      it("accepts a moment instance and a number of minutes to add", function() {
+      it("accepts a moment instance and a number of minutes to subtract", function() {
         var against, compare;
         compare = now.clone().subtract("minutes", 10);
         against = _m.sub.minutes(now, 10);
@@ -270,7 +270,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var against, compare, subMinsFromNow;
         subMinsFromNow = _m.sub.minutes(now);
         compare = now.clone().subtract("minutes", 10);
@@ -279,7 +279,7 @@
       });
     });
     describe("sub.seconds", function() {
-      it("accepts a moment instance and a number of seconds to add", function() {
+      it("accepts a moment instance and a number of seconds to subtract", function() {
         var against, compare;
         compare = now.clone().subtract("seconds", 10);
         against = _m.sub.seconds(now, 10);
@@ -292,7 +292,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var against, compare, subSecFromNow;
         subSecFromNow = _m.sub.seconds(now);
         compare = now.clone().subtract("seconds", 10);
@@ -300,30 +300,30 @@
         return assert(meq(compare, against));
       });
     });
-    describe("sub.milliseconds", function() {
-      it("accepts a moment instance and a number of seconds to add", function() {
+    describe("sub.msec", function() {
+      it("accepts a moment instance and a number of seconds to subtract", function() {
         var against, compare;
         compare = now.clone().subtract("milliseconds", 2500);
-        against = _m.sub.milliseconds(now, 2500);
+        against = _m.sub.msec(now, 2500);
         return assert(meq(compare, against));
       });
       it("does not mutate the original moment", function() {
         var against, compare;
         compare = now.clone().subtract("milliseconds", 2500);
-        against = _m.sub.milliseconds(now, 2500);
+        against = _m.sub.msec(now, 2500);
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var against, compare, subMsecFromNow;
-        subMsecFromNow = _m.sub.milliseconds(now);
+        subMsecFromNow = _m.sub.msec(now);
         compare = now.clone().subtract("milliseconds", 2500);
         against = subMsecFromNow(2500);
         return assert(meq(compare, against));
       });
     });
     describe("subBy.years", function() {
-      it("accepts a number of years to add and a moment instance", function() {
+      it("accepts a number of years to subtract and a moment instance", function() {
         var against, compare;
         compare = now.clone().subtract("years", 2);
         against = _m.subBy.years(2, now);
@@ -336,7 +336,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var against, compare, sub2y;
         sub2y = _m.subBy.years(2);
         compare = now.clone().subtract("years", 2);
@@ -358,7 +358,7 @@
         assert(meq(compare, against));
         return assert(meq(compare, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var against, compare, sub2m;
         sub2m = _m.subBy.months(2);
         compare = now.clone().subtract("months", 2);
@@ -367,7 +367,7 @@
       });
     });
     describe("subBy.days", function() {
-      it("accepts a number of days to add and a moment instance", function() {
+      it("accepts a number of days to subtract and a moment instance", function() {
         var against, compare;
         compare = now.clone().subtract("days", 10);
         against = _m.subBy.days(10, now);
@@ -380,7 +380,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var against, compare, sub10d;
         sub10d = _m.subBy.days(10);
         compare = now.clone().subtract("days", 10);
@@ -389,7 +389,7 @@
       });
     });
     describe("subBy.hours", function() {
-      it("accepts a number of hours to add and a moment instance", function() {
+      it("accepts a number of hours to subtract and a moment instance", function() {
         var against, compare;
         compare = now.clone().subtract("hours", 10);
         against = _m.subBy.hours(10, now);
@@ -402,7 +402,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var against, compare, sub10h;
         sub10h = _m.subBy.hours(10);
         compare = now.clone().subtract("hours", 10);
@@ -411,7 +411,7 @@
       });
     });
     describe("subBy.minutes", function() {
-      it("accepts a number of minutes to add and a moment instance", function() {
+      it("accepts a number of minutes to subtract and a moment instance", function() {
         var against, compare;
         compare = now.clone().subtract("minutes", 10);
         against = _m.subBy.minutes(10, now);
@@ -424,7 +424,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var against, compare, sub10mins;
         sub10mins = _m.subBy.minutes(10);
         compare = now.clone().subtract("minutes", 10);
@@ -433,7 +433,7 @@
       });
     });
     describe("subBy.seconds", function() {
-      it("accepts a number of seconds to add and a moment instance", function() {
+      it("accepts a number of seconds to subtract and a moment instance", function() {
         var against, compare;
         compare = now.clone().subtract("seconds", 10);
         against = _m.subBy.seconds(10, now);
@@ -446,7 +446,7 @@
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var against, compare, sub10sec;
         sub10sec = _m.subBy.seconds(10);
         compare = now.clone().subtract("seconds", 10);
@@ -454,23 +454,23 @@
         return assert(meq(compare, against));
       });
     });
-    return describe("subBy.milliseconds", function() {
-      it("accepts a number of milliseconds to add and a moment instance", function() {
+    return describe("subBy.msec", function() {
+      it("accepts a number of milliseconds to subtract and a moment instance", function() {
         var against, compare;
         compare = now.clone().subtract("milliseconds", 3500);
-        against = _m.subBy.milliseconds(3500, now);
+        against = _m.subBy.msec(3500, now);
         return assert(meq(compare, against));
       });
       it("does not mutate the original moment", function() {
         var against, compare;
         compare = now.clone().subtract("milliseconds", 3500);
-        against = _m.subBy.milliseconds(3500, now);
+        against = _m.subBy.msec(3500, now);
         assert(meq(compare, against));
         return assert(meq(against, now) === false);
       });
-      return it("partial applies a single parameter", function() {
+      return it("partially applies a single parameter", function() {
         var against, compare, sub3500;
-        sub3500 = _m.subBy.milliseconds(3500);
+        sub3500 = _m.subBy.msec(3500);
         compare = now.clone().subtract("milliseconds", 3500);
         against = sub3500(now);
         return assert(meq(compare, against));

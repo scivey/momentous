@@ -88,7 +88,7 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 			assert( meq(against, now) is false)
 
-		it "partial applies a single parameter", ->
+		it "partially applies a single parameter", ->
 			subFromNow = _m.sub(now)
 
 			compare = now.clone().subtract("years", 2).subtract("days", 5)
@@ -108,7 +108,7 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 			assert( meq(against, now) is false)
 
-		it "partial applies a single parameter", ->
+		it "partially applies a single parameter", ->
 			sub2y5d = _m.subBy {years: 2, days: 5}
 
 			compare = now.clone().subtract("years", 2).subtract("days", 5)
@@ -116,7 +116,7 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 
 	describe "sub.years", ->
-		it "accepts a moment instance and a number of years to add", ->
+		it "accepts a moment instance and a number of years to subtract", ->
 			compare = now.clone().subtract("years", 2)
 			against = _m.sub.years(now, 2)
 			assert( meq(compare, against) )
@@ -127,7 +127,7 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 			assert( meq(against, now) is false)
 
-		it "partial applies a single parameter", ->
+		it "partially applies a single parameter", ->
 			subYearsFromNow = _m.sub.years(now)
 
 			compare = now.clone().subtract("years", 2)
@@ -135,7 +135,7 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 
 	describe "sub.months", ->
-		it "accepts a moment instance and a number of months to add", ->
+		it "accepts a moment instance and a number of months to subtract", ->
 			compare = now.clone().subtract("months", 2)
 			against = _m.sub.months(now, 2)
 			assert( meq(compare, against) )
@@ -146,7 +146,7 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 			assert( meq(against, now) is false)
 
-		it "partial applies a single parameter", ->
+		it "partially applies a single parameter", ->
 			subMonthsFromNow = _m.sub.months(now)
 
 			compare = now.clone().subtract("months", 2)
@@ -154,7 +154,7 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 
 	describe "sub.days", ->
-		it "accepts a moment instance and a number of days to add", ->
+		it "accepts a moment instance and a number of days to subtract", ->
 			compare = now.clone().subtract("days", 10)
 			against = _m.sub.days(now, 10)
 			assert( meq(compare, against) )
@@ -165,7 +165,7 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 			assert( meq(against, now) is false)
 
-		it "partial applies a single parameter", ->
+		it "partially applies a single parameter", ->
 			subDaysFromNow = _m.sub.days(now)
 
 			compare = now.clone().subtract("days", 10)
@@ -173,7 +173,7 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 
 	describe "sub.hours", ->
-		it "accepts a moment instance and a number of hours to add", ->
+		it "accepts a moment instance and a number of hours to subtract", ->
 			compare = now.clone().subtract("hours", 10)
 			against = _m.sub.hours(now, 10)
 			assert( meq(compare, against) )
@@ -184,7 +184,7 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 			assert( meq(against, now) is false)
 
-		it "partial applies a single parameter", ->
+		it "partially applies a single parameter", ->
 			subHoursFromNow = _m.sub.hours(now)
 
 			compare = now.clone().subtract("hours", 10)
@@ -192,7 +192,7 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 
 	describe "sub.minutes", ->
-		it "accepts a moment instance and a number of minutes to add", ->
+		it "accepts a moment instance and a number of minutes to subtract", ->
 			compare = now.clone().subtract("minutes", 10)
 			against = _m.sub.minutes(now, 10)
 			assert( meq(compare, against) )
@@ -203,7 +203,7 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 			assert( meq(against, now) is false)
 
-		it "partial applies a single parameter", ->
+		it "partially applies a single parameter", ->
 			subMinsFromNow = _m.sub.minutes(now)
 
 			compare = now.clone().subtract("minutes", 10)
@@ -211,7 +211,7 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 
 	describe "sub.seconds", ->
-		it "accepts a moment instance and a number of seconds to add", ->
+		it "accepts a moment instance and a number of seconds to subtract", ->
 			compare = now.clone().subtract("seconds", 10)
 			against = _m.sub.seconds(now, 10)
 			assert( meq(compare, against) )
@@ -222,7 +222,7 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 			assert( meq(against, now) is false)
 
-		it "partial applies a single parameter", ->
+		it "partially applies a single parameter", ->
 			subSecFromNow = _m.sub.seconds(now)
 
 			compare = now.clone().subtract("seconds", 10)
@@ -230,27 +230,27 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 
 
-	describe "sub.milliseconds", ->
-		it "accepts a moment instance and a number of seconds to add", ->
+	describe "sub.msec", ->
+		it "accepts a moment instance and a number of seconds to subtract", ->
 			compare = now.clone().subtract("milliseconds", 2500)
-			against = _m.sub.milliseconds(now, 2500)
+			against = _m.sub.msec(now, 2500)
 			assert( meq(compare, against) )
 
 		it "does not mutate the original moment", ->
 			compare = now.clone().subtract("milliseconds", 2500)
-			against = _m.sub.milliseconds(now, 2500)
+			against = _m.sub.msec(now, 2500)
 			assert( meq(compare, against) )
 			assert( meq(against, now) is false)
 
-		it "partial applies a single parameter", ->
-			subMsecFromNow = _m.sub.milliseconds(now)
+		it "partially applies a single parameter", ->
+			subMsecFromNow = _m.sub.msec(now)
 
 			compare = now.clone().subtract("milliseconds", 2500)
 			against = subMsecFromNow(2500)
 			assert( meq(compare, against) )
 
 	describe "subBy.years", ->
-		it "accepts a number of years to add and a moment instance", ->
+		it "accepts a number of years to subtract and a moment instance", ->
 			compare = now.clone().subtract("years", 2)
 			against = _m.subBy.years(2, now)
 			assert( meq(compare, against) )
@@ -261,7 +261,7 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 			assert( meq(against, now) is false)
 
-		it "partial applies a single parameter", ->
+		it "partially applies a single parameter", ->
 			sub2y = _m.subBy.years(2)
 			compare = now.clone().subtract("years", 2)
 			against = sub2y(now)
@@ -279,14 +279,14 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 			assert( meq(compare, now) is false)
 
-		it "partial applies a single parameter", ->
+		it "partially applies a single parameter", ->
 			sub2m = _m.subBy.months(2)
 			compare = now.clone().subtract("months", 2)
 			against = sub2m(now)
 			assert( meq(compare, against) )
 
 	describe "subBy.days", ->
-		it "accepts a number of days to add and a moment instance", ->
+		it "accepts a number of days to subtract and a moment instance", ->
 			compare = now.clone().subtract("days", 10)
 			against = _m.subBy.days(10, now)
 			assert( meq(compare, against) )
@@ -297,14 +297,14 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 			assert( meq(against, now) is false)
 
-		it "partial applies a single parameter", ->
+		it "partially applies a single parameter", ->
 			sub10d = _m.subBy.days(10)
 			compare = now.clone().subtract("days", 10)
 			against = sub10d(now)
 			assert( meq(compare, against) )
 
 	describe "subBy.hours", ->
-		it "accepts a number of hours to add and a moment instance", ->
+		it "accepts a number of hours to subtract and a moment instance", ->
 			compare = now.clone().subtract("hours", 10)
 			against = _m.subBy.hours(10, now)
 			assert( meq(compare, against) )
@@ -315,14 +315,14 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 			assert( meq(against, now) is false)
 
-		it "partial applies a single parameter", ->
+		it "partially applies a single parameter", ->
 			sub10h = _m.subBy.hours(10)
 			compare = now.clone().subtract("hours", 10)
 			against = sub10h(now)
 			assert( meq(compare, against) )
 
 	describe "subBy.minutes", ->
-		it "accepts a number of minutes to add and a moment instance", ->
+		it "accepts a number of minutes to subtract and a moment instance", ->
 			compare = now.clone().subtract("minutes", 10)
 			against = _m.subBy.minutes(10, now)
 			assert( meq(compare, against) )
@@ -333,14 +333,14 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 			assert( meq(against, now) is false)
 
-		it "partial applies a single parameter", ->
+		it "partially applies a single parameter", ->
 			sub10mins = _m.subBy.minutes(10)
 			compare = now.clone().subtract("minutes", 10)
 			against = sub10mins(now)
 			assert( meq(compare, against) )
 
 	describe "subBy.seconds", ->
-		it "accepts a number of seconds to add and a moment instance", ->
+		it "accepts a number of seconds to subtract and a moment instance", ->
 			compare = now.clone().subtract("seconds", 10)
 			against = _m.subBy.seconds(10, now)
 			assert( meq(compare, against) )
@@ -351,27 +351,27 @@ describe "momentous", ->
 			assert( meq(compare, against) )
 			assert( meq(against, now) is false)
 
-		it "partial applies a single parameter", ->
+		it "partially applies a single parameter", ->
 			sub10sec = _m.subBy.seconds(10)
 			compare = now.clone().subtract("seconds", 10)
 			against = sub10sec(now)
 			assert( meq(compare, against) )
 
 
-	describe "subBy.milliseconds", ->
-		it "accepts a number of milliseconds to add and a moment instance", ->
+	describe "subBy.msec", ->
+		it "accepts a number of milliseconds to subtract and a moment instance", ->
 			compare = now.clone().subtract("milliseconds", 3500)
-			against = _m.subBy.milliseconds(3500, now)
+			against = _m.subBy.msec(3500, now)
 			assert( meq(compare, against) )
 
 		it "does not mutate the original moment", ->
 			compare = now.clone().subtract("milliseconds", 3500)
-			against = _m.subBy.milliseconds(3500, now)
+			against = _m.subBy.msec(3500, now)
 			assert( meq(compare, against) )
 			assert( meq(against, now) is false)
 
-		it "partial applies a single parameter", ->
-			sub3500 = _m.subBy.milliseconds(3500)
+		it "partially applies a single parameter", ->
+			sub3500 = _m.subBy.msec(3500)
 			compare = now.clone().subtract("milliseconds", 3500)
 			against = sub3500(now)
 			assert( meq(compare, against) )
