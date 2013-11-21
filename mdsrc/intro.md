@@ -50,7 +50,7 @@ momentous.log(now);
 
 ```
 
-__Momentous__ includes powerful methods for generating sequences of dates:
+__Momentous__ includes flexible methods for generating sequences of dates:
 
 ```javascript
 
@@ -97,7 +97,7 @@ momentous.log("YYYY MMM DD", moreRandoms);
 
 ```
 
-Or within a given range of a seed date:
+... or within a given range of a seed date:
 
 ```javascript
 

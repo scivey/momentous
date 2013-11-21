@@ -72,7 +72,7 @@ momentous.<span class="support method">log</span>(later);
 
 momentous.<span class="support method">log</span>(now);
 <span class="comment">// 2013-11-20 T14:39:53</span></code></pre>
-<p><strong>Momentous</strong> includes powerful methods for generating sequences of dates:</p>
+<p><strong>Momentous</strong> includes flexible methods for generating sequences of dates:</p>
 <pre><code class="lang-javascript">
 <span class="keyword">var</span> dates <span class="keyword operator">=</span> momentous.<span class="function call">range</span>(<span class="string">"2013-10-10"</span>, 
                             <span class="string">"2013-10-26"</span>,
@@ -105,7 +105,7 @@ momentous.<span class="support method">log</span>(<span class="string">"YYYY MMM
 momentous.<span class="support method">log</span>(<span class="string">"YYYY MMM DD"</span>, moreRandoms);
 <span class="comment">//    [ 2004 Oct 30, 2003 May 09, 2009 Mar 03, </span>
 <span class="comment">//    2007 Sep 17, 2006 Jun 21 ]</span></code></pre>
-<p>Or within a given range of a seed date:</p>
+<p>... or within a given range of a seed date:</p>
 <pre><code class="lang-javascript">
 <span class="keyword">var</span> randomDate <span class="keyword operator">=</span> momentous.<span class="function call">randAround</span>(<span class="string">"2013-05-14"</span>, {days: <span class="constant numeric">10</span>})
 
