@@ -108,6 +108,7 @@ helpers = do ->
 	outs =
 		makeMoments: makeMoments
 		stringify: stringify
+		format: format
 		log: log
 		intRange: intRange
 

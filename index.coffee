@@ -33,71 +33,8 @@ _.extend momentous.sort, sorters
 helpers = require inLib("helpers.js")
 _.extend momentous, helpers
 
-generators = do ->
-	randomizeAbsDiff = (maxDiff) ->
-		diff = Math.abs(maxDiff)
-		randomizedDiff = Math.round(Math.random() * diff)
-		randomizedDiff
-
-	randomizeSignedDiff = (maxDiff) ->
-		diff = randomizeAbsDiff(maxDiff)
-		sign = Math.random()
-		if sign < 0.5
-			diff *= -1
-		diff
-
-	_momentCheck = (aMoment) ->
-		unless moment.isMoment(aMoment)
-			return moment(aMoment)
-		aMoment
-
-	randomBetween = (startMoment, endMoment, resolution) ->
-		startMoment = _momentCheck(startMoment)
-		endMoment = _momentCheck(endMoment)
-		resolution ?= "ms"
-		diff = randomizeAbsDiff(startMoment.diff(endMoment, resolution))
-
-		if startMoment.isBefore(endMoment)
-			return startMoment.clone().add(resolution, diff)
-		else
-			return endMoment.clone().add(resolution, diff)
-
-	nRandomBetween = (count, startMoment, endMoment, resolution) ->
-		_outs = []
-		while count--
-			_outs.push randomBetween(startMoment, endMoment, resolution)
-		_outs
-
-	randomAround = (middleMoment, offset) ->
-		middleMoment = _momentCheck(middleMoment)
-		maxDiff = middleMoment.diff( middleMoment.clone().add(offset) )
-
-		diff = randomizeSignedDiff(maxDiff)
-		middleMoment.clone().add(diff)
-
-	nRandomAround = (count, middleMoment, offset) ->
-		_outs = []
-		while count--
-			_outs.push randomAround(middleMoment, offset)
-		_outs
-
-	randomWithin = reverse2 randomAround
-
-
-
-	outs =
-		randomAround: randomAround
-		randAround: randomAround
-		nRandomAround: nRandomAround
-		nRandAround: nRandomAround
-		randomWithin: randomWithin
-		randWithin: randomWithin
-		randomBetween: randomBetween
-		randBetween: randomBetween
-		nRandomBetween: nRandomBetween
-		nRandBetween: nRandomBetween
-
-_.extend momentous, generators
+randoms = require inLib("randoms.js")
+_.extend momentous, randoms
 
 misc = require inLib("misc.js")
 

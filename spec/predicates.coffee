@@ -26,108 +26,83 @@ describe "momentous::predicates", ->
 
 
 	describe "isBefore", ->
-
-		it "returns true when its first argument's date is before the second's", ->
-			assert( preds.isBefore(now, later) )
-
-
-		it "returns false when its first argument's date is after the second's", ->
-			assert( preds.isBefore(now, earlier) is false )
-
-		it "partially applies a single argument", ->
-			isNowBefore = preds.isBefore(now)
-			assert( isNowBefore(later) is true )
-			assert( isNowBefore(earlier) is false)
-
-	describe "isBeforeMoment", ->
 		it "returns true when its second argument's date is before the first's", ->
-			assert( preds.isBeforeMoment(later, now) )
+			assert( preds.isBefore(later, now) )
 
 
 		it "returns false when its second argument's date is after the first's", ->
-			assert( preds.isBeforeMoment(earlier, now) is false )
+			assert( preds.isBefore(earlier, now) is false )
 
 		it "partially applies a single argument", ->
-			isBeforeLater = preds.isBeforeMoment(later)
-			isBeforeEarlier = preds.isBeforeMoment(earlier)
+			isBeforeLater = preds.isBefore(later)
+			isBeforeEarlier = preds.isBefore(earlier)
 			assert( isBeforeLater(now) is true )
 			assert( isBeforeEarlier(now) is false)
 
 
 	describe "isAfter", ->
-
-		it "returns true when its first argument's date is after the second's", ->
-			assert( preds.isAfter(now, earlier) is true )
-
-
-		it "returns false when its first argument's date is before the second's", ->
-			assert( preds.isAfter(now, later) is false )
-
-		it "partially applies a single argument", ->
-			isNowLater = preds.isAfter(now)
-			assert( isNowLater(earlier) is true )
-			assert( isNowLater(later) is false)
-
-
-	describe "isAfterMoment", ->
 		it "returns true when its second argument's date is after the first's", ->
-			assert( preds.isAfterMoment(earlier, now) is true )
-
+			assert( preds.isAfter(earlier, now) is true )
 
 		it "returns false when its second argument's date is before the first's", ->
-			assert( preds.isAfterMoment(later, now) is false )
+			assert( preds.isAfter(later, now) is false )
 
 		it "partially applies a single argument", ->
-			isAfterLater = preds.isAfterMoment(later)
-			isAfterEarlier = preds.isAfterMoment(earlier)
+			isAfterLater = preds.isAfter(later)
+			isAfterEarlier = preds.isAfter(earlier)
 			assert( isAfterLater(now) is false )
 			assert( isAfterEarlier(now) is true)
 
 
 	describe "isBetween", ->
 
-		it "returns true when its first argument's date is after the second's and before the third's.", ->
-			assert( preds.isBetween(now, earlier, later) is true )
+		it "returns true when its third argument's date is in the range between its first and second arguments.", ->
+			assert( preds.isBetween(earlier, later, now) is true )
 
-		it "returns false when its first argument's date is before the second's or after the third's.", ->
+		it "returns false when its third argument's date is not in the range between its first and second arguments.", ->
+			assert( preds.isBetween(now, later, earlier) is false )
 			assert( preds.isBetween(earlier, now, later) is false )
-			assert( preds.isBetween(later, earlier, now) is false )
 
 		it "partially applies a single argument", ->
-			isNowBetween = preds.isBetween(now)
-			assert( isNowBetween(earlier, later) is true )
-			isEarlierBetween = preds.isBetween(earlier)
-			assert( isEarlierBetween(now, later) is false)
+			partEarlier = preds.isBetween(earlier)
+			assert( partEarlier(now, later) is false )
+			assert( partEarlier(later, now) is true )
+			
+			partLater = preds.isBetween(later)
+			assert( partLater(now, earlier) is false)
+			assert( partLater(earlier, now) is false)
+			partNow = preds.isBetween(now)
+			assert( partNow(earlier, later) is false)
+			assert( partNow(later, earlier) is false)
 
 		it "partially applies two arguments", ->
-			isNowBefore = preds.isBetween(now,earlier)
-			assert( isNowBefore(later) is true )
-			isLaterBefore = preds.isBetween(later, earlier)
-			assert( isLaterBefore(now) is false)
+			partEarlyLate = preds.isBetween(earlier, later)
+			assert( partEarlyLate(now) is true )
+			partNowLate = preds.isBetween(now, later)
+			assert( partNowLate(earlier) is false)
 
-	describe "isBetweenMoments", ->
 
-		it "returns true when its third argument's date is after the firsts's and before the seconds's.", ->
-			assert( preds.isBetweenMoments(earlier, later, now) is true )
+	describe "isMomentBetween", ->
 
-		it "returns false when its third argument's date is before the first's or after the second's.", ->
-			assert( preds.isBetweenMoments(now, later, earlier) is false )
-			assert( preds.isBetweenMoments(earlier, now, later) is false )
+		it "returns true when its first argument's date is in the range between its second and third.", ->
+			assert( preds.isMomentBetween(now, earlier, later) is true )
+
+		it "returns false when its third argument's date is not in the range between its first and second arguments.", ->
+			assert( preds.isMomentBetween(earlier, now, later) is false )
+			assert( preds.isMomentBetween(later, earlier, now) is false )
 
 		it "partially applies a single argument", ->
-			isAfterEarlier = preds.isBetweenMoments(earlier)
-			isAfterNow = preds.isBetweenMoments(now)
+			partNow = preds.isMomentBetween(now)
+			assert( partNow(earlier, later) is true)
 
-			assert( isAfterEarlier(later, now) is true )
-			assert( isAfterNow(later, earlier) is false)
+			partEarly = preds.isMomentBetween(earlier)
+			assert( partEarly(now, later) is false)
+
+			partLate = preds.isMomentBetween(later)
+			assert( partLate(earlier, now) is false)
 
 		it "partially applies two arguments", ->
-			isBetweenEarlierAndLater = preds.isBetweenMoments(earlier, later)
-			isBetweenEarlierAndNow = preds.isBetweenMoments(earlier, now)
-			isBetweenNowAndLater = preds.isBetweenMoments(now, later)
-
-			assert( isBetweenEarlierAndLater(now) is true)
-			assert( isBetweenEarlierAndNow(later) is false)
-			assert( isBetweenNowAndLater(earlier) is false)
-
-
+			partNowEarly = preds.isMomentBetween(now, earlier)
+			assert( partNowEarly(later) is true )
+			partLateEarly = preds.isMomentBetween(later, earlier)
+			assert( partLateEarly(now) is false)

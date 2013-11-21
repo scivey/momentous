@@ -36,109 +36,86 @@
       return later = now.clone().add("years", 5);
     });
     describe("isBefore", function() {
-      it("returns true when its first argument's date is before the second's", function() {
-        return assert(preds.isBefore(now, later));
-      });
-      it("returns false when its first argument's date is after the second's", function() {
-        return assert(preds.isBefore(now, earlier) === false);
-      });
-      return it("partially applies a single argument", function() {
-        var isNowBefore;
-        isNowBefore = preds.isBefore(now);
-        assert(isNowBefore(later) === true);
-        return assert(isNowBefore(earlier) === false);
-      });
-    });
-    describe("isBeforeMoment", function() {
       it("returns true when its second argument's date is before the first's", function() {
-        return assert(preds.isBeforeMoment(later, now));
+        return assert(preds.isBefore(later, now));
       });
       it("returns false when its second argument's date is after the first's", function() {
-        return assert(preds.isBeforeMoment(earlier, now) === false);
+        return assert(preds.isBefore(earlier, now) === false);
       });
       return it("partially applies a single argument", function() {
         var isBeforeEarlier, isBeforeLater;
-        isBeforeLater = preds.isBeforeMoment(later);
-        isBeforeEarlier = preds.isBeforeMoment(earlier);
+        isBeforeLater = preds.isBefore(later);
+        isBeforeEarlier = preds.isBefore(earlier);
         assert(isBeforeLater(now) === true);
         return assert(isBeforeEarlier(now) === false);
       });
     });
     describe("isAfter", function() {
-      it("returns true when its first argument's date is after the second's", function() {
-        return assert(preds.isAfter(now, earlier) === true);
-      });
-      it("returns false when its first argument's date is before the second's", function() {
-        return assert(preds.isAfter(now, later) === false);
-      });
-      return it("partially applies a single argument", function() {
-        var isNowLater;
-        isNowLater = preds.isAfter(now);
-        assert(isNowLater(earlier) === true);
-        return assert(isNowLater(later) === false);
-      });
-    });
-    describe("isAfterMoment", function() {
       it("returns true when its second argument's date is after the first's", function() {
-        return assert(preds.isAfterMoment(earlier, now) === true);
+        return assert(preds.isAfter(earlier, now) === true);
       });
       it("returns false when its second argument's date is before the first's", function() {
-        return assert(preds.isAfterMoment(later, now) === false);
+        return assert(preds.isAfter(later, now) === false);
       });
       return it("partially applies a single argument", function() {
         var isAfterEarlier, isAfterLater;
-        isAfterLater = preds.isAfterMoment(later);
-        isAfterEarlier = preds.isAfterMoment(earlier);
+        isAfterLater = preds.isAfter(later);
+        isAfterEarlier = preds.isAfter(earlier);
         assert(isAfterLater(now) === false);
         return assert(isAfterEarlier(now) === true);
       });
     });
     describe("isBetween", function() {
-      it("returns true when its first argument's date is after the second's and before the third's.", function() {
-        return assert(preds.isBetween(now, earlier, later) === true);
+      it("returns true when its third argument's date is in the range between its first and second arguments.", function() {
+        return assert(preds.isBetween(earlier, later, now) === true);
       });
-      it("returns false when its first argument's date is before the second's or after the third's.", function() {
-        assert(preds.isBetween(earlier, now, later) === false);
-        return assert(preds.isBetween(later, earlier, now) === false);
+      it("returns false when its third argument's date is not in the range between its first and second arguments.", function() {
+        assert(preds.isBetween(now, later, earlier) === false);
+        return assert(preds.isBetween(earlier, now, later) === false);
       });
       it("partially applies a single argument", function() {
-        var isEarlierBetween, isNowBetween;
-        isNowBetween = preds.isBetween(now);
-        assert(isNowBetween(earlier, later) === true);
-        isEarlierBetween = preds.isBetween(earlier);
-        return assert(isEarlierBetween(now, later) === false);
+        var partEarlier, partLater, partNow;
+        partEarlier = preds.isBetween(earlier);
+        assert(partEarlier(now, later) === false);
+        assert(partEarlier(later, now) === true);
+        partLater = preds.isBetween(later);
+        assert(partLater(now, earlier) === false);
+        assert(partLater(earlier, now) === false);
+        partNow = preds.isBetween(now);
+        assert(partNow(earlier, later) === false);
+        return assert(partNow(later, earlier) === false);
       });
       return it("partially applies two arguments", function() {
-        var isLaterBefore, isNowBefore;
-        isNowBefore = preds.isBetween(now, earlier);
-        assert(isNowBefore(later) === true);
-        isLaterBefore = preds.isBetween(later, earlier);
-        return assert(isLaterBefore(now) === false);
+        var partEarlyLate, partNowLate;
+        partEarlyLate = preds.isBetween(earlier, later);
+        assert(partEarlyLate(now) === true);
+        partNowLate = preds.isBetween(now, later);
+        return assert(partNowLate(earlier) === false);
       });
     });
-    return describe("isBetweenMoments", function() {
-      it("returns true when its third argument's date is after the firsts's and before the seconds's.", function() {
-        return assert(preds.isBetweenMoments(earlier, later, now) === true);
+    return describe("isMomentBetween", function() {
+      it("returns true when its first argument's date is in the range between its second and third.", function() {
+        return assert(preds.isMomentBetween(now, earlier, later) === true);
       });
-      it("returns false when its third argument's date is before the first's or after the second's.", function() {
-        assert(preds.isBetweenMoments(now, later, earlier) === false);
-        return assert(preds.isBetweenMoments(earlier, now, later) === false);
+      it("returns false when its third argument's date is not in the range between its first and second arguments.", function() {
+        assert(preds.isMomentBetween(earlier, now, later) === false);
+        return assert(preds.isMomentBetween(later, earlier, now) === false);
       });
       it("partially applies a single argument", function() {
-        var isAfterEarlier, isAfterNow;
-        isAfterEarlier = preds.isBetweenMoments(earlier);
-        isAfterNow = preds.isBetweenMoments(now);
-        assert(isAfterEarlier(later, now) === true);
-        return assert(isAfterNow(later, earlier) === false);
+        var partEarly, partLate, partNow;
+        partNow = preds.isMomentBetween(now);
+        assert(partNow(earlier, later) === true);
+        partEarly = preds.isMomentBetween(earlier);
+        assert(partEarly(now, later) === false);
+        partLate = preds.isMomentBetween(later);
+        return assert(partLate(earlier, now) === false);
       });
       return it("partially applies two arguments", function() {
-        var isBetweenEarlierAndLater, isBetweenEarlierAndNow, isBetweenNowAndLater;
-        isBetweenEarlierAndLater = preds.isBetweenMoments(earlier, later);
-        isBetweenEarlierAndNow = preds.isBetweenMoments(earlier, now);
-        isBetweenNowAndLater = preds.isBetweenMoments(now, later);
-        assert(isBetweenEarlierAndLater(now) === true);
-        assert(isBetweenEarlierAndNow(later) === false);
-        return assert(isBetweenNowAndLater(earlier) === false);
+        var partLateEarly, partNowEarly;
+        partNowEarly = preds.isMomentBetween(now, earlier);
+        assert(partNowEarly(later) === true);
+        partLateEarly = preds.isMomentBetween(later, earlier);
+        return assert(partLateEarly(now) === false);
       });
     });
   });
