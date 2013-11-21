@@ -4,33 +4,40 @@
       {
         "type": "param",
         "types": [
-          "Function"
+          "Moment"
         ],
-        "name": "midwareFn",
-        "description": "A middleware function which will receive pipeline element(s) and a `next` method to call if the objects should continue down the route."
+        "name": "targetMoment",
+        "description": "A moment to clone and add time to."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numYears",
+        "description": "The number of years to add."
       },
       {
         "type": "return",
         "types": [
-          "Router"
+          "Moment"
         ],
-        "description": "The same router instance is returned (chained)."
+        "description": "A clone of the target with `numYears` added to it."
       }
     ],
     "description": {
-      "full": "<p>Add a middleware function to the stack.  Middleware is a function with a <code>req, res, next</code>-type signature, as in Connect, but the number of parameters before <code>next</code> is allowed to vary for the sake of flexibility.  In practice this should be locked down with the global <code>enforceArity</code> option.</p>",
-      "summary": "<p>Add a middleware function to the stack.  Middleware is a function with a <code>req, res, next</code>-type signature, as in Connect, but the number of parameters before <code>next</code> is allowed to vary for the sake of flexibility.  In practice this should be locked down with the global <code>enforceArity</code> option.</p>",
-      "body": ""
+      "full": "<p>Given a target moment and a number of years, return a clone of the target with that number of years added.</p>\n\n<p>Alternately, given only a target moment, return a stateless function which accepts a number of years and returns a clone of the target with that many years added.</p>",
+      "summary": "<p>Given a target moment and a number of years, return a clone of the target with that number of years added.</p>",
+      "body": "<p>Alternately, given only a target moment, return a stateless function which accepts a number of years and returns a clone of the target with that many years added.</p>"
     },
     "isPrivate": false,
     "ignore": false,
-    "code": "outputRef.useMiddleware = _useMiddleware;",
+    "code": "_uA.years = function(targetMoment, years) {\n      return targetMoment.clone().add(\"y\", years);\n    };",
     "ctx": {
-      "type": "property",
-      "receiver": "outputRef",
-      "name": "useMiddleware",
-      "value": "_useMiddleware",
-      "string": "outputRef.useMiddleware"
+      "type": "method",
+      "receiver": "_uA",
+      "name": "years",
+      "string": "_uA.years()"
     }
   },
   {
@@ -38,33 +45,40 @@
       {
         "type": "param",
         "types": [
-          "Object(s)"
+          "Moment"
         ],
-        "name": "elem1[,elem2...]",
-        "description": "One or more objects to be passed through the middleware and routing systems. In Connect, these would be the `req` and `res` objects."
+        "name": "targetMoment",
+        "description": "A moment to clone and add time to."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numDays",
+        "description": "The number of days to add."
       },
       {
         "type": "return",
         "types": [
-          "Router"
+          "Moment"
         ],
-        "description": "The same router instance is returned (chained)."
+        "description": "A clone of the target with `numDays` added to it."
       }
     ],
     "description": {
-      "full": "<p>Pass object(s) in for handling as pipeline elements.  Objects wil be filtered through middleware and then routed.  In Connect, this corresponds to the client's HTTP request being passed to Connect's middleware handling system. </p>",
-      "summary": "<p>Pass object(s) in for handling as pipeline elements.  Objects wil be filtered through middleware and then routed.  In Connect, this corresponds to the client's HTTP request being passed to Connect's middleware handling system. </p>",
-      "body": ""
+      "full": "<p>Given a target moment and a number of days, return a clone of the target with that number of days added.</p>\n\n<p>Alternately, given only a target moment, return a stateless function which accepts a number of days and returns a clone of the target with that many days added.</p>",
+      "summary": "<p>Given a target moment and a number of days, return a clone of the target with that number of days added.</p>",
+      "body": "<p>Alternately, given only a target moment, return a stateless function which accepts a number of days and returns a clone of the target with that many days added.</p>"
     },
     "isPrivate": false,
     "ignore": false,
-    "code": "outputRef.handle = _handleRequest;",
+    "code": "_uA.days = function(targetMoment, days) {\n      return targetMoment.clone().add(\"d\", days);\n    };",
     "ctx": {
-      "type": "property",
-      "receiver": "outputRef",
-      "name": "handle",
-      "value": "_handleRequest",
-      "string": "outputRef.handle"
+      "type": "method",
+      "receiver": "_uA",
+      "name": "days",
+      "string": "_uA.days()"
     }
   },
   {
@@ -72,41 +86,1476 @@
       {
         "type": "param",
         "types": [
-          "Function"
+          "Moment"
         ],
-        "name": "predicateFn",
-        "description": "A function which is passed the routed object(s) and returns `true` if its associated handler should be passed the objects."
+        "name": "targetMoment",
+        "description": "A moment to clone and add time to."
       },
       {
         "type": "param",
         "types": [
-          "Function"
+          "Number"
         ],
-        "name": "handlerFn",
-        "description": "A function which is passed the routed object(s) if its associated predicate returns true, after which the objects are removed from the pipeline and no further route predicates are tested."
+        "name": "numMonths",
+        "description": "The number of months to add."
       },
       {
         "type": "return",
         "types": [
-          "Router"
+          "Moment"
         ],
-        "description": "The same router instance is returned (chained)."
+        "description": "A clone of the target with `numMonths` added to it."
       }
     ],
     "description": {
-      "full": "<p>Define a route by passing in a predicate (truth-test) and route handler.</p>\n\n<p>A route is specified by passing in two functions.  The first is a predicate which is passed the piped object(s), inspects them, and returns <code>true</code> if it wants to accept responsibility for them. Otherwise, it should return <code>false</code> or should not return at all.  This predicate is a generalization of Connect's URL-based routing, intended for pipelines where there may not be an obvious single string to base routing on. </p>\n\n<p>If the predicate returns true, the object(s) are removed from the pipeline and passed to the the route handler.  No route predicates further down the pipeline are tested: the earlier a route is defined in the script, the higher its priority.</p>\n\n<p>The route handler should implement the actual logic / data operations associated with the route: extracting information, writing results to disk, and so on.  Implementing this kind of code in the predicate may make the pipeline difficult to modify.</p>",
-      "summary": "<p>Define a route by passing in a predicate (truth-test) and route handler.</p>",
-      "body": "<p>A route is specified by passing in two functions.  The first is a predicate which is passed the piped object(s), inspects them, and returns <code>true</code> if it wants to accept responsibility for them. Otherwise, it should return <code>false</code> or should not return at all.  This predicate is a generalization of Connect's URL-based routing, intended for pipelines where there may not be an obvious single string to base routing on. </p>\n\n<p>If the predicate returns true, the object(s) are removed from the pipeline and passed to the the route handler.  No route predicates further down the pipeline are tested: the earlier a route is defined in the script, the higher its priority.</p>\n\n<p>The route handler should implement the actual logic / data operations associated with the route: extracting information, writing results to disk, and so on.  Implementing this kind of code in the predicate may make the pipeline difficult to modify.</p>"
+      "full": "<p>Given a target moment and a number of months, return a clone of the target with that number of months added.</p>\n\n<p>Alternately, given only a target moment, return a stateless function which accepts a number of months and returns a clone of the target with that many months added.</p>",
+      "summary": "<p>Given a target moment and a number of months, return a clone of the target with that number of months added.</p>",
+      "body": "<p>Alternately, given only a target moment, return a stateless function which accepts a number of months and returns a clone of the target with that many months added.</p>"
     },
     "isPrivate": false,
     "ignore": false,
-    "code": "outputRef.useRoute = _useRoute;",
+    "code": "_uA.months = function(targetMoment, months) {\n      return targetMoment.clone().add(\"M\", months);\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_uA",
+      "name": "months",
+      "string": "_uA.months()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and add time to."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numHours",
+        "description": "The number of hours to add."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numHours` added to it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment and a number of hours, return a clone of the target with that number of hours added.</p>\n\n<p>Alternately, given only a target moment, return a stateless function which accepts a number of hours and returns a clone of the target with that many hours added.</p>",
+      "summary": "<p>Given a target moment and a number of hours, return a clone of the target with that number of hours added.</p>",
+      "body": "<p>Alternately, given only a target moment, return a stateless function which accepts a number of hours and returns a clone of the target with that many hours added.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_uA.hours = function(targetMoment, hours) {\n      return targetMoment.clone().add(\"h\", hours);\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_uA",
+      "name": "hours",
+      "string": "_uA.hours()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and add time to."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numMinutes",
+        "description": "The number of minutes to add."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numMinutes` added to it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment and a number of minutes, return a clone of the target with that number of minutes added.</p>\n\n<p>Alternately, given only a target moment, return a stateless function which accepts a number of minutes and returns a clone of the target with that many minutes added.</p>",
+      "summary": "<p>Given a target moment and a number of minutes, return a clone of the target with that number of minutes added.</p>",
+      "body": "<p>Alternately, given only a target moment, return a stateless function which accepts a number of minutes and returns a clone of the target with that many minutes added.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_uA.minutes = function(targetMoment, minutes) {\n      return targetMoment.clone().add(\"m\", minutes);\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_uA",
+      "name": "minutes",
+      "string": "_uA.minutes()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and add time to."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numSeconds",
+        "description": "The number of seconds to add."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numSeconds` added to it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment and a number of seconds, return a clone of the target with that number of seconds added.</p>\n\n<p>Alternately, given only a target moment, return a stateless function which accepts a number of seconds and returns a clone of the target with that many seconds added.</p>",
+      "summary": "<p>Given a target moment and a number of seconds, return a clone of the target with that number of seconds added.</p>",
+      "body": "<p>Alternately, given only a target moment, return a stateless function which accepts a number of seconds and returns a clone of the target with that many seconds added.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_uA.seconds = function(targetMoment, seconds) {\n      return targetMoment.clone().add(\"s\", seconds);\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_uA",
+      "name": "seconds",
+      "string": "_uA.seconds()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and add time to."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numMSec",
+        "description": "The number of milliseconds to add."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numMSec` added to it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment and a number of milliseconds, return a clone of the target with that number of milliseconds added.</p>\n\n<p>Alternately, given only a target moment, return a stateless function which accepts a number of milliseconds and returns a clone of the target with that many milliseconds added.</p>",
+      "summary": "<p>Given a target moment and a number of milliseconds, return a clone of the target with that number of milliseconds added.</p>",
+      "body": "<p>Alternately, given only a target moment, return a stateless function which accepts a number of milliseconds and returns a clone of the target with that many milliseconds added.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_uA.msec = function(targetMoment, millisecs) {\n      return targetMoment.clone().add('ms', millisecs);\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_uA",
+      "name": "msec",
+      "string": "_uA.msec()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and add time to."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Object"
+        ],
+        "name": "objectLit",
+        "description": "An object literal with key-value pairs corresponding to the additions to make to `targetMoment`."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with its #add method applied to `objectLit`."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment and an object literal, return a clone of the target with that object literal applied to the clone's <code>#add</code> method..</p>\n\n<p>Alternately, given only a target moment, return a stateless function which accepts an object literal and returns a clone of the target with #add applied to the object.</p>",
+      "summary": "<p>Given a target moment and an object literal, return a clone of the target with that object literal applied to the clone's <code>#add</code> method..</p>",
+      "body": "<p>Alternately, given only a target moment, return a stateless function which accepts an object literal and returns a clone of the target with #add applied to the object.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_uA.lit = function(targetMoment, objectLiteral) {\n      return targetMoment.clone().add(objectLiteral);\n    };\n    adders = (function() {\n      var _partialed;\n      _partialed = {};\n      _.each(_.pairs(_unpartialedAdders), function(onePair) {\n        return _partialed[onePair[0]] = partial2(onePair[1]);\n      });\n      return _partialed;\n    })();\n    _addBy = {};",
+    "ctx": {
+      "type": "method",
+      "receiver": "_uA",
+      "name": "lit",
+      "string": "_uA.lit()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numYears",
+        "description": "The number of years to add."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and add time to."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numYears` added to it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a number of years and a target moment, return a clone of the target with that number of years added.</p>\n\n<p>Alternately, given only <code>numYears</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numYears</code> added.</p>",
+      "summary": "<p>Given a number of years and a target moment, return a clone of the target with that number of years added.</p>",
+      "body": "<p>Alternately, given only <code>numYears</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numYears</code> added.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_addBy.years = partial2(reverse2(_uA.years));",
     "ctx": {
       "type": "property",
-      "receiver": "outputRef",
-      "name": "useRoute",
-      "value": "_useRoute",
-      "string": "outputRef.useRoute"
+      "receiver": "_addBy",
+      "name": "years",
+      "value": "partial2(reverse2(_uA.years))",
+      "string": "_addBy.years"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numMonths",
+        "description": "The number of months to add."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and add time to."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numMonths` added to it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a number of months and a target moment, return a clone of the target with that number of months added.</p>\n\n<p>Alternately, given only <code>numMonths</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numMonths</code> added.</p>",
+      "summary": "<p>Given a number of months and a target moment, return a clone of the target with that number of months added.</p>",
+      "body": "<p>Alternately, given only <code>numMonths</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numMonths</code> added.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_addBy.months = partial2(reverse2(_uA.months));",
+    "ctx": {
+      "type": "property",
+      "receiver": "_addBy",
+      "name": "months",
+      "value": "partial2(reverse2(_uA.months))",
+      "string": "_addBy.months"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numDays",
+        "description": "The number of days to add."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and add time to."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numDays` added to it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a number of days and a target moment, return a clone of the target with that number of days added.</p>\n\n<p>Alternately, given only <code>numDays</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numDays</code> added.</p>",
+      "summary": "<p>Given a number of days and a target moment, return a clone of the target with that number of days added.</p>",
+      "body": "<p>Alternately, given only <code>numDays</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numDays</code> added.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_addBy.days = partial2(reverse2(_uA.days));",
+    "ctx": {
+      "type": "property",
+      "receiver": "_addBy",
+      "name": "days",
+      "value": "partial2(reverse2(_uA.days))",
+      "string": "_addBy.days"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numHours",
+        "description": "The number of hours to add."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and add time to."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numHours` added to it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a number of hours and a target moment, return a clone of the target with that number of hours added.</p>\n\n<p>Alternately, given only <code>numHours</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numHours</code> added.</p>",
+      "summary": "<p>Given a number of hours and a target moment, return a clone of the target with that number of hours added.</p>",
+      "body": "<p>Alternately, given only <code>numHours</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numHours</code> added.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_addBy.hours = partial2(reverse2(_uA.hours));",
+    "ctx": {
+      "type": "property",
+      "receiver": "_addBy",
+      "name": "hours",
+      "value": "partial2(reverse2(_uA.hours))",
+      "string": "_addBy.hours"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numMinutes",
+        "description": "The number of minutes to add."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and add time to."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numMinutes` added to it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a number of minutes and a target moment, return a clone of the target with that number of minutes added.</p>\n\n<p>Alternately, given only <code>numMinutes</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numMinutes</code> added.</p>",
+      "summary": "<p>Given a number of minutes and a target moment, return a clone of the target with that number of minutes added.</p>",
+      "body": "<p>Alternately, given only <code>numMinutes</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numMinutes</code> added.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_addBy.minutes = partial2(reverse2(_uA.minutes));",
+    "ctx": {
+      "type": "property",
+      "receiver": "_addBy",
+      "name": "minutes",
+      "value": "partial2(reverse2(_uA.minutes))",
+      "string": "_addBy.minutes"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numSeconds",
+        "description": "The number of seconds to add."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and add time to."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numSeconds` added to it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a number of seconds and a target moment, return a clone of the target with that number of seconds added.</p>\n\n<p>Alternately, given only <code>numSeconds</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numSeconds</code> added.</p>",
+      "summary": "<p>Given a number of seconds and a target moment, return a clone of the target with that number of seconds added.</p>",
+      "body": "<p>Alternately, given only <code>numSeconds</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numSeconds</code> added.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_addBy.seconds = partial2(reverse2(_uA.seconds));",
+    "ctx": {
+      "type": "property",
+      "receiver": "_addBy",
+      "name": "seconds",
+      "value": "partial2(reverse2(_uA.seconds))",
+      "string": "_addBy.seconds"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numMilliseconds",
+        "description": "The number of milliseconds to add."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and add time to."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numMilliseconds` added to it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a number of milliseconds and a target moment, return a clone of the target with that number of milliseconds added.</p>\n\n<p>Alternately, given only <code>numMilliseconds</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numMilliseconds</code> added.</p>",
+      "summary": "<p>Given a number of milliseconds and a target moment, return a clone of the target with that number of milliseconds added.</p>",
+      "body": "<p>Alternately, given only <code>numMilliseconds</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numMilliseconds</code> added.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_addBy.msec = partial2(reverse2(_uA.msec));",
+    "ctx": {
+      "type": "property",
+      "receiver": "_addBy",
+      "name": "msec",
+      "value": "partial2(reverse2(_uA.msec))",
+      "string": "_addBy.msec"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Object"
+        ],
+        "name": "objectLit",
+        "description": "An object literal with key-value pairs corresponding to the additions to make to `targetMoment`."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and add time to."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with its `#add` method applied to `objectLit`."
+      }
+    ],
+    "description": {
+      "full": "<p>Given an object literal and a target moment, return a clone of the target with the clone's <code>#add</code> method applied to the literal.</p>\n\n<p>Alternately, given only an object literal, return a stateless function which accepts any moment referenceand returns a clone its <code>#add</code> method applied to the object.</p>",
+      "summary": "<p>Given an object literal and a target moment, return a clone of the target with the clone's <code>#add</code> method applied to the literal.</p>",
+      "body": "<p>Alternately, given only an object literal, return a stateless function which accepts any moment referenceand returns a clone its <code>#add</code> method applied to the object.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_addBy.lit = partial2(reverse2(_uA.lit));\n    add = adders.lit;\n    _.extend(add, adders);\n    addBy = _addBy.lit;\n    _.extend(addBy, _addBy);\n    _outs.add = add;\n    _outs.addBy = addBy;\n    _unpartialedSubtracters = {};\n    _uS = _unpartialedSubtracters;",
+    "ctx": {
+      "type": "property",
+      "receiver": "_addBy",
+      "name": "lit",
+      "value": "partial2(reverse2(_uA.lit))",
+      "string": "_addBy.lit"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and subtract time from."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numYears",
+        "description": "The number of milliseconds to subtract."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numYears` subtracted from it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment and a number of years, return a clone of the target with that number of years subtracted.</p>\n\n<p>Alternately, given only a target moment, return a stateless function which accepts a number of years and returns a clone of the target with that many years subtracted.</p>",
+      "summary": "<p>Given a target moment and a number of years, return a clone of the target with that number of years subtracted.</p>",
+      "body": "<p>Alternately, given only a target moment, return a stateless function which accepts a number of years and returns a clone of the target with that many years subtracted.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_uS.years = function(targetMoment, years) {\n      return targetMoment.clone().subtract(\"y\", years);\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_uS",
+      "name": "years",
+      "string": "_uS.years()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and subtract time from."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numDays",
+        "description": "The number of days to subtract."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numDays` subtracted from it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment and a number of days, return a clone of the target with that number of days subtracted.</p>\n\n<p>Alternately, given only a target moment, return a stateless function which accepts a number of days and returns a clone of the target with that many days subtracted.</p>",
+      "summary": "<p>Given a target moment and a number of days, return a clone of the target with that number of days subtracted.</p>",
+      "body": "<p>Alternately, given only a target moment, return a stateless function which accepts a number of days and returns a clone of the target with that many days subtracted.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_uS.days = function(targetMoment, days) {\n      return targetMoment.clone().subtract(\"d\", days);\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_uS",
+      "name": "days",
+      "string": "_uS.days()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and subtract time from."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numMonths",
+        "description": "The number of months to subtract."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numMonths` subtracted from it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment and a number of months, return a clone of the target with that number of months subtracted.</p>\n\n<p>Alternately, given only a target moment, return a stateless function which accepts a number of months and returns a clone of the target with that many months subtracted.</p>",
+      "summary": "<p>Given a target moment and a number of months, return a clone of the target with that number of months subtracted.</p>",
+      "body": "<p>Alternately, given only a target moment, return a stateless function which accepts a number of months and returns a clone of the target with that many months subtracted.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_uS.months = function(targetMoment, months) {\n      return targetMoment.clone().subtract(\"M\", months);\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_uS",
+      "name": "months",
+      "string": "_uS.months()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and subtract time from."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numHours",
+        "description": "The number of hours to subtract."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numHours` subtracted from it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment and a number of hours, return a clone of the target with that number of hours subtracted.</p>\n\n<p>Alternately, given only a target moment, return a stateless function which accepts a number of hours and  a clone of the target with that many hours subtracted.</p>",
+      "summary": "<p>Given a target moment and a number of hours, return a clone of the target with that number of hours subtracted.</p>",
+      "body": "<p>Alternately, given only a target moment, return a stateless function which accepts a number of hours and  a clone of the target with that many hours subtracted.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_uS.hours = function(targetMoment, hours) {\n      return targetMoment.clone().subtract(\"h\", hours);\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_uS",
+      "name": "hours",
+      "string": "_uS.hours()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and subtract time from."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numMinutes",
+        "description": "The number of minutes to subtract."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numMinutes` subtracted from it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment and a number of minutes, return a clone of the target with that number of minutes subtracted.</p>\n\n<p>Alternately, given only a target moment, return a stateless function which accepts a number of minutes and returns a clone of the target with that many minutes subtracted.</p>",
+      "summary": "<p>Given a target moment and a number of minutes, return a clone of the target with that number of minutes subtracted.</p>",
+      "body": "<p>Alternately, given only a target moment, return a stateless function which accepts a number of minutes and returns a clone of the target with that many minutes subtracted.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_uS.minutes = function(targetMoment, minutes) {\n      return targetMoment.clone().subtract(\"m\", minutes);\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_uS",
+      "name": "minutes",
+      "string": "_uS.minutes()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and subtract time from."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numSeconds",
+        "description": "The number of seconds to subtract."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numSeconds` subtracted from it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment and a number of seconds, return a clone of the target with that number of seconds subtracted.</p>\n\n<p>Alternately, given only a target moment, return a stateless function which accepts a number of seconds and returns a clone of the target with that many seconds subtracted.</p>",
+      "summary": "<p>Given a target moment and a number of seconds, return a clone of the target with that number of seconds subtracted.</p>",
+      "body": "<p>Alternately, given only a target moment, return a stateless function which accepts a number of seconds and returns a clone of the target with that many seconds subtracted.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_uS.seconds = function(targetMoment, seconds) {\n      return targetMoment.clone().subtract(\"s\", seconds);\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_uS",
+      "name": "seconds",
+      "string": "_uS.seconds()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and subtract time from."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numMSec",
+        "description": "The number of milliseconds to subtract."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numMSec` subtracted from it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment and a number of milliseconds, return a clone of the target with that number of milliseconds subtracted.</p>\n\n<p>Alternately, given only a target moment, return a stateless function which accepts a number of milliseconds and returns a clone of the target with that many milliseconds subtracted.</p>",
+      "summary": "<p>Given a target moment and a number of milliseconds, return a clone of the target with that number of milliseconds subtracted.</p>",
+      "body": "<p>Alternately, given only a target moment, return a stateless function which accepts a number of milliseconds and returns a clone of the target with that many milliseconds subtracted.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_uS.msec = function(targetMoment, millisecs) {\n      return targetMoment.clone().subtract('ms', millisecs);\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_uS",
+      "name": "msec",
+      "string": "_uS.msec()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and subtract time from."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Object"
+        ],
+        "name": "objectLit",
+        "description": "An object literal with key-value pairs corresponding to the subtractions to make from `targetMoment`."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with its #subtract method applied to `objectLit`."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment and an object literal, return a clone of the target with that object literal applied to the clone's <code>#subtract</code> method..</p>\n\n<p>Alternately, given only a target moment, return a stateless function which accepts an object literal and returns a clone of the target with #subtract applied to the object.</p>",
+      "summary": "<p>Given a target moment and an object literal, return a clone of the target with that object literal applied to the clone's <code>#subtract</code> method..</p>",
+      "body": "<p>Alternately, given only a target moment, return a stateless function which accepts an object literal and returns a clone of the target with #subtract applied to the object.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_uS.lit = function(targetMoment, objectLiteral) {\n      return targetMoment.clone().subtract(objectLiteral);\n    };\n    subbers = (function() {\n      var _partialed;\n      _partialed = {};\n      _.each(_.pairs(_unpartialedSubtracters), function(onePair) {\n        return _partialed[onePair[0]] = partial2(onePair[1]);\n      });\n      return _partialed;\n    })();\n    _subBy = {};",
+    "ctx": {
+      "type": "method",
+      "receiver": "_uS",
+      "name": "lit",
+      "string": "_uS.lit()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numYears",
+        "description": "The number of years to subtracted."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and subtract time from."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numYears` subtracted from it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a number of years and a target moment, return a clone of the target with that number of years subtracted.</p>\n\n<p>Alternately, given only <code>numYears</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numYears</code> subtracted.</p>",
+      "summary": "<p>Given a number of years and a target moment, return a clone of the target with that number of years subtracted.</p>",
+      "body": "<p>Alternately, given only <code>numYears</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numYears</code> subtracted.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_subBy.years = partial2(reverse2(_uS.years));",
+    "ctx": {
+      "type": "property",
+      "receiver": "_subBy",
+      "name": "years",
+      "value": "partial2(reverse2(_uS.years))",
+      "string": "_subBy.years"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numMonths",
+        "description": "The number of months to subtracted."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and subtract time from."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numMonths` subtracted from it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a number of months and a target moment, return a clone of the target with that number of months subtracted.</p>\n\n<p>Alternately, given only <code>numMonths</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numMonths</code> subtracted.</p>",
+      "summary": "<p>Given a number of months and a target moment, return a clone of the target with that number of months subtracted.</p>",
+      "body": "<p>Alternately, given only <code>numMonths</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numMonths</code> subtracted.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_subBy.months = partial2(reverse2(_uS.months));",
+    "ctx": {
+      "type": "property",
+      "receiver": "_subBy",
+      "name": "months",
+      "value": "partial2(reverse2(_uS.months))",
+      "string": "_subBy.months"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numDays",
+        "description": "The number of days to subtracted."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and subtract time from."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numDays` subtracted from it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a number of days and a target moment, return a clone of the target with that number of days subtracted.</p>\n\n<p>Alternately, given only <code>numDays</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numDays</code> subtracted.</p>",
+      "summary": "<p>Given a number of days and a target moment, return a clone of the target with that number of days subtracted.</p>",
+      "body": "<p>Alternately, given only <code>numDays</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numDays</code> subtracted.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_subBy.days = partial2(reverse2(_uS.days));",
+    "ctx": {
+      "type": "property",
+      "receiver": "_subBy",
+      "name": "days",
+      "value": "partial2(reverse2(_uS.days))",
+      "string": "_subBy.days"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numHours",
+        "description": "The number of hours to subtracted."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and subtract time from."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numHours` subtracted from it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a number of hours and a target moment, return a clone of the target with that number of hours subtracted.</p>\n\n<p>Alternately, given only <code>numHours</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numHours</code> subtracted.</p>",
+      "summary": "<p>Given a number of hours and a target moment, return a clone of the target with that number of hours subtracted.</p>",
+      "body": "<p>Alternately, given only <code>numHours</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numHours</code> subtracted.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_subBy.hours = partial2(reverse2(_uS.hours));",
+    "ctx": {
+      "type": "property",
+      "receiver": "_subBy",
+      "name": "hours",
+      "value": "partial2(reverse2(_uS.hours))",
+      "string": "_subBy.hours"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numMinutes",
+        "description": "The number of minutes to subtracted."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and subtract time from."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numMinutes` subtracted from it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a number of minutes and a target moment, return a clone of the target with that number of minutes subtracted.</p>\n\n<p>Alternately, given only <code>numMinutes</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numMinutes</code> subtracted.</p>",
+      "summary": "<p>Given a number of minutes and a target moment, return a clone of the target with that number of minutes subtracted.</p>",
+      "body": "<p>Alternately, given only <code>numMinutes</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numMinutes</code> subtracted.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_subBy.minutes = partial2(reverse2(_uS.minutes));",
+    "ctx": {
+      "type": "property",
+      "receiver": "_subBy",
+      "name": "minutes",
+      "value": "partial2(reverse2(_uS.minutes))",
+      "string": "_subBy.minutes"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numSeconds",
+        "description": "The number of seconds to subtracted."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and subtract time from."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numSeconds` subtracted from it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a number of seconds and a target moment, return a clone of the target with that number of seconds subtracted.</p>\n\n<p>Alternately, given only <code>numSeconds</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numSeconds</code> subtracted.</p>",
+      "summary": "<p>Given a number of seconds and a target moment, return a clone of the target with that number of seconds subtracted.</p>",
+      "body": "<p>Alternately, given only <code>numSeconds</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numSeconds</code> subtracted.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_subBy.seconds = partial2(reverse2(_uS.seconds));",
+    "ctx": {
+      "type": "property",
+      "receiver": "_subBy",
+      "name": "seconds",
+      "value": "partial2(reverse2(_uS.seconds))",
+      "string": "_subBy.seconds"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "numMSec",
+        "description": "The number of milliseconds to subtracted."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and subtract time from."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with `numMSec` subtracted from it."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a number of milliseconds and a target moment, return a clone of the target with that number of milliseconds subtracted.</p>\n\n<p>Alternately, given only <code>numMilliseconds</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numMilliseconds</code> subtracted.</p>",
+      "summary": "<p>Given a number of milliseconds and a target moment, return a clone of the target with that number of milliseconds subtracted.</p>",
+      "body": "<p>Alternately, given only <code>numMilliseconds</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numMilliseconds</code> subtracted.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_subBy.msec = partial2(reverse2(_uS.msec));",
+    "ctx": {
+      "type": "property",
+      "receiver": "_subBy",
+      "name": "msec",
+      "value": "partial2(reverse2(_uS.msec))",
+      "string": "_subBy.msec"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Object"
+        ],
+        "name": "objectLit",
+        "description": "An object literal with key-value pairs corresponding to the subtractions to make from `targetMoment`."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and subtract time from."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with its `#subtract` method applied to `objectLit`."
+      }
+    ],
+    "description": {
+      "full": "<p>Given an object literal and a target moment, return a clone of the target with the clone's <code>#subtract</code> method applied to the literal.</p>\n\n<p>Alternately, given only an object literal, return a stateless function which accepts any moment reference and returns a clone with its <code>#subtract</code> method applied to the object.</p>",
+      "summary": "<p>Given an object literal and a target moment, return a clone of the target with the clone's <code>#subtract</code> method applied to the literal.</p>",
+      "body": "<p>Alternately, given only an object literal, return a stateless function which accepts any moment reference and returns a clone with its <code>#subtract</code> method applied to the object.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_subBy.lit = partial2(reverse2(_uS.lit));\n    sub = subbers.lit;\n    subBy = _subBy.lit;\n    _.extend(sub, subbers);\n    _.extend(subBy, _subBy);\n    _outs.sub = sub;\n    _outs.subBy = subBy;\n    return _outs;\n  })();\n\n  module.exports = manipulators;\n\n}).call(this);\n// Generated by CoffeeScript 1.6.3\n(function() {\n  var enders, flatSplat, partial2, path, reverse2, _, _ref;\n\n  path = require(\"path\");\n\n  _ref = require(path.join(__dirname, \"util.js\")), reverse2 = _ref.reverse2, partial2 = _ref.partial2, flatSplat = _ref.flatSplat;\n\n  _ = require(\"underscore\");\n\n  enders = (function() {\n    var _enders, _outs, _stringEndOf;\n    _enders = [\"Year\", \"Month\", \"Week\", \"Day\", \"Hour\", \"Minute\", \"Second\"];\n    _outs = {};",
+    "ctx": {
+      "type": "property",
+      "receiver": "_subBy",
+      "name": "lit",
+      "value": "partial2(reverse2(_uS.lit))",
+      "string": "_subBy.lit"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and round up."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target rounded up to the end of its current year."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment, return a clone rounded up to the end of its current year.</p>",
+      "summary": "<p>Given a target moment, return a clone rounded up to the end of its current year.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.endOfYear = function(targetMoment) {\n      return targetMoment.clone().endOf(\"year\");\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_outs",
+      "name": "endOfYear",
+      "string": "_outs.endOfYear()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and round up."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target rounded up to the end of its current month."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment, return a clone rounded up to the end of its current month.</p>",
+      "summary": "<p>Given a target moment, return a clone rounded up to the end of its current month.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.endOfMonth = function(targetMoment) {\n      return targetMoment.clone().endOf(\"month\");\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_outs",
+      "name": "endOfMonth",
+      "string": "_outs.endOfMonth()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and round up."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target rounded up to the end of its current week."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment, return a clone rounded up to the end of its current week.</p>",
+      "summary": "<p>Given a target moment, return a clone rounded up to the end of its current week.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.endOfWeek = function(targetMoment) {\n      return targetMoment.clone().endOf(\"week\");\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_outs",
+      "name": "endOfWeek",
+      "string": "_outs.endOfWeek()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and round up."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target rounded up to the end of its current day."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment, return a clone rounded up to the end of its current day.</p>",
+      "summary": "<p>Given a target moment, return a clone rounded up to the end of its current day.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.endOfDay = function(targetMoment) {\n      return targetMoment.clone().endOf(\"day\");\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_outs",
+      "name": "endOfDay",
+      "string": "_outs.endOfDay()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and round up."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target rounded up to the end of its current hour."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment, return a clone rounded up to the end of its current hour.</p>",
+      "summary": "<p>Given a target moment, return a clone rounded up to the end of its current hour.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.endOfHour = function(targetMoment) {\n      return targetMoment.clone().endOf(\"hour\");\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_outs",
+      "name": "endOfHour",
+      "string": "_outs.endOfHour()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and round up."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target rounded up to the end of its current minute."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment, return a clone rounded up to the end of its current minute.</p>",
+      "summary": "<p>Given a target moment, return a clone rounded up to the end of its current minute.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.endOfMinute = function(targetMoment) {\n      return targetMoment.clone().endOf(\"minute\");\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_outs",
+      "name": "endOfMinute",
+      "string": "_outs.endOfMinute()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and round up."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target rounded up to the end of its current second."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment, return a clone rounded up to the end of its current second.</p>",
+      "summary": "<p>Given a target moment, return a clone rounded up to the end of its current second.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.endOfSecond = function(targetMoment) {\n      return targetMoment.clone().endOf(\"second\");\n    };\n    _stringEndOf = function(endString, targetMoment) {\n      return targetMoment.clone().endOf(endString);\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_outs",
+      "name": "endOfSecond",
+      "string": "_outs.endOfSecond()"
     }
   },
   {
@@ -116,119 +1565,1726 @@
         "types": [
           "String"
         ],
-        "name": "optName",
-        "description": "The parameter name."
-      },
-      {
-        "type": "",
-        "string": ""
-      },
-      {
-        "type": "return",
-        "types": [
-          "Any",
-          "null"
-        ],
-        "description": "Return type depends on the particular setting, and most settings will be defined by code layered on top of the router. `null` is returned if the option has not been defined."
-      }
-    ],
-    "description": {
-      "full": "<p>Get the value of a router-wide option, if it's defined.</p>",
-      "summary": "<p>Get the value of a router-wide option, if it's defined.</p>",
-      "body": ""
-    },
-    "isPrivate": false,
-    "ignore": false,
-    "code": "outputRef.get = function(aKey) {\n      if (_options[aKey] != null) {\n        return _options[aKey];\n      } else {\n        return null;\n      }\n    };",
-    "ctx": {
-      "type": "method",
-      "receiver": "outputRef",
-      "name": "get",
-      "string": "outputRef.get()"
-    }
-  },
-  {
-    "tags": [
-      {
-        "type": "param",
-        "types": [
-          "String",
-          "Object"
-        ],
-        "name": "optName",
-        "description": "The name of the option to be set, if given as a key-value pair. Alternately, an object with multiple options to be set."
+        "name": "unitString",
+        "description": "The unit to round up."
       },
       {
         "type": "param",
         "types": [
-          "Any"
+          "Moment"
         ],
-        "name": "newVal",
-        "description": "The updated value of the option, if given as a key-value pair."
-      },
-      {
-        "type": "",
-        "string": ""
+        "name": "targetMoment",
+        "description": "The moment to clone and round up."
       },
       {
         "type": "return",
         "types": [
-          "Router"
+          "Moment"
         ],
-        "description": "The same router instance is returned (chained)."
+        "description": "A clone of the target with its value rounded up to the nearest `unitString`."
       }
     ],
     "description": {
-      "full": "<p>Set the value of a router-wide option, given as a key-val pair, or set the value of multiple options by passing in an object.</p>",
-      "summary": "<p>Set the value of a router-wide option, given as a key-val pair, or set the value of multiple options by passing in an object.</p>",
-      "body": ""
+      "full": "<p>Given a string representing a unit of time and a target moment, return a clone with its value for that unit rounded up.</p>\n\n<p>Alternately, given only a unit string, return a stateless function which accepts a moment and return a clone rounded up to the nearest whole value for that unit.</p>",
+      "summary": "<p>Given a string representing a unit of time and a target moment, return a clone with its value for that unit rounded up.</p>",
+      "body": "<p>Alternately, given only a unit string, return a stateless function which accepts a moment and return a clone rounded up to the nearest whole value for that unit.</p>"
     },
     "isPrivate": false,
     "ignore": false,
-    "code": "outputRef.set = function(aKey, aVal) {\n      if (_.isObject(aKey)) {\n        _.extend(_options, aKey);\n      } else {\n        _options[aKey] = aVal;\n      }\n      return outputRef;\n    };\n    return outputRef;\n  };\n\n  exp = {};",
-    "ctx": {
-      "type": "method",
-      "receiver": "outputRef",
-      "name": "set",
-      "string": "outputRef.set()"
-    }
-  },
-  {
-    "tags": [
-      {
-        "type": "param",
-        "types": [
-          "Object"
-        ],
-        "name": "options",
-        "description": "A hash of options "
-      },
-      {
-        "type": "",
-        "string": ""
-      },
-      {
-        "type": "return",
-        "types": [
-          "Object"
-        ],
-        "description": "A new routing object with methods for adding middleware, adding routes, handling new pipeline elements, and getting and setting options."
-      }
-    ],
-    "description": {
-      "full": "<p>A factory function for constructing new routers.  It isn't a constructor function, so there's no need to call it with <code>new</code>.</p>\n\n<p>Options include: </p>\n\n<ul>\n<li><code>defaultRoute</code>: a route to use if no route predicate returns true.  The built-in <code>defaultRoute</code> throws an error.</li>\n<li><code>enforceArity</code>: limits middleware and routing handlers to the given arity, <em>plus one</em> for the <code>next</code> parameter.</li>\n</ul>\n\n<p>There is no default arity enforcement.  Internally, <code>next</code> is appended onto the array of passed parameters and they're all passed to a handler via <code>#apply</code>.</p>",
-      "summary": "<p>A factory function for constructing new routers.  It isn't a constructor function, so there's no need to call it with <code>new</code>.</p>",
-      "body": "<p>Options include: </p>\n\n<ul>\n<li><code>defaultRoute</code>: a route to use if no route predicate returns true.  The built-in <code>defaultRoute</code> throws an error.</li>\n<li><code>enforceArity</code>: limits middleware and routing handlers to the given arity, <em>plus one</em> for the <code>next</code> parameter.</li>\n</ul>\n\n<p>There is no default arity enforcement.  Internally, <code>next</code> is appended onto the array of passed parameters and they're all passed to a handler via <code>#apply</code>.</p>"
-    },
-    "isPrivate": false,
-    "ignore": false,
-    "code": "exp.inmedia = makeMiddlewareRouter;\n\n  module.exports = exp.inmedia;\n\n}).call(this);",
+    "code": "_outs.endOf = partial2(_stringEndOf);",
     "ctx": {
       "type": "property",
-      "receiver": "exp",
-      "name": "inmedia",
-      "value": "makeMiddlewareRouter",
-      "string": "exp.inmedia"
+      "receiver": "_outs",
+      "name": "endOf",
+      "value": "partial2(_stringEndOf)",
+      "string": "_outs.endOf"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "The moment to clone and round up."
+      },
+      {
+        "type": "param",
+        "types": [
+          "String"
+        ],
+        "name": "unitString",
+        "description": "The unit to round up."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with its value rounded up to the nearest `unitString`."
+      }
+    ],
+    "description": {
+      "full": "<p>Give a target moment and a string representing a unit of time, return a clone with its value for that unit rounded up.</p>\n\n<p>Alternately, given only a target moment, return a stateless function which accepts a unit string and returns a clone of the moment rounded up to the nearest whole value for that unit.</p>",
+      "summary": "<p>Give a target moment and a string representing a unit of time, return a clone with its value for that unit rounded up.</p>",
+      "body": "<p>Alternately, given only a target moment, return a stateless function which accepts a unit string and returns a clone of the moment rounded up to the nearest whole value for that unit.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.endOfMoment = partial2(reverse2(_stringEndOf));\n    return _outs;\n  })();\n\n  module.exports = enders;\n\n}).call(this);\n// Generated by CoffeeScript 1.6.3\n(function() {\n  var flatSplat, getters, partial2, path, reverse2, _, _ref;\n\n  path = require(\"path\");\n\n  _ref = require(path.join(__dirname, \"util.js\")), reverse2 = _ref.reverse2, partial2 = _ref.partial2, flatSplat = _ref.flatSplat;\n\n  _ = require(\"underscore\");\n\n  getters = (function() {\n    var _getString, _getters, _outs;\n    _getters = [\"unix\", \"valueOf\", \"daysInMonth\", \"isDST\", \"isLeapYear\", \"isMoment\", \"dayOfYear\", \"isoWeekday\", \"isoWeekYear\", \"weekYear\", \"week\", \"year\", \"isoWeek\", \"month\"];\n    _getString = function(methodName, targetMoment) {\n      return targetMoment[methodName]();\n    };\n    _outs = {};\n    _outs.get = partial2(_getString);\n    _outs.getFrom = partial2(reverse2(_getString));\n    _.each(_getters, function(oneGetter) {\n      return _outs.get[oneGetter] = function(targetMoment) {\n        return targetMoment[oneGetter]();\n      };\n    });\n    return _outs;\n  })();\n\n  module.exports = getters;\n\n}).call(this);\n// Generated by CoffeeScript 1.6.3\n(function() {\n  var flatSplat, helpers, inDir, inhere, misc, moment, partial2, path, reverse2, splattedPartial2, _, _ref,\n    __slice = [].slice;\n\n  path = require(\"path\");\n\n  _ref = require(path.join(__dirname, \"util.js\")), reverse2 = _ref.reverse2, partial2 = _ref.partial2, flatSplat = _ref.flatSplat, inDir = _ref.inDir, splattedPartial2 = _ref.splattedPartial2;\n\n  _ = require(\"underscore\");\n\n  inhere = inDir(__dirname);\n\n  misc = require(inhere(\"misc.js\"));\n\n  moment = require(\"moment\");\n\n  helpers = (function() {\n    var format, intRange, log, makeMoments, outs, stringify, _ISODateRegex, _format, _formattedLogger, _formattedMakeMoments, _formattedStringifier, _makeMoments, _preformattedFormatter, _stringify;\n    _makeMoments = function() {\n      var dateList, formatStr, _moments;\n      formatStr = arguments[0], dateList = 2 <= arguments.length ? __slice.call(arguments, 1) : [];\n      dateList = flatSplat(dateList);\n      _moments = _.map(dateList, function(oneDate) {\n        if (moment.isMoment(oneDate)) {\n          return oneDate.clone();\n        }\n        return moment(formatStr, oneDate);\n      });\n      return _moments;\n    };\n    _formattedMakeMoments = function(formatStr) {\n      return function() {\n        var dateList;\n        dateList = 1 <= arguments.length ? __slice.call(arguments, 0) : [];\n        dateList = flatSplat(dateList);\n        return _makeMoments(formatStr, dateList);\n      };\n    };\n    _ISODateRegex = /[0-9]{4}-[0-9]{2}-[0-9]{2}/;\n    makeMoments = function() {\n      var dateList, formatStr, _dateList;\n      formatStr = arguments[0], dateList = 2 <= arguments.length ? __slice.call(arguments, 1) : [];\n      dateList = flatSplat(dateList);\n      if (_ISODateRegex.test(formatStr)) {\n        _dateList = _.clone(dateList);\n        _dateList = _.flatten([formatStr, _dateList]);\n        return _makeMoments(\"YYYY-MM-DD\", _dateList);\n      }\n      if (_.isString(formatStr) && _.size(dateList) === 0) {\n        return _formattedMakeMoments(formatStr);\n      }\n      return _makeMoments(formatStr, dateList);\n    };\n    _format = function() {\n      var formatStr, momentList, _formatted, _iter;\n      formatStr = arguments[0], momentList = 2 <= arguments.length ? __slice.call(arguments, 1) : [];\n      momentList = flatSplat(momentList);\n      if (moment.isMoment(formatStr)) {\n        momentList = _.flatten([formatStr, momentList]);\n        formatStr = null;\n      } else if (_.isArray(formatStr)) {\n        momentList = formatStr;\n        formatStr = null;\n      }\n      _formatted = [];\n      if (formatStr != null) {\n        _iter = function(oneMoment) {\n          return _formatted.push(oneMoment.format(formatStr));\n        };\n      } else {\n        _iter = function(oneMoment) {\n          return _formatted.push(oneMoment.format());\n        };\n      }\n      _.each(momentList, _iter);\n      return _formatted;\n    };\n    _preformattedFormatter = function(formatStr) {\n      return function() {\n        var momentList;\n        momentList = 1 <= arguments.length ? __slice.call(arguments, 0) : [];\n        return _stringify(formatStr, momentList);\n      };\n    };\n    format = function() {\n      var formatStr, momentList;\n      formatStr = arguments[0], momentList = 2 <= arguments.length ? __slice.call(arguments, 1) : [];\n      if (_.isString(formatStr) && _.size(momentList) === 0) {\n        return _preformattedFormatter(formatStr);\n      }\n      return _format(formatStr, momentList);\n    };\n    _stringify = function() {\n      var formatStr, momentList, outs, _formatted;\n      formatStr = arguments[0], momentList = 2 <= arguments.length ? __slice.call(arguments, 1) : [];\n      momentList = flatSplat(momentList);\n      _formatted = _format(formatStr, momentList);\n      outs = \"[ \" + _formatted.join(\", \") + \" ]\";\n      return outs;\n    };\n    _formattedStringifier = function(formatStr) {\n      return function() {\n        var momentList;\n        momentList = 1 <= arguments.length ? __slice.call(arguments, 0) : [];\n        momentList = flatSplat(momentList);\n        return _stringify(formatStr, momentList);\n      };\n    };\n    stringify = function() {\n      var formatStr, momentList;\n      formatStr = arguments[0], momentList = 2 <= arguments.length ? __slice.call(arguments, 1) : [];\n      if (_.isString(formatStr) && _.size(momentList) === 0) {\n        return _formattedStringifier(formatStr);\n      }\n      return _stringify(formatStr, momentList);\n    };\n    _formattedLogger = function(formatStr) {\n      return function() {\n        var momentList;\n        momentList = 1 <= arguments.length ? __slice.call(arguments, 0) : [];\n        momentList = flatSplat(momentList);\n        return console.log(stringify(momentList));\n      };\n    };\n    log = function() {\n      var formatStr, momentList;\n      formatStr = arguments[0], momentList = 2 <= arguments.length ? __slice.call(arguments, 1) : [];\n      if (_.isString(formatStr) && _.size(momentList) === 0) {\n        return _formattedLogger(formatStr);\n      }\n      momentList = flatSplat(momentList);\n      return console.log(stringify(formatStr, momentList));\n    };\n    intRange = function(start, end) {\n      var i, range, _i, _nums;\n      range = end - start;\n      _nums = [];\n      for (i = _i = 0; 0 <= range ? _i <= range : _i >= range; i = 0 <= range ? ++_i : --_i) {\n        _nums.push(start + i);\n      }\n      return _nums;\n    };\n    return outs = {\n      makeMoments: makeMoments,\n      stringify: stringify,\n      format: format,\n      log: log,\n      intRange: intRange\n    };\n  })();\n\n  module.exports = helpers;\n\n}).call(this);\n// Generated by CoffeeScript 1.6.3\n(function() {\n  var flatSplat, misc, partial2, path, reverse2, _, _ref,\n    __slice = [].slice;\n\n  path = require(\"path\");\n\n  _ref = require(path.join(__dirname, \"util.js\")), reverse2 = _ref.reverse2, partial2 = _ref.partial2, flatSplat = _ref.flatSplat;\n\n  _ = require(\"underscore\");\n\n  misc = (function() {\n    var absDiff, clone, diff, invoke, invokeOnClone, outs;\n    invoke = function() {\n      var aMoment, methodName, params;\n      methodName = arguments[0], aMoment = arguments[1], params = 3 <= arguments.length ? __slice.call(arguments, 2) : [];\n      if (_.size(params) === 1 && _.isArray(params[0])) {\n        params = params[0];\n      }\n      return aMoment[methodName].apply(aMoment, params);\n    };\n    invokeOnClone = function() {\n      var aMoment, methodName, params;\n      methodName = arguments[0], aMoment = arguments[1], params = 3 <= arguments.length ? __slice.call(arguments, 2) : [];\n      if (_.size(params) === 1 && _.isArray(params[0])) {\n        params = params[0];\n      }\n      return aMoment.clone()[aMethodName].apply(aMoment, params);\n    };\n    clone = function(aMoment) {\n      return aMoment.clone();\n    };\n    diff = function(moment1, moment2) {\n      return moment1.diff(moment2);\n    };\n    absDiff = function(moment1, moment2) {\n      var _diff;\n      _diff = moment1.diff(moment2);\n      return Math.abs(_diff);\n    };\n    return outs = {\n      absDiff: absDiff,\n      clone: clone,\n      diff: diff,\n      invoke: invoke,\n      invokeOnClone: invokeOnClone\n    };\n  })();\n\n  module.exports = misc;\n\n}).call(this);\n// Generated by CoffeeScript 1.6.3\n(function() {\n  var checkMoment, flatSplat, moment, partial2, partial3, path, preds, reverse2, xyz_from_yzx, xyz_from_zxy, _, _ref;\n\n  path = require(\"path\");\n\n  _ref = require(path.join(__dirname, \"util.js\")), reverse2 = _ref.reverse2, partial2 = _ref.partial2, partial3 = _ref.partial3, flatSplat = _ref.flatSplat;\n\n  _ = require(\"underscore\");\n\n  moment = require(\"moment\");\n\n  checkMoment = function(possibleMoment) {\n    if (moment.isMoment(possibleMoment)) {\n      return possibleMoment;\n    }\n    return moment(possibleMoment);\n  };\n\n  xyz_from_yzx = function(fn) {\n    return function(y, z, x) {\n      return fn(x, y, z);\n    };\n  };\n\n  xyz_from_zxy = function(fn) {\n    return function(z, x, y) {\n      return fn(x, y, z);\n    };\n  };\n\n  preds = (function() {\n    var _isAfter, _isBefore, _isBetween, _outs;\n    _outs = {};\n    _isBetween = function(beforeMoment, afterMoment, possiblyBetween) {\n      var cmp;\n      beforeMoment = checkMoment(beforeMoment);\n      afterMoment = checkMoment(afterMoment);\n      cmp = {};\n      if (beforeMoment.isBefore(afterMoment)) {\n        cmp.before = beforeMoment;\n        cmp.after = afterMoment;\n      } else {\n        cmp.before = afterMoment;\n        cmp.after = beforeMoment;\n      }\n      if (beforeMoment.isBefore(possiblyBetween) || beforeMoment.isSame(possiblyBetween)) {\n        if (possiblyBetween.isBefore(afterMoment)) {\n          return true;\n        }\n      }\n      return false;\n    };",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "endOfMoment",
+      "value": "partial2(reverse2(_stringEndOf))",
+      "string": "_outs.endOfMoment"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "start",
+        "description": "A moment representing the start of the range."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "end",
+        "description": "A moment representing the end of the range."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "maybeBetween",
+        "description": "The moment to test."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Boolean"
+        ],
+        "description": "True if `maybeBetween` occurs between `start` and `end`; otherwise `false`."
+      }
+    ],
+    "description": {
+      "full": "<p>Given three moments, return true if the third moment occurs in the range between the first and second.</p>",
+      "summary": "<p>Given three moments, return true if the third moment occurs in the range between the first and second.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.isBetween = partial3(_isBetween);",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "isBetween",
+      "value": "partial3(_isBetween)",
+      "string": "_outs.isBetween"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "maybeBetween",
+        "description": "The moment to test."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "start",
+        "description": "A moment representing the start of the range."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "end",
+        "description": "A moment representing the end of the range."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Boolean"
+        ],
+        "description": "True if `maybeBetween` occurs between `start` and `end`; otherwise `false`."
+      }
+    ],
+    "description": {
+      "full": "<p>Given three moments, return true if the first moment occurs in the range between the second and third.</p>",
+      "summary": "<p>Given three moments, return true if the first moment occurs in the range between the second and third.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.isMomentBetween = partial3(xyz_from_zxy(_isBetween));\n    _isAfter = function(compareAgainst, compare) {\n      compare = checkMoment(compare);\n      if (compare.isAfter(compareAgainst)) {\n        return true;\n      }\n      return false;\n    };",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "isMomentBetween",
+      "value": "partial3(xyz_from_zxy(_isBetween))",
+      "string": "_outs.isMomentBetween"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "compareAgainst",
+        "description": "The moment to test against."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "compare",
+        "description": "The moment to test."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Boolean"
+        ],
+        "description": "True if `compare` occurs after `compareAgainst`"
+      }
+    ],
+    "description": {
+      "full": "<p>Given two moments, return true if the second moment occurs after the first.</p>",
+      "summary": "<p>Given two moments, return true if the second moment occurs after the first.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.isAfter = partial2(_isAfter);\n    _isBefore = function(compareAgainst, compare) {\n      compare = checkMoment(compare);\n      if (compare.isBefore(compareAgainst)) {\n        return true;\n      }\n      return false;\n    };",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "isAfter",
+      "value": "partial2(_isAfter)",
+      "string": "_outs.isAfter"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "compareAgainst",
+        "description": "The moment to test against."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "compare",
+        "description": "The moment to test."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Boolean"
+        ],
+        "description": "True if `compare` occurs before `compareAgainst`"
+      }
+    ],
+    "description": {
+      "full": "<p>Given two moments, return true if the second moment occurs before the first.</p>",
+      "summary": "<p>Given two moments, return true if the second moment occurs before the first.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.isBefore = partial2(_isBefore);\n    return _outs;\n  })();\n\n  module.exports = preds;\n\n}).call(this);\n// Generated by CoffeeScript 1.6.3\n(function() {\n  var flatSplat, inDir, inhere, moment, partial2, partial3, path, randoms, reverse2, _, _momentCheck, _ref, _reverse;\n\n  path = require(\"path\");\n\n  _ref = require(path.join(__dirname, \"util.js\")), reverse2 = _ref.reverse2, partial2 = _ref.partial2, partial3 = _ref.partial3, flatSplat = _ref.flatSplat, inDir = _ref.inDir;\n\n  _ = require(\"underscore\");\n\n  moment = require(\"moment\");\n\n  _momentCheck = function(aMoment) {\n    if (!moment.isMoment(aMoment)) {\n      return moment(aMoment);\n    }\n    return aMoment;\n  };\n\n  _reverse = function(list) {\n    var i, _reversed;\n    _reversed = [];\n    i = list.length;\n    while (i--) {\n      _reversed.push(list[i]);\n    }\n    return _reversed;\n  };\n\n  inhere = inDir(__dirname);\n\n  randoms = (function() {\n    var nRandomAround, _nRandomBetween, _outs, _randomAround, _randomBetween, _randomizeAbsDiff, _randomizeSignedDiff;\n    _randomizeAbsDiff = function(maxDiff) {\n      var diff, randomizedDiff;\n      diff = Math.abs(maxDiff);\n      randomizedDiff = Math.round(Math.random() * diff);\n      return randomizedDiff;\n    };\n    _randomizeSignedDiff = function(maxDiff) {\n      var diff, sign;\n      diff = randomizeAbsDiff(maxDiff);\n      sign = Math.random();\n      if (sign < 0.5) {\n        diff *= -1;\n      }\n      return diff;\n    };\n    _outs = {};\n    _randomBetween = function(startMoment, endMoment) {\n      var diff, resolution;\n      startMoment = _momentCheck(startMoment);\n      endMoment = _momentCheck(endMoment);\n      resolution = \"ms\";\n      diff = randomizeAbsDiff(startMoment.diff(endMoment, resolution));\n      if (startMoment.isBefore(endMoment)) {\n        return startMoment.clone().add(resolution, diff);\n      } else {\n        return endMoment.clone().add(resolution, diff);\n      }\n    };",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "isBefore",
+      "value": "partial2(_isBefore)",
+      "string": "_outs.isBefore"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "moment1",
+        "description": "The first moment of the range. It doesn't have to come before moment2."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "moment2",
+        "description": "The second moment of the range. It doesn't have to come after moment1."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A new moment instance at a random point in time between the two endpoints."
+      }
+    ],
+    "description": {
+      "full": "<p>Given two moment instances as endpoints, return a random moment somewhere between the two.</p>\n\n<p>Alternately, given a single moment, return a function which accepts a second moment and returns a random point between that and the first.</p>",
+      "summary": "<p>Given two moment instances as endpoints, return a random moment somewhere between the two.</p>",
+      "body": "<p>Alternately, given a single moment, return a function which accepts a second moment and returns a random point between that and the first.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.randomBetween = partial2(_randomBetween);\n    _nRandomBetween = function(count, startMoment, endMoment) {\n      _outs = [];\n      while (count--) {\n        _outs.push(randomBetween(startMoment, endMoment, resolution));\n      }\n      return _outs;\n    };",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "randomBetween",
+      "value": "partial2(_randomBetween)",
+      "string": "_outs.randomBetween"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "count",
+        "description": "The number of random moments to return."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "moment1",
+        "description": "The first moment of the range. It doesn't have to come before moment2."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "moment2",
+        "description": "The second moment of the range. It doesn't have to come after moment1."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Array"
+        ],
+        "description": "An array of `count` random moments between `moment1` and `moment2`."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a number of moments to generate and two moment instances as endpoints, return a random moment somewhere between the two.</p>\n\n<p>Alternately, given only a number, return a function which accepts two moment endpoints and returns an array of that number of random moments between the two points.</p>",
+      "summary": "<p>Given a number of moments to generate and two moment instances as endpoints, return a random moment somewhere between the two.</p>",
+      "body": "<p>Alternately, given only a number, return a function which accepts two moment endpoints and returns an array of that number of random moments between the two points.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.nRandomBetween = partial3(_nRandomBetween);\n    _randomAround = function(middleMoment, offset) {\n      var diff, maxDiff;\n      middleMoment = _momentCheck(middleMoment);\n      maxDiff = middleMoment.diff(middleMoment.clone().add(offset));\n      diff = randomizeSignedDiff(maxDiff);\n      return middleMoment.clone().add(diff);\n    };",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "nRandomBetween",
+      "value": "partial3(_nRandomBetween)",
+      "string": "_outs.nRandomBetween"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "midPoint",
+        "description": "The moment at the center of the range of possible random moments. "
+      },
+      {
+        "type": "param",
+        "types": [
+          "Object"
+        ],
+        "name": "maxOffset",
+        "description": "An object with key-value pairs corresponding to the maximum offset from the midpoint."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A random moment within `maxOffset` of `midPoint`."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a moment and a maximum offset, return a random moment within that offset of the passed moment.</p>\n\n<p>Alternately, given only a moment, return a function which accepts a maximum offset and returns a random moment within that offset of the previously passed moment.</p>",
+      "summary": "<p>Given a moment and a maximum offset, return a random moment within that offset of the passed moment.</p>",
+      "body": "<p>Alternately, given only a moment, return a function which accepts a maximum offset and returns a random moment within that offset of the previously passed moment.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.randomAround = partial2(_randomAround);\n    nRandomAround = function(count, middleMoment, offset) {\n      _outs = [];\n      while (count--) {\n        _outs.push(randomAround(middleMoment, offset));\n      }\n      return _outs;\n    };",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "randomAround",
+      "value": "partial2(_randomAround)",
+      "string": "_outs.randomAround"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "count",
+        "description": "The number of moments to generate."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "midPoint",
+        "description": "The moment at the center of the range of possible random moments. "
+      },
+      {
+        "type": "param",
+        "types": [
+          "Object"
+        ],
+        "name": "maxOffset",
+        "description": "An object with key-value pairs corresponding to the maximum offset from the midpoint."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Array"
+        ],
+        "description": "A `count`-length array of random moments within `maxOffset` of `midPoint`."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a number of moments to generate, a midpoint moment and a maximum offset, return an array of that number of random moments within that offset of the midpoint.</p>\n\n<p>Alternately, given only a number, return a function which accepts a midpoint and a maximum offset returns an array of that number of random moments within that offset of the midpoint.</p>",
+      "summary": "<p>Given a number of moments to generate, a midpoint moment and a maximum offset, return an array of that number of random moments within that offset of the midpoint.</p>",
+      "body": "<p>Alternately, given only a number, return a function which accepts a midpoint and a maximum offset returns an array of that number of random moments within that offset of the midpoint.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.nRandomAround = partial3(nRandomAround);\n    _outs.randBetween = randomBetween;\n    _outs.nRandBeween = nRandomBetween;\n    _outs.randAround = randomAround;\n    _outs.nRandomAround = nRandomAround;\n    return _outs;\n  })();\n\n  module.exports = randoms;\n\n}).call(this);\n// Generated by CoffeeScript 1.6.3\n(function() {\n  var checkMoment, flatSplat, inDir, inhere, moment, partial2, partial3, path, ranges, reverse2, xyz_from_yxz, xyz_from_yzx, xyz_from_zxy, xyz_from_zyx, _, _mod, _momentCheck, _ref, _reverse;\n\n  path = require(\"path\");\n\n  _ref = require(path.join(__dirname, \"util.js\")), reverse2 = _ref.reverse2, partial2 = _ref.partial2, partial3 = _ref.partial3, flatSplat = _ref.flatSplat, inDir = _ref.inDir;\n\n  _ = require(\"underscore\");\n\n  moment = require(\"moment\");\n\n  checkMoment = function(possibleMoment) {\n    if (moment.isMoment(possibleMoment)) {\n      return possibleMoment;\n    }\n    return moment(possibleMoment);\n  };\n\n  _reverse = function(list) {\n    var i, _reversed;\n    _reversed = [];\n    i = list.length;\n    while (i--) {\n      _reversed.push(list[i]);\n    }\n    return _reversed;\n  };\n\n  inhere = inDir(__dirname);\n\n  xyz_from_yxz = function(fn) {\n    return function(y, x, z) {\n      return fn(x, y, z);\n    };\n  };\n\n  xyz_from_yzx = function(fn) {\n    return function(y, z, x) {\n      return fn(x, y, z);\n    };\n  };\n\n  xyz_from_zxy = function(fn) {\n    return function(z, x, y) {\n      return fn(x, y, z);\n    };\n  };\n\n  xyz_from_zyx = function(fn) {\n    return function(z, y, x) {\n      return fn(x, y, z);\n    };\n  };\n\n  xyz_from_yxz;\n\n  _mod = require(inhere(\"addersubber.js\"));\n\n  _momentCheck = function(aMoment) {\n    if (!moment.isMoment(aMoment)) {\n      return moment(aMoment);\n    }\n    return aMoment;\n  };\n\n  ranges = (function() {\n    var _momentRangeInc, _momentRange_BetweenMoments_Exclusive, _momentRange_BetweenMoments_Inclusive, _momentRange_stepsAfter, _momentRange_stepsBefore, _outs;\n    _outs = {};\n    _momentRange_BetweenMoments_Exclusive = function(start, end, step) {\n      var last, _output;\n      start = _momentCheck(start);\n      end = _momentCheck(end);\n      _output = [];\n      last = _mod.add(start, step);\n      while (last.isBefore(end)) {\n        _output.push(last);\n        last = _mod.add(last, step);\n      }\n      return _output;\n    };\n    _momentRange_BetweenMoments_Inclusive = function(startMoment, endMoment, step) {\n      var last, _output;\n      _output = [];\n      _output.push(startMoment.clone());\n      last = _mod.add(startMoment, step);\n      while (last.isBefore(endMoment)) {\n        _output.push(last);\n        last = _mod.add(last, step);\n      }\n      return _output;\n    };\n    _momentRange_stepsBefore = function(nSteps, stepObj, endMoment) {\n      var current, momentCount, _output, _prev;\n      endMoment = _momentCheck(endMoment);\n      momentCount = nSteps;\n      _prev = endMoment;\n      _output = [];\n      while (momentCount--) {\n        current = _prev.clone().subtract(stepObj);\n        _output.push(current);\n        _prev = current;\n      }\n      return _reverse(_output);\n    };\n    _momentRange_stepsAfter = function(nSteps, stepObj, startMoment) {\n      var current, momentCount, _output, _prev;\n      startMoment = _momentCheck(startMoment);\n      momentCount = nSteps;\n      _prev = startMoment;\n      _output = [];\n      while (momentCount--) {\n        current = _prev.clone().add(stepObj);\n        _output.push(current);\n        _prev = current;\n      }\n      return _output;\n    };\n    _momentRangeInc = function(startMoment, endMoment, stepObj) {\n      startMoment = _momentCheck(startMoment);\n      endMoment = _momentCheck(endMoment);\n      return _momentRange_BetweenMoments_Inclusive(startMoment, endMoment, stepObj);\n    };",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "nRandomAround",
+      "value": "partial3(nRandomAround)",
+      "string": "_outs.nRandomAround"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "startMoment",
+        "description": "The start of the range, which is cloned and included in the output."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "endMoment",
+        "description": "The end of the range, which _is not_ included in the output."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Object"
+        ],
+        "name": "step",
+        "description": "An object giving the step size between moments in the the same format as #add, i.e. `{days: 1, hours: 2}`."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Array"
+        ],
+        "description": "An array of new moments corresponding to the given range."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a start moment, an end moment, and an object specifying the step size, generate an array of moment objects representing every step from the start of the range (inclusive) to the end of the range (exclusive).</p>\n\n<p>Alternately, given only a start moment, return a function which accepts an end moment and a step size and returns the corresponding range of moments.  That function can also accept just an end moment, in which case it returns a function which accepts a step size and returns a range of moments.</p>\n\n<p>Alternately, given only start and end moments, return a function which accepts a step size object and returns the corresponding range of moments.</p>",
+      "summary": "<p>Given a start moment, an end moment, and an object specifying the step size, generate an array of moment objects representing every step from the start of the range (inclusive) to the end of the range (exclusive).</p>",
+      "body": "<p>Alternately, given only a start moment, return a function which accepts an end moment and a step size and returns the corresponding range of moments.  That function can also accept just an end moment, in which case it returns a function which accepts a step size and returns a range of moments.</p>\n\n<p>Alternately, given only start and end moments, return a function which accepts a step size object and returns the corresponding range of moments.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.range = partial3(_momentRangeInc);",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "range",
+      "value": "partial3(_momentRangeInc)",
+      "string": "_outs.range"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Object"
+        ],
+        "name": "step",
+        "description": "An object giving the step size between moments in the the same format as #add, i.e. `{days: 1, hours: 2}`."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "startMoment",
+        "description": "The start of the range, which is cloned and included in the output."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "endMoment",
+        "description": "The end of the range, which _is not_ included in the output."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Array"
+        ],
+        "description": "An array of new moments corresponding to the given range."
+      }
+    ],
+    "description": {
+      "full": "<p>Given an object specifying step size, a start moment, and an end moment, generate an array of moment objects representing every step from the start of the range (inclusive) to the end of the range (exclusive).</p>\n\n<p>Alternately, given only a step size, return a function which accepts a start and end moment and returns the range between those moments with the step size passed.  That function can also accept just a start moment, in which case it returns a function which accepts an end moment and returns a range of moments.</p>\n\n<p>Alternately, given only a step size and start moment, return a function which accepts an end moment and returns the corresponding range of moments.</p>",
+      "summary": "<p>Given an object specifying step size, a start moment, and an end moment, generate an array of moment objects representing every step from the start of the range (inclusive) to the end of the range (exclusive).</p>",
+      "body": "<p>Alternately, given only a step size, return a function which accepts a start and end moment and returns the range between those moments with the step size passed.  That function can also accept just a start moment, in which case it returns a function which accepts an end moment and returns a range of moments.</p>\n\n<p>Alternately, given only a step size and start moment, return a function which accepts an end moment and returns the corresponding range of moments.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.rangeBy = partial3(xyz_from_zxy(_momentRangeInc));",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "rangeBy",
+      "value": "partial3(xyz_from_zxy(_momentRangeInc))",
+      "string": "_outs.rangeBy"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "startMoment",
+        "description": "The start of the range, which _is not_included in the output."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "endMoment",
+        "description": "The end of the range, which _is not_ included in the output."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Object"
+        ],
+        "name": "step",
+        "description": "An object giving the step size between moments in the the same format as #add, i.e. `{days: 1, hours: 2}`."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Array"
+        ],
+        "description": "An array of new moments corresponding to the given range."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a start moment, an end moment, and an object specifying the step size, generate an array of moment objects representing every step from the start of the range (exclusive) to the end of the range (exclusive).</p>\n\n<p>Alternately, given only a start moment, return a function which accepts an end moment and a step size and returns the corresponding range of moments.  That function can also accept just an end moment, in which case it returns a function which accepts a step size and returns a range of moments.</p>\n\n<p>Alternately, given only start and end moments, return a function which accepts a step size object and returns the corresponding range of moments.</p>",
+      "summary": "<p>Given a start moment, an end moment, and an object specifying the step size, generate an array of moment objects representing every step from the start of the range (exclusive) to the end of the range (exclusive).</p>",
+      "body": "<p>Alternately, given only a start moment, return a function which accepts an end moment and a step size and returns the corresponding range of moments.  That function can also accept just an end moment, in which case it returns a function which accepts a step size and returns a range of moments.</p>\n\n<p>Alternately, given only start and end moments, return a function which accepts a step size object and returns the corresponding range of moments.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.rangeExclusive = partial3(_momentRange_BetweenMoments_Exclusive);",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "rangeExclusive",
+      "value": "partial3(_momentRange_BetweenMoments_Exclusive)",
+      "string": "_outs.rangeExclusive"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Object"
+        ],
+        "name": "step",
+        "description": "An object giving the step size between moments in the the same format as #add, i.e. `{days: 1, hours: 2}`."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "startMoment",
+        "description": "The start of the range, which _is not_ included in the output."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "endMoment",
+        "description": "The end of the range, which _is not_ included in the output."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Array"
+        ],
+        "description": "An array of new moments corresponding to the given range."
+      }
+    ],
+    "description": {
+      "full": "<p>Given an object specifying step size, a start moment, and an end moment, generate an array of moment objects representing every step from the start of the range (exclusive) to the end of the range (exclusive).</p>\n\n<p>Alternately, given only a step size, return a function which accepts a start and end moment and returns the range between those moments with the step size passed.  That function can also accept just a start moment, in which case it returns a function which accepts an end moment and returns a range of moments.</p>\n\n<p>Alternately, given only a step size and start moment, return a function which accepts an end moment and returns the corresponding range of moments.</p>",
+      "summary": "<p>Given an object specifying step size, a start moment, and an end moment, generate an array of moment objects representing every step from the start of the range (exclusive) to the end of the range (exclusive).</p>",
+      "body": "<p>Alternately, given only a step size, return a function which accepts a start and end moment and returns the range between those moments with the step size passed.  That function can also accept just a start moment, in which case it returns a function which accepts an end moment and returns a range of moments.</p>\n\n<p>Alternately, given only a step size and start moment, return a function which accepts an end moment and returns the corresponding range of moments.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.rangeByExclusive = partial3(xyz_from_zxy(_momentRange_BetweenMoments_Exclusive));",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "rangeByExclusive",
+      "value": "partial3(xyz_from_zxy(_momentRange_BetweenMoments_Exclusive))",
+      "string": "_outs.rangeByExclusive"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "nSteps",
+        "description": "The number of moments to generate"
+      },
+      {
+        "type": "param",
+        "types": [
+          "Object"
+        ],
+        "name": "step",
+        "description": "An object with key-value pairs representing the time gap between steps."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "endMoment",
+        "description": "A moment which the generated moments increment towards. It is not included in the output."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Array"
+        ],
+        "description": "An array of new moments corresponding to the given range."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a number of steps, an object specifying the step size, and an end-point moment, generate an array of moments in the range of (<code>endPoint - (</code>nSteps<code>*</code>stepSize<code>)) (inclusive) -&gt;</code>endPoint` (exclusive).</p>\n\n<p>Alternately, given only a number of steps, return a function which accepts a step size and an end moment and returns the corresponding range.  That function can also accept just a step size, in which case it returns a function which accepts an ending moment and returns the corresponding range.</p>\n\n<p>Alternately, given only a number of steps and a step size, return a function which accepts an end moment and returns the corresponding range.</p>",
+      "summary": "<p>Given a number of steps, an object specifying the step size, and an end-point moment, generate an array of moments in the range of (<code>endPoint - (</code>nSteps<code>*</code>stepSize<code>)) (inclusive) -&gt;</code>endPoint` (exclusive).</p>",
+      "body": "<p>Alternately, given only a number of steps, return a function which accepts a step size and an end moment and returns the corresponding range.  That function can also accept just a step size, in which case it returns a function which accepts an ending moment and returns the corresponding range.</p>\n\n<p>Alternately, given only a number of steps and a step size, return a function which accepts an end moment and returns the corresponding range.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.nStepsBefore = partial3(_momentRange_stepsBefore);",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "nStepsBefore",
+      "value": "partial3(_momentRange_stepsBefore)",
+      "string": "_outs.nStepsBefore"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Object"
+        ],
+        "name": "step",
+        "description": "An object with key-value pairs representing the time gap between steps."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "nSteps",
+        "description": "The number of moments to generate"
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "endMoment",
+        "description": "A moment which the generated moments increment towards. It is not included in the output."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Array"
+        ],
+        "description": "An array of new moments corresponding to the given range."
+      }
+    ],
+    "description": {
+      "full": "<p>Given an object specifying the step size, a number of steps, and an end-point moment, generate an array of moments in the range of (<code>endPoint - (</code>nSteps<code>*</code>stepSize<code>)) (inclusive) -&gt;</code>endPoint` (exclusive).</p>\n\n<p>Alternately, given only a step size, return a function which accepts a number of steps and an end moment and returns the corresponding range.  That function can also accept just a number of steps, in which case it returns a function which accepts an ending moment and returns the corresponding range.</p>\n\n<p>Alternately, given only a step size and number of steps, return a function which accepts an end moment and returns the corresponding range.</p>",
+      "summary": "<p>Given an object specifying the step size, a number of steps, and an end-point moment, generate an array of moments in the range of (<code>endPoint - (</code>nSteps<code>*</code>stepSize<code>)) (inclusive) -&gt;</code>endPoint` (exclusive).</p>",
+      "body": "<p>Alternately, given only a step size, return a function which accepts a number of steps and an end moment and returns the corresponding range.  That function can also accept just a number of steps, in which case it returns a function which accepts an ending moment and returns the corresponding range.</p>\n\n<p>Alternately, given only a step size and number of steps, return a function which accepts an end moment and returns the corresponding range.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.stepsBeforeBy = partial3(xyz_from_yxz(_momentRange_stepsBefore));",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "stepsBeforeBy",
+      "value": "partial3(xyz_from_yxz(_momentRange_stepsBefore))",
+      "string": "_outs.stepsBeforeBy"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "startMoment",
+        "description": "A moment which the generated moments increment away from. It is not included in the output."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Object"
+        ],
+        "name": "step",
+        "description": "An object with key-value pairs representing the time gap between steps."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "nSteps",
+        "description": "The number of moments to generate"
+      },
+      {
+        "type": "return",
+        "types": [
+          "Array"
+        ],
+        "description": "An array of new moments corresponding to the given range."
+      }
+    ],
+    "description": {
+      "full": "<p>Given an end-point moment, an object specifying the step size, and a number of steps generate an array of moments in the range of (<code>endPoint - (</code>nSteps<code>*</code>stepSize<code>)) (inclusive) -&gt;</code>endPoint` (exclusive).</p>\n\n<p>Alternately, given only an ending moment, return a function which accepts a step size and a number of steps and returns the corresponding range.  That function can also accept just a step size, in which case it returns a function which accepts a number of steps and returns the corresponding range.</p>\n\n<p>Alternately, given only an ending moment and a step size, return a function which accepts a number of steps and returns the corresponding range.</p>",
+      "summary": "<p>Given an end-point moment, an object specifying the step size, and a number of steps generate an array of moments in the range of (<code>endPoint - (</code>nSteps<code>*</code>stepSize<code>)) (inclusive) -&gt;</code>endPoint` (exclusive).</p>",
+      "body": "<p>Alternately, given only an ending moment, return a function which accepts a step size and a number of steps and returns the corresponding range.  That function can also accept just a step size, in which case it returns a function which accepts a number of steps and returns the corresponding range.</p>\n\n<p>Alternately, given only an ending moment and a step size, return a function which accepts a number of steps and returns the corresponding range.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.stepsBeforeMoment = partial3(xyz_from_zyx(_momentRange_stepsBefore));",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "stepsBeforeMoment",
+      "value": "partial3(xyz_from_zyx(_momentRange_stepsBefore))",
+      "string": "_outs.stepsBeforeMoment"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "nSteps",
+        "description": "The number of moments to generate"
+      },
+      {
+        "type": "param",
+        "types": [
+          "Object"
+        ],
+        "name": "step",
+        "description": "An object with key-value pairs representing the time gap between steps."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "startMoment",
+        "description": "A moment which the generated moments increment away from. It is not included in the output."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Array"
+        ],
+        "description": "An array of new moments corresponding to the given range."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a number of steps, an object specifying the step size, and a start-point moment, generate an array of moments in the range of <code>startPoint</code> (exclusive) -> (<code>startPoint + (</code>nSteps<code>*</code>stepSize`)) (inclusive).</p>\n\n<p>Alternately, given only a number of steps, return a function which accepts a step size and a starting moment and returns the corresponding range.  That function can also accept just a step size, in which case it returns a function which accepts a starting moment and returns the corresponding range.</p>\n\n<p>Alternately, given only a number of steps and a step size, return a function which accepts a starting moment and returns the corresponding range.</p>",
+      "summary": "<p>Given a number of steps, an object specifying the step size, and a start-point moment, generate an array of moments in the range of <code>startPoint</code> (exclusive) -> (<code>startPoint + (</code>nSteps<code>*</code>stepSize`)) (inclusive).</p>",
+      "body": "<p>Alternately, given only a number of steps, return a function which accepts a step size and a starting moment and returns the corresponding range.  That function can also accept just a step size, in which case it returns a function which accepts a starting moment and returns the corresponding range.</p>\n\n<p>Alternately, given only a number of steps and a step size, return a function which accepts a starting moment and returns the corresponding range.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.nStepsAfter = partial3(_momentRange_stepsAfter);",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "nStepsAfter",
+      "value": "partial3(_momentRange_stepsAfter)",
+      "string": "_outs.nStepsAfter"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Object"
+        ],
+        "name": "step",
+        "description": "An object with key-value pairs representing the time gap between steps."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "nSteps",
+        "description": "The number of moments to generate"
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "startMoment",
+        "description": "A moment which the generated moments increment away from. It is not included in the output."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Array"
+        ],
+        "description": "An array of new moments corresponding to the given range."
+      }
+    ],
+    "description": {
+      "full": "<p>Given an object specifying the step size, a number of steps, and a start-point moment, generate an array of moments in the range of <code>startPoint</code> (exclusive) -> (<code>startPoint + (</code>nSteps<code>*</code>stepSize`)) (inclusive).</p>\n\n<p>Alternately, given only a step size, return a function which accepts a number of steps and a start moment and returns the corresponding range.  That function can also accept just a number of steps, in which case it returns a function which accepts a start moment and returns the corresponding range.</p>\n\n<p>Alternately, given only a step size and number of steps, return a function which accepts a start moment and returns the corresponding range.</p>",
+      "summary": "<p>Given an object specifying the step size, a number of steps, and a start-point moment, generate an array of moments in the range of <code>startPoint</code> (exclusive) -> (<code>startPoint + (</code>nSteps<code>*</code>stepSize`)) (inclusive).</p>",
+      "body": "<p>Alternately, given only a step size, return a function which accepts a number of steps and a start moment and returns the corresponding range.  That function can also accept just a number of steps, in which case it returns a function which accepts a start moment and returns the corresponding range.</p>\n\n<p>Alternately, given only a step size and number of steps, return a function which accepts a start moment and returns the corresponding range.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.stepsAfterBy = partial3(xyz_from_yxz(_momentRange_stepsAfter));",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "stepsAfterBy",
+      "value": "partial3(xyz_from_yxz(_momentRange_stepsAfter))",
+      "string": "_outs.stepsAfterBy"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "startMoment",
+        "description": "A moment which the generated moments increment away from. It is not included in the output."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Object"
+        ],
+        "name": "step",
+        "description": "An object with key-value pairs representing the time gap between steps."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Number"
+        ],
+        "name": "nSteps",
+        "description": "The number of moments to generate"
+      },
+      {
+        "type": "return",
+        "types": [
+          "Array"
+        ],
+        "description": "An array of new moments corresponding to the given range."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a start-point moment, an object specifying the step size, and a number of steps generate an array of moments in the range of <code>startPoint</code> (exclusive) -> (<code>startPoint + (</code>nSteps<code>*</code>stepSize`)) (inclusive).</p>\n\n<p>Alternately, given only a starting moment, return a function which accepts a step size and a number of steps and returns the corresponding range.  That function can also accept just a step size, in which case it returns a function which accepts a number of steps and returns the corresponding range.</p>\n\n<p>Alternately, given only a starting moment and a step size, return a function which accepts a number of steps and returns the corresponding range.</p>",
+      "summary": "<p>Given a start-point moment, an object specifying the step size, and a number of steps generate an array of moments in the range of <code>startPoint</code> (exclusive) -> (<code>startPoint + (</code>nSteps<code>*</code>stepSize`)) (inclusive).</p>",
+      "body": "<p>Alternately, given only a starting moment, return a function which accepts a step size and a number of steps and returns the corresponding range.  That function can also accept just a step size, in which case it returns a function which accepts a number of steps and returns the corresponding range.</p>\n\n<p>Alternately, given only a starting moment and a step size, return a function which accepts a number of steps and returns the corresponding range.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.stepsAfterMoment = partial3(xyz_from_zyx(_momentRange_stepsAfter));\n    return _outs;\n  })();\n\n  module.exports = ranges;\n\n}).call(this);\n// Generated by CoffeeScript 1.6.3\n(function() {\n  var flatSplat, inDir, inhere, misc, partial2, path, reverse2, selectors, splattedPartial2, _, _ref,\n    __slice = [].slice;\n\n  path = require(\"path\");\n\n  _ref = require(path.join(__dirname, \"util.js\")), reverse2 = _ref.reverse2, partial2 = _ref.partial2, flatSplat = _ref.flatSplat, inDir = _ref.inDir, splattedPartial2 = _ref.splattedPartial2;\n\n  _ = require(\"underscore\");\n\n  inhere = inDir(__dirname);\n\n  misc = require(inhere(\"misc.js\"));\n\n  selectors = (function() {\n    var oneArgs, twoArgs, _outs;\n    oneArgs = {};",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "stepsAfterMoment",
+      "value": "partial3(xyz_from_zyx(_momentRange_stepsAfter))",
+      "string": "_outs.stepsAfterMoment"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Array"
+        ],
+        "name": "momentList",
+        "description": "An array of moments, or a sequence of individual moments (splatted)."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the earliest moment."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a list of moments, return a clone of the moment with the earliest date.</p>",
+      "summary": "<p>Given a list of moments, return a clone of the moment with the earliest date.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "oneArgs.earliest = function() {\n      var i, momentList, _earliestSoFar, _i, _ref1;\n      momentList = 1 <= arguments.length ? __slice.call(arguments, 0) : [];\n      if (_.isArray(momentList[0])) {\n        momentList = momentList[0];\n      }\n      _earliestSoFar = momentList[0];\n      for (i = _i = 1, _ref1 = momentList.length - 1; 1 <= _ref1 ? _i <= _ref1 : _i >= _ref1; i = 1 <= _ref1 ? ++_i : --_i) {\n        if (momentList[i].isBefore(_earliestSoFar)) {\n          _earliestSoFar = momentList[i];\n        }\n      }\n      return _earliestSoFar.clone();\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "oneArgs",
+      "name": "earliest",
+      "string": "oneArgs.earliest()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Array"
+        ],
+        "name": "momentList",
+        "description": "An array of moments, or a sequence of individual moments (splatted)."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the latest moment."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a list of moments, return a clone of the moment with the latest date.</p>",
+      "summary": "<p>Given a list of moments, return a clone of the moment with the latest date.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "oneArgs.latest = function() {\n      var i, momentList, _i, _latestSoFar, _ref1;\n      momentList = 1 <= arguments.length ? __slice.call(arguments, 0) : [];\n      if (_.isArray(momentList[0])) {\n        momentList = momentList[0];\n      }\n      _latestSoFar = momentList[0];\n      for (i = _i = 1, _ref1 = momentList.length - 1; 1 <= _ref1 ? _i <= _ref1 : _i >= _ref1; i = 1 <= _ref1 ? ++_i : --_i) {\n        if (momentList[i].isAfter(_latestSoFar)) {\n          _latestSoFar = momentList[i];\n        }\n      }\n      return _latestSoFar.clone();\n    };\n    twoArgs = {};",
+    "ctx": {
+      "type": "method",
+      "receiver": "oneArgs",
+      "name": "latest",
+      "string": "oneArgs.latest()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "compareAgainst",
+        "description": "A moment to compare the other moments against."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Array"
+        ],
+        "name": "momentList...",
+        "description": "An array of moments to filter, or a sequence of individual moments (splatted)."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Array"
+        ],
+        "description": "An array of clones of all moments occurring before the comparison moment."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a comparison moment and a list of other moments, return clones of all moments with dates before the comparison date.</p>",
+      "summary": "<p>Given a comparison moment and a list of other moments, return clones of all moments with dates before the comparison date.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "twoArgs.allBefore = function() {\n      var compareAgainst, momentList, _before;\n      compareAgainst = arguments[0], momentList = 2 <= arguments.length ? __slice.call(arguments, 1) : [];\n      if (_.isArray(momentList[0])) {\n        momentList = momentList[0];\n      }\n      _before = _.filter(momentList, function(aMoment) {\n        return aMoment.isBefore(compareAgainst);\n      });\n      _before = _.map(_before, function(aMoment) {\n        return aMoment.clone();\n      });\n      return _before;\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "twoArgs",
+      "name": "allBefore",
+      "string": "twoArgs.allBefore()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "compareAgainst",
+        "description": "A moment to compare the other moments against."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Array"
+        ],
+        "name": "momentList...",
+        "description": "An array of moments to filter, or a sequence of individual moments (splatted)."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Array"
+        ],
+        "description": "An array of clones of all moments occurring after the comparison moment."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a comparison moment and a list of other moments, return clones of all moments with dates after the comparison date.</p>",
+      "summary": "<p>Given a comparison moment and a list of other moments, return clones of all moments with dates after the comparison date.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "twoArgs.allAfter = function() {\n      var compareAgainst, momentList, _after;\n      compareAgainst = arguments[0], momentList = 2 <= arguments.length ? __slice.call(arguments, 1) : [];\n      if (_.isArray(momentList[0])) {\n        momentList = momentList[0];\n      }\n      _after = _.filter(momentList, function(aMoment) {\n        return aMoment.isAfter(compareAgainst);\n      });\n      _after = _.map(_after, function(aMoment) {\n        return aMoment.clone();\n      });\n      return _after;\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "twoArgs",
+      "name": "allAfter",
+      "string": "twoArgs.allAfter()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "compareAgainst",
+        "description": "A moment to compare agsint."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Array"
+        ],
+        "name": "momentList...",
+        "description": "An array of moments to select from."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "The single moment closest in time to the comparison moment."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a comparison moment and a list of other moments, return the single moment closest in time to the comparison moment.</p>",
+      "summary": "<p>Given a comparison moment and a list of other moments, return the single moment closest in time to the comparison moment.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "twoArgs.closestTo = function() {\n      var compareAgainst, i, momentList, _closestSoFar, _diff, _i, _minDiff, _ref1;\n      compareAgainst = arguments[0], momentList = 2 <= arguments.length ? __slice.call(arguments, 1) : [];\n      if (_.isArray(momentList[0])) {\n        momentList = momentList[0];\n      }\n      _closestSoFar = momentList[0];\n      _minDiff = misc.absDiff(compareAgainst, momentList[0]);\n      for (i = _i = 1, _ref1 = momentList.length - 1; 1 <= _ref1 ? _i <= _ref1 : _i >= _ref1; i = 1 <= _ref1 ? ++_i : --_i) {\n        _diff = misc.absDiff(compareAgainst, momentList[i]);\n        if (_diff < _minDiff) {\n          _closestSoFar = momentList[i];\n          _minDiff = _diff;\n        }\n      }\n      return _closestSoFar;\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "twoArgs",
+      "name": "closestTo",
+      "string": "twoArgs.closestTo()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "compareAgainst",
+        "description": "A moment to compare against."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Array"
+        ],
+        "name": "momentList...",
+        "description": "An array of moments to select from."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "The single moment farthest in time from the comparison moment."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a comparison moment and a list of other moments, return the single moment farthest in time from the comparison moment.</p>",
+      "summary": "<p>Given a comparison moment and a list of other moments, return the single moment farthest in time from the comparison moment.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "twoArgs.farthestFrom = function() {\n      var compareAgainst, i, momentList, _diff, _farthestSoFar, _i, _maxDiff, _ref1;\n      compareAgainst = arguments[0], momentList = 2 <= arguments.length ? __slice.call(arguments, 1) : [];\n      if (_.isArray(momentList[0])) {\n        momentList = momentList[0];\n      }\n      _farthestSoFar = momentList[0];\n      _maxDiff = misc.absDiff(compareAgainst, momentList[0]);\n      for (i = _i = 1, _ref1 = momentList.length - 1; 1 <= _ref1 ? _i <= _ref1 : _i >= _ref1; i = 1 <= _ref1 ? ++_i : --_i) {\n        _diff = misc.absDiff(compareAgainst, momentList[i]);\n        if (_diff > _maxDiff) {\n          _farthestSoFar = momentList[i];\n          _maxDiff = _diff;\n        }\n      }\n      return _farthestSoFar;\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "twoArgs",
+      "name": "farthestFrom",
+      "string": "twoArgs.farthestFrom()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "compareAgainst",
+        "description": "A moment to compare the other moments against."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Array"
+        ],
+        "name": "momentList...",
+        "description": "An array of moments to select from."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "The single moment closest in time to the comparison moment, out of all moments occurring before the comparison."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a comparison moment and a list of other moments, filter the list down to those moments occurring before the comparison and then return the one closest in time.</p>",
+      "summary": "<p>Given a comparison moment and a list of other moments, filter the list down to those moments occurring before the comparison and then return the one closest in time.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "twoArgs.closestBefore = function() {\n      var compareAgainst, momentList;\n      compareAgainst = arguments[0], momentList = 2 <= arguments.length ? __slice.call(arguments, 1) : [];\n      return twoArgs.closestTo(compareAgainst, twoArgs.allBefore(compareAgainst, flatSplat(momentList)));\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "twoArgs",
+      "name": "closestBefore",
+      "string": "twoArgs.closestBefore()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "compareAgainst",
+        "description": "A moment to compare the other moments against."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Array"
+        ],
+        "name": "momentList...",
+        "description": "An array of moments to select from."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "The single moment closest in time to the comparison moment, out of all moments occurring after the comparison."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a comparison moment and a list of other moments, filter the list down to those moments occurring after the comparison and then return the one closest in time.</p>",
+      "summary": "<p>Given a comparison moment and a list of other moments, filter the list down to those moments occurring after the comparison and then return the one closest in time.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "twoArgs.closestAfter = function() {\n      var compareAgainst, momentList;\n      compareAgainst = arguments[0], momentList = 2 <= arguments.length ? __slice.call(arguments, 1) : [];\n      return twoArgs.closestTo(compareAgainst, twoArgs.allAfter(compareAgainst, flatSplat(momentList)));\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "twoArgs",
+      "name": "closestAfter",
+      "string": "twoArgs.closestAfter()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "compareAgainst",
+        "description": "A moment to compare the other moments against."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Array"
+        ],
+        "name": "momentList...",
+        "description": "An array of moments to select from."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "The single moment farthest in time to the comparison moment, out of all moments occurring before the comparison."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a comparison moment and a list of other moments, filter the list down to those moments occurring before the comparison and then return the one farthest in time.</p>",
+      "summary": "<p>Given a comparison moment and a list of other moments, filter the list down to those moments occurring before the comparison and then return the one farthest in time.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "twoArgs.farthestBefore = function() {\n      var compareAgainst, momentList;\n      compareAgainst = arguments[0], momentList = 2 <= arguments.length ? __slice.call(arguments, 1) : [];\n      return twoArgs.farthestFrom(compareAgainst, twoArgs.allBefore(compareAgainst, flatSplat(momentList)));\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "twoArgs",
+      "name": "farthestBefore",
+      "string": "twoArgs.farthestBefore()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "compareAgainst",
+        "description": "A moment to compare the other moments against."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Array"
+        ],
+        "name": "momentList...",
+        "description": "An array of moments to select from."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "The single moment farthest in time to the comparison moment, out of all moments occurring after the comparison."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a comparison moment and a list of other moments, filter the list down to those moments occurring after the comparison and then return the one farthest in time.</p>",
+      "summary": "<p>Given a comparison moment and a list of other moments, filter the list down to those moments occurring after the comparison and then return the one farthest in time.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "twoArgs.farthestAfter = function() {\n      var compareAgainst, momentList;\n      compareAgainst = arguments[0], momentList = 2 <= arguments.length ? __slice.call(arguments, 1) : [];\n      return twoArgs.farthestFrom(compareAgainst, twoArgs.allAfter(compareAgainst, flatSplat(momentList)));\n    };\n    _outs = {};\n    _.extend(_outs, oneArgs);\n    _.each(_.pairs(twoArgs), function(onePair) {\n      var fnName, fnRef;\n      fnName = onePair[0];\n      fnRef = onePair[1];\n      return _outs[fnName] = splattedPartial2(fnRef);\n    });\n    return _outs;\n  })();\n\n  module.exports = selectors;\n\n}).call(this);\n// Generated by CoffeeScript 1.6.3\n(function() {\n  var flatSplat, inDir, inHere, momentVal, negMomentVal, negate, partial1, partial2, path, reverse2, sorters, _, _g, _ref,\n    __slice = [].slice;\n\n  path = require(\"path\");\n\n  _ref = require(path.join(__dirname, \"util.js\")), reverse2 = _ref.reverse2, partial2 = _ref.partial2, flatSplat = _ref.flatSplat, inDir = _ref.inDir;\n\n  _ = require(\"underscore\");\n\n  inHere = inDir(__dirname);\n\n  partial1 = function(fn, x) {\n    if (x != null) {\n      return fn(x);\n    } else {\n      return function(x) {\n        return fn(x);\n      };\n    }\n  };\n\n  negate = function(fn, input) {\n    var output;\n    output = fn(input);\n    if (_.isNumber(output)) {\n      return output * -1;\n    }\n    return !output;\n  };\n\n  negate = partial2(negate);\n\n  momentVal = function(aMoment) {\n    return aMoment.valueOf();\n  };\n\n  negMomentVal = function(aMoment) {\n    return -1 * aMoment.valueOf();\n  };\n\n  _g = require(inHere(\"getters.js\"));\n\n  sorters = (function() {\n    var ascending, descending, _out, _sort;\n    _sort = function() {\n      var momentList, sortByFn, _sorted;\n      sortByFn = arguments[0], momentList = 2 <= arguments.length ? __slice.call(arguments, 1) : [];\n      momentList = flatSplat(momentList);\n      _sorted = _.sortBy(momentList, sortByFn);\n      return _sorted;\n    };\n    ascending = partial2(_sort, momentVal);\n    descending = partial2(_sort, negMomentVal);\n    _out = {};",
+    "ctx": {
+      "type": "method",
+      "receiver": "twoArgs",
+      "name": "farthestAfter",
+      "string": "twoArgs.farthestAfter()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Array"
+        ],
+        "name": "momentList",
+        "description": "An array of moments to sort, or a sequence of single moments (splatted)."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Array"
+        ],
+        "description": "An array of cloned moments sorted in order of earliest -> latest."
+      }
+    ],
+    "description": {
+      "full": "<p>Given an array of moments or a sequence of single moments, return an array of cloned moments sorted in order of earliest to latest.</p>",
+      "summary": "<p>Given an array of moments or a sequence of single moments, return an array of cloned moments sorted in order of earliest to latest.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_out.ascending = ascending;\n    _out.asc = ascending;",
+    "ctx": {
+      "type": "property",
+      "receiver": "_out",
+      "name": "ascending",
+      "value": "ascending",
+      "string": "_out.ascending"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Array"
+        ],
+        "name": "momentList",
+        "description": "An array of moments to sort, or a sequence of single moments (splatted)."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Array"
+        ],
+        "description": "An array of cloned moments sorted in order of latest -> earliest."
+      }
+    ],
+    "description": {
+      "full": "<p>Given an array of moments or a sequence of single moments, return an array of cloned moments sorted in order of latest to earliest.</p>",
+      "summary": "<p>Given an array of moments or a sequence of single moments, return an array of cloned moments sorted in order of latest to earliest.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_out.descending = descending;\n    _out.desc = descending;\n    return _out;\n  })();\n\n  module.exports = sorters;\n\n}).call(this);\n// Generated by CoffeeScript 1.6.3\n(function() {\n  var flatSplat, partial2, path, reverse2, starters, _, _ref;\n\n  path = require(\"path\");\n\n  _ref = require(path.join(__dirname, \"util.js\")), reverse2 = _ref.reverse2, partial2 = _ref.partial2, flatSplat = _ref.flatSplat;\n\n  _ = require(\"underscore\");\n\n  starters = (function() {\n    var _outs, _stringStartOf;\n    _outs = {};",
+    "ctx": {
+      "type": "property",
+      "receiver": "_out",
+      "name": "descending",
+      "value": "descending",
+      "string": "_out.descending"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and round down."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target rounded down to the beginning of its current year."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment, return a clone rounded down to the beginning of its current year.</p>",
+      "summary": "<p>Given a target moment, return a clone rounded down to the beginning of its current year.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.startOfYear = function(targetMoment) {\n      return targetMoment.clone().startOf(\"year\");\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_outs",
+      "name": "startOfYear",
+      "string": "_outs.startOfYear()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and round down."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target rounded down to the beginning of its current month."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment, return a clone rounded down to the beginning of its current month.</p>",
+      "summary": "<p>Given a target moment, return a clone rounded down to the beginning of its current month.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.startOfMonth = function(targetMoment) {\n      return targetMoment.clone().startOf(\"month\");\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_outs",
+      "name": "startOfMonth",
+      "string": "_outs.startOfMonth()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and round down."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target rounded down to the beginning of its current week."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment, return a clone rounded down to the beginning of its current week.</p>",
+      "summary": "<p>Given a target moment, return a clone rounded down to the beginning of its current week.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.startOfWeek = function(targetMoment) {\n      return targetMoment.clone().startOf(\"week\");\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_outs",
+      "name": "startOfWeek",
+      "string": "_outs.startOfWeek()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and round down."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target rounded down to the beginning of its current day."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment, return a clone rounded down to the beginning of its current day.</p>",
+      "summary": "<p>Given a target moment, return a clone rounded down to the beginning of its current day.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.startOfDay = function(targetMoment) {\n      return targetMoment.clone().startOf(\"day\");\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_outs",
+      "name": "startOfDay",
+      "string": "_outs.startOfDay()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and round down."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target rounded down to the beginning of its current hour."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment, return a clone rounded down to the beginning of its current hour.</p>",
+      "summary": "<p>Given a target moment, return a clone rounded down to the beginning of its current hour.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.startOfHour = function(targetMoment) {\n      return targetMoment.clone().startOf(\"hour\");\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_outs",
+      "name": "startOfHour",
+      "string": "_outs.startOfHour()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and round down."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target rounded down to the beginning of its current minute."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment, return a clone rounded down to the beginning of its current minute.</p>",
+      "summary": "<p>Given a target moment, return a clone rounded down to the beginning of its current minute.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.startOfMinute = function(targetMoment) {\n      return targetMoment.clone().startOf(\"minute\");\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_outs",
+      "name": "startOfMinute",
+      "string": "_outs.startOfMinute()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "A moment to clone and round down."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target rounded down to the beginning of its current second."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment, return a clone rounded down to the beginning of its current second.</p>",
+      "summary": "<p>Given a target moment, return a clone rounded down to the beginning of its current second.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.startOfSecond = function(targetMoment) {\n      return targetMoment.clone().startOf(\"second\");\n    };\n    _stringStartOf = function(startString, targetMoment) {\n      return targetMoment.clone().startOf(startString);\n    };",
+    "ctx": {
+      "type": "method",
+      "receiver": "_outs",
+      "name": "startOfSecond",
+      "string": "_outs.startOfSecond()"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "String"
+        ],
+        "name": "unitString",
+        "description": "The unit to round down."
+      },
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "The moment to clone and round down."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with its value rounded down to the nearest whole `unitString`."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a string representing a unit of time and a target moment, return a clone rounded down to the nearest whole value of that unit.</p>\n\n<p>Alternately, given only a unit string, return a stateless function which accepts a moment and returns a clone rounded down to the nearest whole value of that unit.</p>",
+      "summary": "<p>Given a string representing a unit of time and a target moment, return a clone rounded down to the nearest whole value of that unit.</p>",
+      "body": "<p>Alternately, given only a unit string, return a stateless function which accepts a moment and returns a clone rounded down to the nearest whole value of that unit.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.startOf = partial2(_stringStartOf);",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "startOf",
+      "value": "partial2(_stringStartOf)",
+      "string": "_outs.startOf"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "Moment"
+        ],
+        "name": "targetMoment",
+        "description": "The moment to clone and round down."
+      },
+      {
+        "type": "param",
+        "types": [
+          "String"
+        ],
+        "name": "unitString",
+        "description": "The unit to round down."
+      },
+      {
+        "type": "return",
+        "types": [
+          "Moment"
+        ],
+        "description": "A clone of the target with its value rounded down to the nearest whole `unitString`."
+      }
+    ],
+    "description": {
+      "full": "<p>Given a target moment and a string representing a unit of time, return a clone rounded down to the nearest whole value of that unit.</p>\n\n<p>Alternately, given only a target moment, return a stateless function which accepts a unit string and returns a clone of the moment rounded down to the nearest whole value of that unit.</p>",
+      "summary": "<p>Given a target moment and a string representing a unit of time, return a clone rounded down to the nearest whole value of that unit.</p>",
+      "body": "<p>Alternately, given only a target moment, return a stateless function which accepts a unit string and returns a clone of the moment rounded down to the nearest whole value of that unit.</p>"
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "_outs.startOfMoment = partial2(reverse2(_stringStartOf));\n    return _outs;\n  })();\n\n  module.exports = starters;\n\n}).call(this);\n// Generated by CoffeeScript 1.6.3\n(function() {\n  var catApply, flatSplat, inDir, partial2, partial3, path, reverse2, splattedPartial2, _,\n    __slice = [].slice;\n\n  _ = require(\"underscore\");\n\n  reverse2 = function(fn) {\n    return function(x, y) {\n      return fn(y, x);\n    };\n  };\n\n  partial2 = function(fn, x, y) {\n    if (y != null) {\n      return fn(x, y);\n    } else if (x != null) {\n      return function(y) {\n        return fn(x, y);\n      };\n    } else {\n      return function(x, y) {\n        if (y != null) {\n          return fn(x, y);\n        } else {\n          return function(y) {\n            return fn(x, y);\n          };\n        }\n      };\n    }\n  };\n\n  partial3 = function(fn, x, y, z) {\n    if (z != null) {\n      return fn(x, y, z);\n    }\n    if (y != null) {\n      return function(z) {\n        return fn(x, y, z);\n      };\n    }\n    if (x != null) {\n      return function(y, z) {\n        if (z != null) {\n          return fn(x, y, z);\n        } else {\n          return function(z) {\n            return fn(x, y, z);\n          };\n        }\n      };\n    } else {\n      return function(x, y, z) {\n        if (z != null) {\n          return fn(x, y, z);\n        }\n        if (y != null) {\n          return function(z) {\n            return fn(x, y, z);\n          };\n        }\n        return function(y, z) {\n          if (z != null) {\n            return fn(x, y, z);\n          } else {\n            return function(z) {\n              return fn(x, y, z);\n            };\n          }\n        };\n      };\n    }\n  };\n\n  flatSplat = function(aList) {\n    if (_.size(aList) === 1 && _.isArray(aList[0])) {\n      return aList[0];\n    } else {\n      return aList;\n    }\n  };\n\n  path = require(\"path\");\n\n  inDir = function(dirName) {\n    return function(fName) {\n      return path.join(dirName, fName);\n    };\n  };\n\n  catApply = function() {\n    var args, fn;\n    fn = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];\n    args = _.flatten(args);\n    return fn.apply(null, args);\n  };\n\n  splattedPartial2 = function() {\n    var fn, x, y;\n    fn = arguments[0], x = arguments[1], y = 3 <= arguments.length ? __slice.call(arguments, 2) : [];\n    if ((y != null) && _.size(y) > 0) {\n      console.log(_.size(y));\n      console.log(\"si\");\n      return catApply(fn, x, y);\n    } else {\n      if (x != null) {\n        return function() {\n          var y;\n          y = 1 <= arguments.length ? __slice.call(arguments, 0) : [];\n          return catApply(fn, x, y);\n        };\n      } else {\n        return function() {\n          var x, y;\n          x = arguments[0], y = 2 <= arguments.length ? __slice.call(arguments, 1) : [];\n          if ((y != null) && _.size(y) > 0) {\n            return catApply(fn, x, y);\n          } else {\n            return function() {\n              var y;\n              y = 1 <= arguments.length ? __slice.call(arguments, 0) : [];\n              return catApply(fn, x, y);\n            };\n          }\n        };\n      }\n    }\n  };\n\n  module.exports = {\n    reverse2: reverse2,\n    partial2: partial2,\n    partial3: partial3,\n    flatSplat: flatSplat,\n    splattedPartial2: splattedPartial2,\n    inDir: inDir\n  };\n\n}).call(this);",
+    "ctx": {
+      "type": "property",
+      "receiver": "_outs",
+      "name": "startOfMoment",
+      "value": "partial2(reverse2(_stringStartOf))",
+      "string": "_outs.startOfMoment"
     }
   }
 ]

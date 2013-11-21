@@ -1,0 +1,177 @@
+<html>
+<head>
+	<meta id="view-meta" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">	
+	<title>Overview | Momentous</title>
+<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+</head>
+<body>
+	<div id="page-frame">
+		<div id="site-header">
+			<h1>Momentous</h1>
+			<div class="header-links">
+				<span class="link-wrapper-span">
+				
+					
+						<a href="index.html">Home</a>
+					
+
+				
+					
+						<a class="active-head-link" href="overview.html">Overview</a>
+					
+
+				
+					
+						<a href="api.html">API</a>
+					
+
+				
+					
+						<a href="spec.html">Specs</a>
+					
+
+				
+				</span>
+			</div>
+		</div>
+		<div id="body-frame">
+			
+				<h2>Overview</h2>
+			
+			<div class="basic-content-frame">
+<p><strong>Momentous</strong>&#39;s methods are designed for efficient use with functional list programming libraries like <a href="http://www.underscorejs.org">Underscore</a> and <a href="http://www.lodash.com">Lo-Dash</a>.  Built-in partial application means that a method call with one parameter can often replace the need for an anonymous function literal in a <code>_.map</code> or <code>_.filter</code> callback.</p>
+<p>So instead of this:</p>
+<pre><code class="lang-javascript"><span class="comment">// `someDates` is an array of moments.</span>
+<span class="keyword">var</span> datesPlusDay <span class="keyword operator">=</span> _.<span class="function call">map</span>(someDates, <span class="keyword">function</span>(oneDate) {
+    oneDate.<span class="function call">clone</span>().<span class="function call">add</span>({days: <span class="constant numeric">1</span>});
+});</code></pre>
+<p>You can write this:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> datesPlusDay <span class="keyword operator">=</span> _.<span class="function call">map</span>(someDates, momentous.<span class="function call">addBy</span>({days: <span class="constant numeric">1</span>});</code></pre>
+<p>This saves more and more typing as an operation&#39;s logic becomes more complex.  For instance, if you want to extract the dates from <code>someDates</code> which occur after November 10, 2012 and then return clones with one day added, you&#39;d normally need to do this:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> nov10 <span class="keyword operator">=</span> <span class="function call">moment</span>(<span class="string">"2012-11-10"</span>);
+<span class="keyword">var</span> afterNov10PlusOne <span class="keyword operator">=</span> _.<span class="function call">chain</span>(someDates)
+                    .<span class="function call">filter</span>( <span class="keyword">function</span>(oneDate) {
+                        <span class="keyword">if</span> (oneDate.<span class="function call">isAfter</span>(nov10)) {
+                            <span class="keyword">return</span> <span class="constant language">true</span>;
+                        }
+                        <span class="keyword">return</span> <span class="constant language">false</span>;
+                    }).<span class="function call">map</span>( <span class="keyword">function</span>(oneDate) {
+                        <span class="keyword">var</span> cloned <span class="keyword operator">=</span> oneDate.<span class="function call">clone</span>();
+                        <span class="keyword">return</span> cloned.<span class="function call">add</span>({days: <span class="constant numeric">1</span>});
+                    }).<span class="function call">value</span>();</code></pre>
+<p>But now you can write this:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> nov10 <span class="keyword operator">=</span> <span class="function call">moment</span>(<span class="string">"2012-11-10"</span>);
+<span class="keyword">var</span> afterNov10PlusOne <span class="keyword operator">=</span> _.<span class="function call">chain</span>(someDates)
+                    .<span class="function call">filter</span>( momentous.<span class="function call">isAfterMoment</span>(nov10) )
+                    .<span class="function call">map</span>( momentous.<span class="function call">addBy</span>({days: <span class="constant numeric">1</span>}))
+                    .<span class="function call">value</span>();</code></pre>
+<p>This extends to any date-related list operation.  There are partially applied predicates for filtering based on sequence, add/subtract methods for mapping, methods for generating lists of moment instances at set intervals or randomly within given constraints, and numerous utility methods.</p>
+<h4 id="filtering">Filtering</h4>
+<p>Partially applied sequence predicates make for efficient list filtering.  <code>isBefore</code> and <code>isAfter</code> compare their second argument against their first:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> oct15 <span class="keyword operator">=</span> <span class="function call">moment</span>(<span class="string">"2013-10-15"</span>);
+<span class="keyword">var</span> oct20 <span class="keyword operator">=</span> <span class="function call">moment</span>(<span class="string">"2013-10-20"</span>);
+<span class="keyword">var</span> oct10 <span class="keyword operator">=</span> <span class="function call">moment</span>(<span class="string">"2013-10-10"</span>);
+
+momentous.<span class="function call">isBefore</span>(oct15, oct10); <span class="comment">//true</span>
+
+<span class="comment">//returns a reusable predicate</span>
+<span class="keyword">var</span> isBeforeOct20 <span class="keyword operator">=</span> momentous.<span class="function call">isBefore</span>(oct20);
+<span class="function call">isBeforeOct20</span>(oct10); <span class="comment">//also true</span>
+
+<span class="keyword">var</span> dates <span class="keyword operator">=</span> [oct10, oct20, oct15];
+
+<span class="keyword">var</span> before20th <span class="keyword operator">=</span> _.<span class="function call">filter</span>(dates, isBeforeOct20);
+<span class="comment">// returns [oct10, oct15] array.</span></code></pre>
+<p><code>isBetween</code> behaves similarly but takes three dates, taking the range dates first and second so that it can be easily used as a filter:</p>
+<pre><code class="lang-javascript">momentous.<span class="function call">isBetween</span>(oct10,oct20,oct15); <span class="comment">// true</span>
+<span class="keyword">var</span> between <span class="keyword operator">=</span> momentous.<span class="function call">isBetween</span>(oct10, oct20);
+<span class="function call">between</span>(oct15); <span class="comment">// true</span></code></pre>
+<p>For immediate testing, <code>isBetween</code> also has a right-handed variant.  <code>isMomentBetween</code> uses its second and third arguments as the range:</p>
+<pre><code>momentous.<span class="function call">isMomentBetween</span>(oct15, oct10, oct20); <span class="comment">//true</span></code></pre>
+<h4 id="mapping">Mapping</h4>
+<p>For adding and subtracting time, the four core methods are <code>add</code>, <code>sub</code>, <code>addBy</code> and <code>subBy</code>.
+<code>add</code> and <code>sub</code> take a target moment followed by an object specifying the amount to add or subtract.  Partially applying either one to a moment returns a function which can generate new moments at any offset from the original.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> today <span class="keyword operator">=</span> <span class="function call">moment</span>();
+<span class="keyword">var</span> tomorrow <span class="keyword operator">=</span> momentous.<span class="function call">add</span>(today, {days: <span class="constant numeric">1</span>});
+<span class="keyword">var</span> afterToday <span class="keyword operator">=</span> momentous.<span class="function call">add</span>(today);
+
+<span class="keyword">var</span> inThreeDays <span class="keyword operator">=</span> <span class="function call">afterToday</span>({days: <span class="constant numeric">3</span>});
+
+<span class="keyword">var</span> in19daysAnd26minutes <span class="keyword operator">=</span> <span class="function call">afterToday</span>({days: <span class="constant numeric">19</span>,
+                                    minutes: <span class="constant numeric">26</span>});</code></pre>
+<p><code>subBy</code> and <code>addBy</code> are the right-handed variants, and take a time offset before the target moment.  Partially applying them to a given offset returns a function which applies that offset to a clone of any target moment.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> today <span class="keyword operator">=</span> <span class="function call">moment</span>();
+<span class="keyword">var</span> yesterday <span class="keyword operator">=</span> momentous.<span class="function call">subBy</span>({days: <span class="constant numeric">1</span>}, today);
+
+<span class="keyword">var</span> twoHoursBefore <span class="keyword operator">=</span> momentous.<span class="function call">subBy</span>({days: <span class="constant numeric">2</span>});
+
+<span class="keyword">var</span> july9at7pm <span class="keyword operator">=</span> <span class="function call">moment</span>(<span class="string">"2013-07-09"</span>).<span class="function call">hours</span>(<span class="constant numeric">19</span>);
+
+<span class="keyword">var</span> july9at5pm <span class="keyword operator">=</span> <span class="function call">twoHoursBefore</span>(july9at7pm);</code></pre>
+<p>There are many shorthand variants of these functions for adding or subtracting by Moment.js&#39;s various units of time:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> today <span class="keyword operator">=</span> <span class="function call">moment</span>();
+<span class="keyword">var</span> anHourAgo <span class="keyword operator">=</span> momentous.sub.<span class="function call">hours</span>(today, <span class="constant numeric">1</span>);
+
+<span class="keyword">var</span> add3minutes <span class="keyword operator">=</span> momentous.addBy.<span class="function call">minutes</span>(<span class="constant numeric">3</span>);
+<span class="keyword">var</span> in3minutes <span class="keyword operator">=</span> <span class="function call">add3minutes</span>(today);</code></pre>
+<p>The full list is documented in the <a href="./api.html">API</a>.</p>
+<h4 id="list-generation">List Generation</h4>
+<h5 id="between-two-points">Between two points</h5>
+<p>The <code>range</code> method generates a list of new moment instances from a start moment, an end moment and a step size:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> today <span class="keyword operator">=</span> <span class="function call">moment</span>();
+<span class="keyword">var</span> inFiveDays <span class="keyword operator">=</span> momentous.add.<span class="function call">days</span>(today, <span class="constant numeric">5</span>);
+<span class="keyword">var</span> nextFewDays <span class="keyword operator">=</span> momentous.<span class="function call">range</span>(today, inFiveDays, {days: <span class="constant numeric">1</span>});
+<span class="comment">// `nextFewDays` is now a reference to an array containing</span>
+<span class="comment">// a clone of `today` and one moment for each day up to but</span>
+<span class="comment">// not including `inFiveDays`.</span></code></pre>
+<p><code>rangeBy</code> takes it step size first, so partial application returns a function which accepts start and end points and generates a list based on the step size initially passed:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> minuteRange <span class="keyword operator">=</span> momentous.<span class="function call">rangeBy</span>({minutes: <span class="constant numeric">1</span>});
+<span class="keyword">var</span> today <span class="keyword operator">=</span> <span class="function call">moment</span>();
+<span class="keyword">var</span> inAnHour <span class="keyword operator">=</span> momentous.add.<span class="function call">hours</span>(today, <span class="constant numeric">1</span>);
+<span class="keyword">var</span> hourMinutes <span class="keyword operator">=</span> <span class="function call">minuteRange</span>(today, inAnHour);
+<span class="comment">// `hourMinutes` contains one moment instance</span>
+<span class="comment">// for the start of each one-minute interval</span>
+<span class="comment">// between `today` and `inAnHour`.</span></code></pre>
+<p>Both <code>range</code> and <code>rangeBy</code> have exclusive variants (<code>rangeExclusive</code>, <code>rangeByExclusive</code>) which don&#39;t include their starting point.</p>
+<h5 id="away-from-or-toward-one-point">Away from or toward one point</h5>
+<p>There are six methods for generating sequences increasing toward or away from a given date with a fixed size and step count.  They&#39;re all variants of two core methods, <code>nStepsBefore</code> and <code>nStepsAfter</code>.</p>
+<p><code>nStepsBefore</code> accepts a number of steps, a step size and an ending date.  It returns an ordered array of moment instances beginning with (<code>end</code> - ( <code>numSteps</code> * <code>stepSize</code>  )) and ending at (<code>end</code> - <code>stepSize</code>), in which every element at index <code>i</code>, <code>i&gt;0</code>, has a time equal to the element at index <code>i-1</code> plus <code>stepSize</code>.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> today <span class="keyword operator">=</span> <span class="function call">moment</span>();
+<span class="keyword">var</span> last2Weeks <span class="keyword operator">=</span> momentous.<span class="function call">nStepsBefore</span>(<span class="constant numeric">14</span>, {days: <span class="constant numeric">1</span>}, today);
+<span class="comment">// `last2Weeks` contains one element for the start of</span>
+<span class="comment">// each day-long interval in the past two weeks.</span></code></pre>
+<p><code>nStepsAfter</code> does the same thing, but moves away from a given start date.</p>
+<p>The <code>stepsBeforeBy</code> and <code>stepsAfterBy</code> variants of these accept their step size arguments first, and the <code>stepsBeforeMoment</code> and <code>stepsAfterMoment</code> variants accept their moment arguments first.  These all have built-in partial application, and often a partial application of one variant will be more suited to a given list operation than the others.</p>
+<p><a href="./api.html">See the full documention on the API page ==&gt;</a></p>
+<h2 id="installation">Installation</h2>
+<pre><code>npm install momentous</code></pre>
+<h2 id="github">GitHub</h2>
+<p><a href="https://github.com/scivey/momentous">https://github.com/scivey/momentous</a></p>
+<h2 id="contact">Contact</h2>
+<p><a href="https://github.com/scivey">https://github.com/scivey</a></p>
+<p><a href="http://www.scivey.net">http://www.scivey.net</a></p>
+<p>scott.ivey@gmail.com</p>
+<h2 id="license">License</h2>
+<p>MIT License (MIT)</p>
+<p>Copyright (c) 2013 Scott Ivey, <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#115;&#x63;&#x6f;&#x74;&#x74;&#46;&#x69;&#118;&#101;&#121;&#x40;&#103;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;">&#115;&#x63;&#x6f;&#x74;&#x74;&#46;&#x69;&#118;&#101;&#121;&#x40;&#103;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;</a></p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</p>
+
+</div>
+		</div>
+	</div>
+</body>
+</html>

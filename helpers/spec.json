@@ -1,207 +1,2337 @@
 {
   "stats": {
-    "suites": 8,
-    "tests": 19,
-    "passes": 19,
+    "suites": 80,
+    "tests": 232,
+    "passes": 232,
     "pending": 0,
     "failures": 0,
-    "start": "2013-11-19T04:23:53.727Z",
-    "end": "2013-11-19T04:23:53.738Z",
-    "duration": 11
+    "start": "2013-11-21T19:59:27.894Z",
+    "end": "2013-11-21T19:59:28.336Z",
+    "duration": 442
   },
   "tests": [
     {
-      "title": "uses the middleware it's passed",
-      "fullTitle": "inmedia MidwareRouter uses the middleware it's passed",
+      "title": "accepts a moment instance and object literal",
+      "fullTitle": "momentous add accepts a moment instance and object literal",
+      "duration": 4
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous add does not mutate the original moment",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous add partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts an object literal and a moment instance",
+      "fullTitle": "momentous addBy accepts an object literal and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous addBy does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous addBy partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of years to add",
+      "fullTitle": "momentous add.years accepts a moment instance and a number of years to add",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous add.years does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous add.years partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of months to add",
+      "fullTitle": "momentous add.months accepts a moment instance and a number of months to add",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous add.months does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous add.months partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts a moment instance and a number of days to add",
+      "fullTitle": "momentous add.days accepts a moment instance and a number of days to add",
+      "duration": 1
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous add.days does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous add.days partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of hours to add",
+      "fullTitle": "momentous add.hours accepts a moment instance and a number of hours to add",
+      "duration": 1
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous add.hours does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous add.hours partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of minutes to add",
+      "fullTitle": "momentous add.minutes accepts a moment instance and a number of minutes to add",
+      "duration": 1
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous add.minutes does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous add.minutes partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of seconds to add",
+      "fullTitle": "momentous add.seconds accepts a moment instance and a number of seconds to add",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous add.seconds does not mutate the original moment",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous add.seconds partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of seconds to add",
+      "fullTitle": "momentous add.msec accepts a moment instance and a number of seconds to add",
+      "duration": 1
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous add.msec does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous add.msec partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts a number of years to add and a moment instance",
+      "fullTitle": "momentous addBy.years accepts a number of years to add and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous addBy.years does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous addBy.years partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts a number of months and a moment instance",
+      "fullTitle": "momentous addBy.months accepts a number of months and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous addBy.months does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous addBy.months partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts a number of days to add and a moment instance",
+      "fullTitle": "momentous addBy.days accepts a number of days to add and a moment instance",
+      "duration": 1
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous addBy.days does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous addBy.days partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a number of hours to add and a moment instance",
+      "fullTitle": "momentous addBy.hours accepts a number of hours to add and a moment instance",
+      "duration": 1
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous addBy.hours does not mutate the original moment",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous addBy.hours partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a number of minutes to add and a moment instance",
+      "fullTitle": "momentous addBy.minutes accepts a number of minutes to add and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous addBy.minutes does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous addBy.minutes partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts a number of seconds to add and a moment instance",
+      "fullTitle": "momentous addBy.seconds accepts a number of seconds to add and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous addBy.seconds does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous addBy.seconds partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a number of milliseconds to add and a moment instance",
+      "fullTitle": "momentous addBy.msec accepts a number of milliseconds to add and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous addBy.msec does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous addBy.msec partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded up to the end of the nearest year",
+      "fullTitle": "momentous endOfYear returns a clone of the passed moment, rounded up to the end of the nearest year",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous endOfYear does not modify the original moment",
+      "duration": 1
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded up to the end of the nearest month",
+      "fullTitle": "momentous endOfMonth returns a clone of the passed moment, rounded up to the end of the nearest month",
+      "duration": 1
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous endOfMonth does not modify the original moment",
+      "duration": 1
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded up to the end of the nearest week",
+      "fullTitle": "momentous endOfWeek returns a clone of the passed moment, rounded up to the end of the nearest week",
+      "duration": 1
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous endOfWeek does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded up to the end of the nearest day",
+      "fullTitle": "momentous endOfDay returns a clone of the passed moment, rounded up to the end of the nearest day",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous endOfDay does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded up to the end of the nearest hour",
+      "fullTitle": "momentous endOfHour returns a clone of the passed moment, rounded up to the end of the nearest hour",
+      "duration": 1
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous endOfHour does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded up to the end of the nearest minute",
+      "fullTitle": "momentous endOfMinute returns a clone of the passed moment, rounded up to the end of the nearest minute",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous endOfMinute does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded up to the end of the nearest second",
+      "fullTitle": "momentous endOfSecond returns a clone of the passed moment, rounded up to the end of the nearest second",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous endOfSecond does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns true when its second argument's date is before the first's",
+      "fullTitle": "momentous::predicates isBefore returns true when its second argument's date is before the first's",
+      "duration": 0
+    },
+    {
+      "title": "returns false when its second argument's date is after the first's",
+      "fullTitle": "momentous::predicates isBefore returns false when its second argument's date is after the first's",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single argument",
+      "fullTitle": "momentous::predicates isBefore partially applies a single argument",
+      "duration": 0
+    },
+    {
+      "title": "returns true when its second argument's date is after the first's",
+      "fullTitle": "momentous::predicates isAfter returns true when its second argument's date is after the first's",
+      "duration": 0
+    },
+    {
+      "title": "returns false when its second argument's date is before the first's",
+      "fullTitle": "momentous::predicates isAfter returns false when its second argument's date is before the first's",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single argument",
+      "fullTitle": "momentous::predicates isAfter partially applies a single argument",
+      "duration": 0
+    },
+    {
+      "title": "returns true when its third argument's date is in the range between its first and second arguments.",
+      "fullTitle": "momentous::predicates isBetween returns true when its third argument's date is in the range between its first and second arguments.",
+      "duration": 0
+    },
+    {
+      "title": "returns false when its third argument's date is not in the range between its first and second arguments.",
+      "fullTitle": "momentous::predicates isBetween returns false when its third argument's date is not in the range between its first and second arguments.",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single argument",
+      "fullTitle": "momentous::predicates isBetween partially applies a single argument",
       "duration": 2
     },
     {
-      "title": "uses passed middleware in the correct order.",
-      "fullTitle": "inmedia MidwareRouter uses passed middleware in the correct order.",
-      "duration": 0
-    },
-    {
-      "title": "uses the first true-returning route.",
-      "fullTitle": "inmedia MidwareRouter uses the first true-returning route.",
-      "duration": 0
-    },
-    {
-      "title": "chooses the route based on predicate return value, not on route sequence alone.",
-      "fullTitle": "inmedia MidwareRouter chooses the route based on predicate return value, not on route sequence alone.",
-      "duration": 0
-    },
-    {
-      "title": "allows for a flexible number of pipeline elements (handles different middleware and routing function arities)",
-      "fullTitle": "inmedia MidwareRouter allows for a flexible number of pipeline elements (handles different middleware and routing function arities)",
-      "duration": 0
-    },
-    {
-      "title": "has #handle and #use methods",
-      "fullTitle": "inmedia Midware has #handle and #use methods",
-      "duration": 0
-    },
-    {
-      "title": "uses a passed middleware function to manipulate an object value",
-      "fullTitle": "inmedia Midware uses a passed middleware function to manipulate an object value",
-      "duration": 0
-    },
-    {
-      "title": "passes objects from one middleware function to the next",
-      "fullTitle": "inmedia Midware passes objects from one middleware function to the next",
-      "duration": 0
-    },
-    {
-      "title": "passed pipeline elements to middleware functions in the correct order",
-      "fullTitle": "inmedia Midware passed pipeline elements to middleware functions in the correct order",
-      "duration": 0
-    },
-    {
-      "title": "allows for a flexible number of pipeline elements (handles different middleware function arities)",
-      "fullTitle": "inmedia Midware allows for a flexible number of pipeline elements (handles different middleware function arities)",
-      "duration": 0
-    },
-    {
-      "title": "chooses the first correct route - part 1",
-      "fullTitle": "inmedia PredRouter::functional chooses the first correct route - part 1",
-      "duration": 0
-    },
-    {
-      "title": "chooses the first correct route - part 2",
-      "fullTitle": "inmedia PredRouter::functional chooses the first correct route - part 2",
-      "duration": 0
-    },
-    {
-      "title": "chooses the first correct route - part 3",
-      "fullTitle": "inmedia PredRouter::functional chooses the first correct route - part 3",
-      "duration": 0
-    },
-    {
-      "title": "chooses the first correct route - part 4",
-      "fullTitle": "inmedia PredRouter::functional chooses the first correct route - part 4",
-      "duration": 0
-    },
-    {
-      "title": "has #handle and #use methods",
-      "fullTitle": "inmedia PredRouter has #handle and #use methods",
-      "duration": 0
-    },
-    {
-      "title": "accepts and uses a predicate-handler pair",
-      "fullTitle": "inmedia PredRouter accepts and uses a predicate-handler pair",
-      "duration": 0
-    },
-    {
-      "title": "chooses the route based on predicate result, not on sequence alone",
-      "fullTitle": "inmedia PredRouter chooses the route based on predicate result, not on sequence alone",
-      "duration": 0
-    },
-    {
-      "title": "chooses the first true-returning route when later route predicates would return true for the pipeline element(s)",
-      "fullTitle": "inmedia PredRouter chooses the first true-returning route when later route predicates would return true for the pipeline element(s)",
-      "duration": 0
-    },
-    {
-      "title": "allows for a flexible number of pipeline elements (handles different routing function arities)",
-      "fullTitle": "inmedia PredRouter allows for a flexible number of pipeline elements (handles different routing function arities)",
+      "title": "partially applies two arguments",
+      "fullTitle": "momentous::predicates isBetween partially applies two arguments",
       "duration": 1
+    },
+    {
+      "title": "returns true when its first argument's date is in the range between its second and third.",
+      "fullTitle": "momentous::predicates isMomentBetween returns true when its first argument's date is in the range between its second and third.",
+      "duration": 0
+    },
+    {
+      "title": "returns false when its third argument's date is not in the range between its first and second arguments.",
+      "fullTitle": "momentous::predicates isMomentBetween returns false when its third argument's date is not in the range between its first and second arguments.",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single argument",
+      "fullTitle": "momentous::predicates isMomentBetween partially applies a single argument",
+      "duration": 1
+    },
+    {
+      "title": "partially applies two arguments",
+      "fullTitle": "momentous::predicates isMomentBetween partially applies two arguments",
+      "duration": 1
+    },
+    {
+      "title": "accepts a start moment, end moment, and step size",
+      "fullTitle": "momentous range accepts a start moment, end moment, and step size",
+      "duration": 1
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous range generates a linear sequence of moments",
+      "duration": 1
+    },
+    {
+      "title": "includes its start point",
+      "fullTitle": "momentous range includes its start point",
+      "duration": 2
+    },
+    {
+      "title": "does not include its end point",
+      "fullTitle": "momentous range does not include its end point",
+      "duration": 1
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous range produces the same result as manual iteration",
+      "duration": 4
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous range increases by the given step size",
+      "duration": 5
+    },
+    {
+      "title": "accepts a start moment, end moment, and step size",
+      "fullTitle": "momentous rangeExclusive accepts a start moment, end moment, and step size",
+      "duration": 2
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous rangeExclusive generates a linear sequence of moments",
+      "duration": 1
+    },
+    {
+      "title": "does not include its start point",
+      "fullTitle": "momentous rangeExclusive does not include its start point",
+      "duration": 1
+    },
+    {
+      "title": "does not include its end point",
+      "fullTitle": "momentous rangeExclusive does not include its end point",
+      "duration": 2
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous rangeExclusive produces the same result as manual iteration",
+      "duration": 4
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous rangeExclusive increases by the given step size",
+      "duration": 4
+    },
+    {
+      "title": "accepts a step size, start moment, and end moment",
+      "fullTitle": "momentous rangeBy accepts a step size, start moment, and end moment",
+      "duration": 2
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous rangeBy generates a linear sequence of moments",
+      "duration": 4
+    },
+    {
+      "title": "includes its start point",
+      "fullTitle": "momentous rangeBy includes its start point",
+      "duration": 1
+    },
+    {
+      "title": "does not include its end point",
+      "fullTitle": "momentous rangeBy does not include its end point",
+      "duration": 1
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous rangeBy produces the same result as manual iteration",
+      "duration": 3
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous rangeBy increases by the given step size",
+      "duration": 3
+    },
+    {
+      "title": "accepts a step size, start moment, and end moment",
+      "fullTitle": "momentous rangeByExclusive accepts a step size, start moment, and end moment",
+      "duration": 1
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous rangeByExclusive generates a linear sequence of moments",
+      "duration": 1
+    },
+    {
+      "title": "does not include its start point",
+      "fullTitle": "momentous rangeByExclusive does not include its start point",
+      "duration": 1
+    },
+    {
+      "title": "does not include its end point",
+      "fullTitle": "momentous rangeByExclusive does not include its end point",
+      "duration": 1
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous rangeByExclusive produces the same result as manual iteration",
+      "duration": 3
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous rangeByExclusive increases by the given step size",
+      "duration": 3
+    },
+    {
+      "title": "accepts a number of steps, a step size, and an ending moment",
+      "fullTitle": "momentous nStepsBefore accepts a number of steps, a step size, and an ending moment",
+      "duration": 1
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous nStepsBefore generates a linear sequence of moments",
+      "duration": 1
+    },
+    {
+      "title": "does not include its end point",
+      "fullTitle": "momentous nStepsBefore does not include its end point",
+      "duration": 1
+    },
+    {
+      "title": "includes the moment at (end - (nSteps * stepSize))",
+      "fullTitle": "momentous nStepsBefore includes the moment at (end - (nSteps * stepSize))",
+      "duration": 1
+    },
+    {
+      "title": "generates the correct number of steps",
+      "fullTitle": "momentous nStepsBefore generates the correct number of steps",
+      "duration": 1
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous nStepsBefore produces the same result as manual iteration",
+      "duration": 4
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous nStepsBefore increases by the given step size",
+      "duration": 1
+    },
+    {
+      "title": "accepts a number of steps, a step size, and a starting moment",
+      "fullTitle": "momentous nStepsAfter accepts a number of steps, a step size, and a starting moment",
+      "duration": 0
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous nStepsAfter generates a linear sequence of moments",
+      "duration": 0
+    },
+    {
+      "title": "does not include its starting point",
+      "fullTitle": "momentous nStepsAfter does not include its starting point",
+      "duration": 0
+    },
+    {
+      "title": "includes the moment at (start + (nSteps * stepSize))",
+      "fullTitle": "momentous nStepsAfter includes the moment at (start + (nSteps * stepSize))",
+      "duration": 0
+    },
+    {
+      "title": "generates the correct number of steps",
+      "fullTitle": "momentous nStepsAfter generates the correct number of steps",
+      "duration": 0
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous nStepsAfter produces the same result as manual iteration",
+      "duration": 2
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous nStepsAfter increases by the given step size",
+      "duration": 1
+    },
+    {
+      "title": "accepts a step size, a number of steps, and an ending moment",
+      "fullTitle": "momentous stepsBeforeBy accepts a step size, a number of steps, and an ending moment",
+      "duration": 0
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous stepsBeforeBy generates a linear sequence of moments",
+      "duration": 0
+    },
+    {
+      "title": "does not include its end point",
+      "fullTitle": "momentous stepsBeforeBy does not include its end point",
+      "duration": 1
+    },
+    {
+      "title": "includes the moment at (end - (nSteps * stepSize))",
+      "fullTitle": "momentous stepsBeforeBy includes the moment at (end - (nSteps * stepSize))",
+      "duration": 1
+    },
+    {
+      "title": "generates the correct number of steps",
+      "fullTitle": "momentous stepsBeforeBy generates the correct number of steps",
+      "duration": 1
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous stepsBeforeBy produces the same result as manual iteration",
+      "duration": 3
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous stepsBeforeBy increases by the given step size",
+      "duration": 2
+    },
+    {
+      "title": "accepts a step size, a number of steps, and a starting moment",
+      "fullTitle": "momentous stepsAfterBy accepts a step size, a number of steps, and a starting moment",
+      "duration": 1
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous stepsAfterBy generates a linear sequence of moments",
+      "duration": 1
+    },
+    {
+      "title": "does not include its starting point",
+      "fullTitle": "momentous stepsAfterBy does not include its starting point",
+      "duration": 1
+    },
+    {
+      "title": "includes the moment at (start + (nSteps * stepSize))",
+      "fullTitle": "momentous stepsAfterBy includes the moment at (start + (nSteps * stepSize))",
+      "duration": 1
+    },
+    {
+      "title": "generates the correct number of steps",
+      "fullTitle": "momentous stepsAfterBy generates the correct number of steps",
+      "duration": 1
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous stepsAfterBy produces the same result as manual iteration",
+      "duration": 3
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous stepsAfterBy increases by the given step size",
+      "duration": 2
+    },
+    {
+      "title": "accepts an ending moment, a step size, and a number of steps",
+      "fullTitle": "momentous stepsBeforeMoment accepts an ending moment, a step size, and a number of steps",
+      "duration": 1
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous stepsBeforeMoment generates a linear sequence of moments",
+      "duration": 1
+    },
+    {
+      "title": "does not include its end point",
+      "fullTitle": "momentous stepsBeforeMoment does not include its end point",
+      "duration": 1
+    },
+    {
+      "title": "includes the moment at (end - (nSteps * stepSize))",
+      "fullTitle": "momentous stepsBeforeMoment includes the moment at (end - (nSteps * stepSize))",
+      "duration": 1
+    },
+    {
+      "title": "generates the correct number of steps",
+      "fullTitle": "momentous stepsBeforeMoment generates the correct number of steps",
+      "duration": 1
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous stepsBeforeMoment produces the same result as manual iteration",
+      "duration": 3
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous stepsBeforeMoment increases by the given step size",
+      "duration": 1
+    },
+    {
+      "title": "accepts a start moment, a step size, and a number of steps.",
+      "fullTitle": "momentous stepsAfterMoment accepts a start moment, a step size, and a number of steps.",
+      "duration": 0
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous stepsAfterMoment generates a linear sequence of moments",
+      "duration": 1
+    },
+    {
+      "title": "does not include its starting point",
+      "fullTitle": "momentous stepsAfterMoment does not include its starting point",
+      "duration": 1
+    },
+    {
+      "title": "includes the moment at (start + (nSteps * stepSize))",
+      "fullTitle": "momentous stepsAfterMoment includes the moment at (start + (nSteps * stepSize))",
+      "duration": 1
+    },
+    {
+      "title": "generates the correct number of steps",
+      "fullTitle": "momentous stepsAfterMoment generates the correct number of steps",
+      "duration": 1
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous stepsAfterMoment produces the same result as manual iteration",
+      "duration": 2
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous stepsAfterMoment increases by the given step size",
+      "duration": 2
+    },
+    {
+      "title": "selects all dates before its first parameter's date value",
+      "fullTitle": "momentous::selectors allBefore selects all dates before its first parameter's date value",
+      "duration": 5
+    },
+    {
+      "title": "returns an empty array if no elements in the target array are before the date",
+      "fullTitle": "momentous::selectors allBefore returns an empty array if no elements in the target array are before the date",
+      "duration": 5
+    },
+    {
+      "title": "partially applies a single argument",
+      "fullTitle": "momentous::selectors allBefore partially applies a single argument",
+      "duration": 5
+    },
+    {
+      "title": "selects all dates after its first parameter's date value",
+      "fullTitle": "momentous::selectors allAfter selects all dates after its first parameter's date value",
+      "duration": 5
+    },
+    {
+      "title": "returns an empty array if no elements in the target array are after the date",
+      "fullTitle": "momentous::selectors allAfter returns an empty array if no elements in the target array are after the date",
+      "duration": 5
+    },
+    {
+      "title": "partially applies a single argument",
+      "fullTitle": "momentous::selectors allAfter partially applies a single argument",
+      "duration": 6
+    },
+    {
+      "title": "returns the earliest date in an array of dates",
+      "fullTitle": "momentous::selectors earliest returns the earliest date in an array of dates",
+      "duration": 4
+    },
+    {
+      "title": "returns the earliest date from a splat of dates extending from the second parameter on",
+      "fullTitle": "momentous::selectors earliest returns the earliest date from a splat of dates extending from the second parameter on",
+      "duration": 6
+    },
+    {
+      "title": "returns the latest date in an array of dates",
+      "fullTitle": "momentous::selectors latest returns the latest date in an array of dates",
+      "duration": 3
+    },
+    {
+      "title": "returns the latest date from a splat of dates extending from the second parameter on",
+      "fullTitle": "momentous::selectors latest returns the latest date from a splat of dates extending from the second parameter on",
+      "duration": 0
+    },
+    {
+      "title": "selects the closest date to its first argument from a list of dates",
+      "fullTitle": "momentous::selectors closestTo selects the closest date to its first argument from a list of dates",
+      "duration": 2
+    },
+    {
+      "title": "selects from a variable number of dates given after the first parameter",
+      "fullTitle": "momentous::selectors closestTo selects from a variable number of dates given after the first parameter",
+      "duration": 1
+    },
+    {
+      "title": "selects from an array of dates given after the first parameter",
+      "fullTitle": "momentous::selectors closestTo selects from an array of dates given after the first parameter",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous::selectors closestTo partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "selects the farthest date from its first argument out of a list of dates",
+      "fullTitle": "momentous::selectors farthestFrom selects the farthest date from its first argument out of a list of dates",
+      "duration": 2
+    },
+    {
+      "title": "selects from a variable number of dates given after the first parameter",
+      "fullTitle": "momentous::selectors farthestFrom selects from a variable number of dates given after the first parameter",
+      "duration": 1
+    },
+    {
+      "title": "selects from an array of dates given after the first parameter",
+      "fullTitle": "momentous::selectors farthestFrom selects from an array of dates given after the first parameter",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous::selectors farthestFrom partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "returns the closest date _before_ the first parameter's date value when there is a closer date falling after that value.",
+      "fullTitle": "momentous::selectors closestBefore returns the closest date _before_ the first parameter's date value when there is a closer date falling after that value.",
+      "duration": 3
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous::selectors closestBefore partially applies a single parameter",
+      "duration": 3
+    },
+    {
+      "title": "returns the closest date _after_ the first parameter's date value when there is a closer date falling before that value.",
+      "fullTitle": "momentous::selectors closestAfter returns the closest date _after_ the first parameter's date value when there is a closer date falling before that value.",
+      "duration": 4
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous::selectors closestAfter partially applies a single parameter",
+      "duration": 3
+    },
+    {
+      "title": "returns the farthest date _before_ the first parameter's date value when there is a farther date falling after that value.",
+      "fullTitle": "momentous::selectors farthestBefore returns the farthest date _before_ the first parameter's date value when there is a farther date falling after that value.",
+      "duration": 3
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous::selectors farthestBefore partially applies a single parameter",
+      "duration": 3
+    },
+    {
+      "title": "returns the farthest date _after_ the first parameter's date value when there is a farther date falling before that value.",
+      "fullTitle": "momentous::selectors farthestAfter returns the farthest date _after_ the first parameter's date value when there is a farther date falling before that value.",
+      "duration": 5
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous::selectors farthestAfter partially applies a single parameter",
+      "duration": 5
+    },
+    {
+      "title": "sorts Moments from earliest to latest",
+      "fullTitle": "momentous sort.ascending sorts Moments from earliest to latest",
+      "duration": 4
+    },
+    {
+      "title": "sorts Moments from latest to earliest",
+      "fullTitle": "momentous sort.descending sorts Moments from latest to earliest",
+      "duration": 4
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded down to the start of the nearest year",
+      "fullTitle": "momentous startOfYear returns a clone of the passed moment, rounded down to the start of the nearest year",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous startOfYear does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded down to the start of the nearest month",
+      "fullTitle": "momentous startOfMonth returns a clone of the passed moment, rounded down to the start of the nearest month",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous startOfMonth does not modify the original moment",
+      "duration": 1
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded down to the start of the nearest week",
+      "fullTitle": "momentous startOfWeek returns a clone of the passed moment, rounded down to the start of the nearest week",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous startOfWeek does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded down to the start of the nearest day",
+      "fullTitle": "momentous startOfDay returns a clone of the passed moment, rounded down to the start of the nearest day",
+      "duration": 1
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous startOfDay does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded down to the start of the nearest hour",
+      "fullTitle": "momentous startOfHour returns a clone of the passed moment, rounded down to the start of the nearest hour",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous startOfHour does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded down to the start of the nearest minute",
+      "fullTitle": "momentous startOfMinute returns a clone of the passed moment, rounded down to the start of the nearest minute",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous startOfMinute does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded down to the start of the nearest second",
+      "fullTitle": "momentous startOfSecond returns a clone of the passed moment, rounded down to the start of the nearest second",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous startOfSecond does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and object literal",
+      "fullTitle": "momentous sub accepts a moment instance and object literal",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous sub does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous sub partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts an object literal and a moment instance",
+      "fullTitle": "momentous subBy accepts an object literal and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous subBy does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous subBy partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of years to subtract",
+      "fullTitle": "momentous sub.years accepts a moment instance and a number of years to subtract",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous sub.years does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous sub.years partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts a moment instance and a number of months to subtract",
+      "fullTitle": "momentous sub.months accepts a moment instance and a number of months to subtract",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous sub.months does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous sub.months partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of days to subtract",
+      "fullTitle": "momentous sub.days accepts a moment instance and a number of days to subtract",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous sub.days does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous sub.days partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts a moment instance and a number of hours to subtract",
+      "fullTitle": "momentous sub.hours accepts a moment instance and a number of hours to subtract",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous sub.hours does not mutate the original moment",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous sub.hours partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of minutes to subtract",
+      "fullTitle": "momentous sub.minutes accepts a moment instance and a number of minutes to subtract",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous sub.minutes does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous sub.minutes partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of seconds to subtract",
+      "fullTitle": "momentous sub.seconds accepts a moment instance and a number of seconds to subtract",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous sub.seconds does not mutate the original moment",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous sub.seconds partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of seconds to subtract",
+      "fullTitle": "momentous sub.msec accepts a moment instance and a number of seconds to subtract",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous sub.msec does not mutate the original moment",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous sub.msec partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a number of years to subtract and a moment instance",
+      "fullTitle": "momentous subBy.years accepts a number of years to subtract and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous subBy.years does not mutate the original moment",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous subBy.years partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a number of months and a moment instance",
+      "fullTitle": "momentous subBy.months accepts a number of months and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous subBy.months does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous subBy.months partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a number of days to subtract and a moment instance",
+      "fullTitle": "momentous subBy.days accepts a number of days to subtract and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous subBy.days does not mutate the original moment",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous subBy.days partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a number of hours to subtract and a moment instance",
+      "fullTitle": "momentous subBy.hours accepts a number of hours to subtract and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous subBy.hours does not mutate the original moment",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous subBy.hours partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a number of minutes to subtract and a moment instance",
+      "fullTitle": "momentous subBy.minutes accepts a number of minutes to subtract and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous subBy.minutes does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous subBy.minutes partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a number of seconds to subtract and a moment instance",
+      "fullTitle": "momentous subBy.seconds accepts a number of seconds to subtract and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous subBy.seconds does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous subBy.seconds partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts a number of milliseconds to subtract and a moment instance",
+      "fullTitle": "momentous subBy.msec accepts a number of milliseconds to subtract and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous subBy.msec does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous subBy.msec partially applies a single parameter",
+      "duration": 0
     }
   ],
   "failures": [],
   "passes": [
     {
-      "title": "uses the middleware it's passed",
-      "fullTitle": "inmedia MidwareRouter uses the middleware it's passed",
+      "title": "accepts a moment instance and object literal",
+      "fullTitle": "momentous add accepts a moment instance and object literal",
+      "duration": 4
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous add does not mutate the original moment",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous add partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts an object literal and a moment instance",
+      "fullTitle": "momentous addBy accepts an object literal and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous addBy does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous addBy partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of years to add",
+      "fullTitle": "momentous add.years accepts a moment instance and a number of years to add",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous add.years does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous add.years partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of months to add",
+      "fullTitle": "momentous add.months accepts a moment instance and a number of months to add",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous add.months does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous add.months partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts a moment instance and a number of days to add",
+      "fullTitle": "momentous add.days accepts a moment instance and a number of days to add",
+      "duration": 1
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous add.days does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous add.days partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of hours to add",
+      "fullTitle": "momentous add.hours accepts a moment instance and a number of hours to add",
+      "duration": 1
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous add.hours does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous add.hours partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of minutes to add",
+      "fullTitle": "momentous add.minutes accepts a moment instance and a number of minutes to add",
+      "duration": 1
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous add.minutes does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous add.minutes partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of seconds to add",
+      "fullTitle": "momentous add.seconds accepts a moment instance and a number of seconds to add",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous add.seconds does not mutate the original moment",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous add.seconds partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of seconds to add",
+      "fullTitle": "momentous add.msec accepts a moment instance and a number of seconds to add",
+      "duration": 1
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous add.msec does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous add.msec partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts a number of years to add and a moment instance",
+      "fullTitle": "momentous addBy.years accepts a number of years to add and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous addBy.years does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous addBy.years partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts a number of months and a moment instance",
+      "fullTitle": "momentous addBy.months accepts a number of months and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous addBy.months does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous addBy.months partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts a number of days to add and a moment instance",
+      "fullTitle": "momentous addBy.days accepts a number of days to add and a moment instance",
+      "duration": 1
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous addBy.days does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous addBy.days partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a number of hours to add and a moment instance",
+      "fullTitle": "momentous addBy.hours accepts a number of hours to add and a moment instance",
+      "duration": 1
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous addBy.hours does not mutate the original moment",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous addBy.hours partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a number of minutes to add and a moment instance",
+      "fullTitle": "momentous addBy.minutes accepts a number of minutes to add and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous addBy.minutes does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous addBy.minutes partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts a number of seconds to add and a moment instance",
+      "fullTitle": "momentous addBy.seconds accepts a number of seconds to add and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous addBy.seconds does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous addBy.seconds partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a number of milliseconds to add and a moment instance",
+      "fullTitle": "momentous addBy.msec accepts a number of milliseconds to add and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous addBy.msec does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous addBy.msec partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded up to the end of the nearest year",
+      "fullTitle": "momentous endOfYear returns a clone of the passed moment, rounded up to the end of the nearest year",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous endOfYear does not modify the original moment",
+      "duration": 1
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded up to the end of the nearest month",
+      "fullTitle": "momentous endOfMonth returns a clone of the passed moment, rounded up to the end of the nearest month",
+      "duration": 1
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous endOfMonth does not modify the original moment",
+      "duration": 1
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded up to the end of the nearest week",
+      "fullTitle": "momentous endOfWeek returns a clone of the passed moment, rounded up to the end of the nearest week",
+      "duration": 1
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous endOfWeek does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded up to the end of the nearest day",
+      "fullTitle": "momentous endOfDay returns a clone of the passed moment, rounded up to the end of the nearest day",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous endOfDay does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded up to the end of the nearest hour",
+      "fullTitle": "momentous endOfHour returns a clone of the passed moment, rounded up to the end of the nearest hour",
+      "duration": 1
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous endOfHour does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded up to the end of the nearest minute",
+      "fullTitle": "momentous endOfMinute returns a clone of the passed moment, rounded up to the end of the nearest minute",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous endOfMinute does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded up to the end of the nearest second",
+      "fullTitle": "momentous endOfSecond returns a clone of the passed moment, rounded up to the end of the nearest second",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous endOfSecond does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns true when its second argument's date is before the first's",
+      "fullTitle": "momentous::predicates isBefore returns true when its second argument's date is before the first's",
+      "duration": 0
+    },
+    {
+      "title": "returns false when its second argument's date is after the first's",
+      "fullTitle": "momentous::predicates isBefore returns false when its second argument's date is after the first's",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single argument",
+      "fullTitle": "momentous::predicates isBefore partially applies a single argument",
+      "duration": 0
+    },
+    {
+      "title": "returns true when its second argument's date is after the first's",
+      "fullTitle": "momentous::predicates isAfter returns true when its second argument's date is after the first's",
+      "duration": 0
+    },
+    {
+      "title": "returns false when its second argument's date is before the first's",
+      "fullTitle": "momentous::predicates isAfter returns false when its second argument's date is before the first's",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single argument",
+      "fullTitle": "momentous::predicates isAfter partially applies a single argument",
+      "duration": 0
+    },
+    {
+      "title": "returns true when its third argument's date is in the range between its first and second arguments.",
+      "fullTitle": "momentous::predicates isBetween returns true when its third argument's date is in the range between its first and second arguments.",
+      "duration": 0
+    },
+    {
+      "title": "returns false when its third argument's date is not in the range between its first and second arguments.",
+      "fullTitle": "momentous::predicates isBetween returns false when its third argument's date is not in the range between its first and second arguments.",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single argument",
+      "fullTitle": "momentous::predicates isBetween partially applies a single argument",
       "duration": 2
     },
     {
-      "title": "uses passed middleware in the correct order.",
-      "fullTitle": "inmedia MidwareRouter uses passed middleware in the correct order.",
-      "duration": 0
-    },
-    {
-      "title": "uses the first true-returning route.",
-      "fullTitle": "inmedia MidwareRouter uses the first true-returning route.",
-      "duration": 0
-    },
-    {
-      "title": "chooses the route based on predicate return value, not on route sequence alone.",
-      "fullTitle": "inmedia MidwareRouter chooses the route based on predicate return value, not on route sequence alone.",
-      "duration": 0
-    },
-    {
-      "title": "allows for a flexible number of pipeline elements (handles different middleware and routing function arities)",
-      "fullTitle": "inmedia MidwareRouter allows for a flexible number of pipeline elements (handles different middleware and routing function arities)",
-      "duration": 0
-    },
-    {
-      "title": "has #handle and #use methods",
-      "fullTitle": "inmedia Midware has #handle and #use methods",
-      "duration": 0
-    },
-    {
-      "title": "uses a passed middleware function to manipulate an object value",
-      "fullTitle": "inmedia Midware uses a passed middleware function to manipulate an object value",
-      "duration": 0
-    },
-    {
-      "title": "passes objects from one middleware function to the next",
-      "fullTitle": "inmedia Midware passes objects from one middleware function to the next",
-      "duration": 0
-    },
-    {
-      "title": "passed pipeline elements to middleware functions in the correct order",
-      "fullTitle": "inmedia Midware passed pipeline elements to middleware functions in the correct order",
-      "duration": 0
-    },
-    {
-      "title": "allows for a flexible number of pipeline elements (handles different middleware function arities)",
-      "fullTitle": "inmedia Midware allows for a flexible number of pipeline elements (handles different middleware function arities)",
-      "duration": 0
-    },
-    {
-      "title": "chooses the first correct route - part 1",
-      "fullTitle": "inmedia PredRouter::functional chooses the first correct route - part 1",
-      "duration": 0
-    },
-    {
-      "title": "chooses the first correct route - part 2",
-      "fullTitle": "inmedia PredRouter::functional chooses the first correct route - part 2",
-      "duration": 0
-    },
-    {
-      "title": "chooses the first correct route - part 3",
-      "fullTitle": "inmedia PredRouter::functional chooses the first correct route - part 3",
-      "duration": 0
-    },
-    {
-      "title": "chooses the first correct route - part 4",
-      "fullTitle": "inmedia PredRouter::functional chooses the first correct route - part 4",
-      "duration": 0
-    },
-    {
-      "title": "has #handle and #use methods",
-      "fullTitle": "inmedia PredRouter has #handle and #use methods",
-      "duration": 0
-    },
-    {
-      "title": "accepts and uses a predicate-handler pair",
-      "fullTitle": "inmedia PredRouter accepts and uses a predicate-handler pair",
-      "duration": 0
-    },
-    {
-      "title": "chooses the route based on predicate result, not on sequence alone",
-      "fullTitle": "inmedia PredRouter chooses the route based on predicate result, not on sequence alone",
-      "duration": 0
-    },
-    {
-      "title": "chooses the first true-returning route when later route predicates would return true for the pipeline element(s)",
-      "fullTitle": "inmedia PredRouter chooses the first true-returning route when later route predicates would return true for the pipeline element(s)",
-      "duration": 0
-    },
-    {
-      "title": "allows for a flexible number of pipeline elements (handles different routing function arities)",
-      "fullTitle": "inmedia PredRouter allows for a flexible number of pipeline elements (handles different routing function arities)",
+      "title": "partially applies two arguments",
+      "fullTitle": "momentous::predicates isBetween partially applies two arguments",
       "duration": 1
+    },
+    {
+      "title": "returns true when its first argument's date is in the range between its second and third.",
+      "fullTitle": "momentous::predicates isMomentBetween returns true when its first argument's date is in the range between its second and third.",
+      "duration": 0
+    },
+    {
+      "title": "returns false when its third argument's date is not in the range between its first and second arguments.",
+      "fullTitle": "momentous::predicates isMomentBetween returns false when its third argument's date is not in the range between its first and second arguments.",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single argument",
+      "fullTitle": "momentous::predicates isMomentBetween partially applies a single argument",
+      "duration": 1
+    },
+    {
+      "title": "partially applies two arguments",
+      "fullTitle": "momentous::predicates isMomentBetween partially applies two arguments",
+      "duration": 1
+    },
+    {
+      "title": "accepts a start moment, end moment, and step size",
+      "fullTitle": "momentous range accepts a start moment, end moment, and step size",
+      "duration": 1
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous range generates a linear sequence of moments",
+      "duration": 1
+    },
+    {
+      "title": "includes its start point",
+      "fullTitle": "momentous range includes its start point",
+      "duration": 2
+    },
+    {
+      "title": "does not include its end point",
+      "fullTitle": "momentous range does not include its end point",
+      "duration": 1
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous range produces the same result as manual iteration",
+      "duration": 4
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous range increases by the given step size",
+      "duration": 5
+    },
+    {
+      "title": "accepts a start moment, end moment, and step size",
+      "fullTitle": "momentous rangeExclusive accepts a start moment, end moment, and step size",
+      "duration": 2
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous rangeExclusive generates a linear sequence of moments",
+      "duration": 1
+    },
+    {
+      "title": "does not include its start point",
+      "fullTitle": "momentous rangeExclusive does not include its start point",
+      "duration": 1
+    },
+    {
+      "title": "does not include its end point",
+      "fullTitle": "momentous rangeExclusive does not include its end point",
+      "duration": 2
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous rangeExclusive produces the same result as manual iteration",
+      "duration": 4
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous rangeExclusive increases by the given step size",
+      "duration": 4
+    },
+    {
+      "title": "accepts a step size, start moment, and end moment",
+      "fullTitle": "momentous rangeBy accepts a step size, start moment, and end moment",
+      "duration": 2
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous rangeBy generates a linear sequence of moments",
+      "duration": 4
+    },
+    {
+      "title": "includes its start point",
+      "fullTitle": "momentous rangeBy includes its start point",
+      "duration": 1
+    },
+    {
+      "title": "does not include its end point",
+      "fullTitle": "momentous rangeBy does not include its end point",
+      "duration": 1
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous rangeBy produces the same result as manual iteration",
+      "duration": 3
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous rangeBy increases by the given step size",
+      "duration": 3
+    },
+    {
+      "title": "accepts a step size, start moment, and end moment",
+      "fullTitle": "momentous rangeByExclusive accepts a step size, start moment, and end moment",
+      "duration": 1
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous rangeByExclusive generates a linear sequence of moments",
+      "duration": 1
+    },
+    {
+      "title": "does not include its start point",
+      "fullTitle": "momentous rangeByExclusive does not include its start point",
+      "duration": 1
+    },
+    {
+      "title": "does not include its end point",
+      "fullTitle": "momentous rangeByExclusive does not include its end point",
+      "duration": 1
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous rangeByExclusive produces the same result as manual iteration",
+      "duration": 3
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous rangeByExclusive increases by the given step size",
+      "duration": 3
+    },
+    {
+      "title": "accepts a number of steps, a step size, and an ending moment",
+      "fullTitle": "momentous nStepsBefore accepts a number of steps, a step size, and an ending moment",
+      "duration": 1
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous nStepsBefore generates a linear sequence of moments",
+      "duration": 1
+    },
+    {
+      "title": "does not include its end point",
+      "fullTitle": "momentous nStepsBefore does not include its end point",
+      "duration": 1
+    },
+    {
+      "title": "includes the moment at (end - (nSteps * stepSize))",
+      "fullTitle": "momentous nStepsBefore includes the moment at (end - (nSteps * stepSize))",
+      "duration": 1
+    },
+    {
+      "title": "generates the correct number of steps",
+      "fullTitle": "momentous nStepsBefore generates the correct number of steps",
+      "duration": 1
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous nStepsBefore produces the same result as manual iteration",
+      "duration": 4
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous nStepsBefore increases by the given step size",
+      "duration": 1
+    },
+    {
+      "title": "accepts a number of steps, a step size, and a starting moment",
+      "fullTitle": "momentous nStepsAfter accepts a number of steps, a step size, and a starting moment",
+      "duration": 0
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous nStepsAfter generates a linear sequence of moments",
+      "duration": 0
+    },
+    {
+      "title": "does not include its starting point",
+      "fullTitle": "momentous nStepsAfter does not include its starting point",
+      "duration": 0
+    },
+    {
+      "title": "includes the moment at (start + (nSteps * stepSize))",
+      "fullTitle": "momentous nStepsAfter includes the moment at (start + (nSteps * stepSize))",
+      "duration": 0
+    },
+    {
+      "title": "generates the correct number of steps",
+      "fullTitle": "momentous nStepsAfter generates the correct number of steps",
+      "duration": 0
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous nStepsAfter produces the same result as manual iteration",
+      "duration": 2
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous nStepsAfter increases by the given step size",
+      "duration": 1
+    },
+    {
+      "title": "accepts a step size, a number of steps, and an ending moment",
+      "fullTitle": "momentous stepsBeforeBy accepts a step size, a number of steps, and an ending moment",
+      "duration": 0
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous stepsBeforeBy generates a linear sequence of moments",
+      "duration": 0
+    },
+    {
+      "title": "does not include its end point",
+      "fullTitle": "momentous stepsBeforeBy does not include its end point",
+      "duration": 1
+    },
+    {
+      "title": "includes the moment at (end - (nSteps * stepSize))",
+      "fullTitle": "momentous stepsBeforeBy includes the moment at (end - (nSteps * stepSize))",
+      "duration": 1
+    },
+    {
+      "title": "generates the correct number of steps",
+      "fullTitle": "momentous stepsBeforeBy generates the correct number of steps",
+      "duration": 1
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous stepsBeforeBy produces the same result as manual iteration",
+      "duration": 3
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous stepsBeforeBy increases by the given step size",
+      "duration": 2
+    },
+    {
+      "title": "accepts a step size, a number of steps, and a starting moment",
+      "fullTitle": "momentous stepsAfterBy accepts a step size, a number of steps, and a starting moment",
+      "duration": 1
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous stepsAfterBy generates a linear sequence of moments",
+      "duration": 1
+    },
+    {
+      "title": "does not include its starting point",
+      "fullTitle": "momentous stepsAfterBy does not include its starting point",
+      "duration": 1
+    },
+    {
+      "title": "includes the moment at (start + (nSteps * stepSize))",
+      "fullTitle": "momentous stepsAfterBy includes the moment at (start + (nSteps * stepSize))",
+      "duration": 1
+    },
+    {
+      "title": "generates the correct number of steps",
+      "fullTitle": "momentous stepsAfterBy generates the correct number of steps",
+      "duration": 1
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous stepsAfterBy produces the same result as manual iteration",
+      "duration": 3
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous stepsAfterBy increases by the given step size",
+      "duration": 2
+    },
+    {
+      "title": "accepts an ending moment, a step size, and a number of steps",
+      "fullTitle": "momentous stepsBeforeMoment accepts an ending moment, a step size, and a number of steps",
+      "duration": 1
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous stepsBeforeMoment generates a linear sequence of moments",
+      "duration": 1
+    },
+    {
+      "title": "does not include its end point",
+      "fullTitle": "momentous stepsBeforeMoment does not include its end point",
+      "duration": 1
+    },
+    {
+      "title": "includes the moment at (end - (nSteps * stepSize))",
+      "fullTitle": "momentous stepsBeforeMoment includes the moment at (end - (nSteps * stepSize))",
+      "duration": 1
+    },
+    {
+      "title": "generates the correct number of steps",
+      "fullTitle": "momentous stepsBeforeMoment generates the correct number of steps",
+      "duration": 1
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous stepsBeforeMoment produces the same result as manual iteration",
+      "duration": 3
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous stepsBeforeMoment increases by the given step size",
+      "duration": 1
+    },
+    {
+      "title": "accepts a start moment, a step size, and a number of steps.",
+      "fullTitle": "momentous stepsAfterMoment accepts a start moment, a step size, and a number of steps.",
+      "duration": 0
+    },
+    {
+      "title": "generates a linear sequence of moments",
+      "fullTitle": "momentous stepsAfterMoment generates a linear sequence of moments",
+      "duration": 1
+    },
+    {
+      "title": "does not include its starting point",
+      "fullTitle": "momentous stepsAfterMoment does not include its starting point",
+      "duration": 1
+    },
+    {
+      "title": "includes the moment at (start + (nSteps * stepSize))",
+      "fullTitle": "momentous stepsAfterMoment includes the moment at (start + (nSteps * stepSize))",
+      "duration": 1
+    },
+    {
+      "title": "generates the correct number of steps",
+      "fullTitle": "momentous stepsAfterMoment generates the correct number of steps",
+      "duration": 1
+    },
+    {
+      "title": "produces the same result as manual iteration",
+      "fullTitle": "momentous stepsAfterMoment produces the same result as manual iteration",
+      "duration": 2
+    },
+    {
+      "title": "increases by the given step size",
+      "fullTitle": "momentous stepsAfterMoment increases by the given step size",
+      "duration": 2
+    },
+    {
+      "title": "selects all dates before its first parameter's date value",
+      "fullTitle": "momentous::selectors allBefore selects all dates before its first parameter's date value",
+      "duration": 5
+    },
+    {
+      "title": "returns an empty array if no elements in the target array are before the date",
+      "fullTitle": "momentous::selectors allBefore returns an empty array if no elements in the target array are before the date",
+      "duration": 5
+    },
+    {
+      "title": "partially applies a single argument",
+      "fullTitle": "momentous::selectors allBefore partially applies a single argument",
+      "duration": 5
+    },
+    {
+      "title": "selects all dates after its first parameter's date value",
+      "fullTitle": "momentous::selectors allAfter selects all dates after its first parameter's date value",
+      "duration": 5
+    },
+    {
+      "title": "returns an empty array if no elements in the target array are after the date",
+      "fullTitle": "momentous::selectors allAfter returns an empty array if no elements in the target array are after the date",
+      "duration": 5
+    },
+    {
+      "title": "partially applies a single argument",
+      "fullTitle": "momentous::selectors allAfter partially applies a single argument",
+      "duration": 6
+    },
+    {
+      "title": "returns the earliest date in an array of dates",
+      "fullTitle": "momentous::selectors earliest returns the earliest date in an array of dates",
+      "duration": 4
+    },
+    {
+      "title": "returns the earliest date from a splat of dates extending from the second parameter on",
+      "fullTitle": "momentous::selectors earliest returns the earliest date from a splat of dates extending from the second parameter on",
+      "duration": 6
+    },
+    {
+      "title": "returns the latest date in an array of dates",
+      "fullTitle": "momentous::selectors latest returns the latest date in an array of dates",
+      "duration": 3
+    },
+    {
+      "title": "returns the latest date from a splat of dates extending from the second parameter on",
+      "fullTitle": "momentous::selectors latest returns the latest date from a splat of dates extending from the second parameter on",
+      "duration": 0
+    },
+    {
+      "title": "selects the closest date to its first argument from a list of dates",
+      "fullTitle": "momentous::selectors closestTo selects the closest date to its first argument from a list of dates",
+      "duration": 2
+    },
+    {
+      "title": "selects from a variable number of dates given after the first parameter",
+      "fullTitle": "momentous::selectors closestTo selects from a variable number of dates given after the first parameter",
+      "duration": 1
+    },
+    {
+      "title": "selects from an array of dates given after the first parameter",
+      "fullTitle": "momentous::selectors closestTo selects from an array of dates given after the first parameter",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous::selectors closestTo partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "selects the farthest date from its first argument out of a list of dates",
+      "fullTitle": "momentous::selectors farthestFrom selects the farthest date from its first argument out of a list of dates",
+      "duration": 2
+    },
+    {
+      "title": "selects from a variable number of dates given after the first parameter",
+      "fullTitle": "momentous::selectors farthestFrom selects from a variable number of dates given after the first parameter",
+      "duration": 1
+    },
+    {
+      "title": "selects from an array of dates given after the first parameter",
+      "fullTitle": "momentous::selectors farthestFrom selects from an array of dates given after the first parameter",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous::selectors farthestFrom partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "returns the closest date _before_ the first parameter's date value when there is a closer date falling after that value.",
+      "fullTitle": "momentous::selectors closestBefore returns the closest date _before_ the first parameter's date value when there is a closer date falling after that value.",
+      "duration": 3
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous::selectors closestBefore partially applies a single parameter",
+      "duration": 3
+    },
+    {
+      "title": "returns the closest date _after_ the first parameter's date value when there is a closer date falling before that value.",
+      "fullTitle": "momentous::selectors closestAfter returns the closest date _after_ the first parameter's date value when there is a closer date falling before that value.",
+      "duration": 4
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous::selectors closestAfter partially applies a single parameter",
+      "duration": 3
+    },
+    {
+      "title": "returns the farthest date _before_ the first parameter's date value when there is a farther date falling after that value.",
+      "fullTitle": "momentous::selectors farthestBefore returns the farthest date _before_ the first parameter's date value when there is a farther date falling after that value.",
+      "duration": 3
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous::selectors farthestBefore partially applies a single parameter",
+      "duration": 3
+    },
+    {
+      "title": "returns the farthest date _after_ the first parameter's date value when there is a farther date falling before that value.",
+      "fullTitle": "momentous::selectors farthestAfter returns the farthest date _after_ the first parameter's date value when there is a farther date falling before that value.",
+      "duration": 5
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous::selectors farthestAfter partially applies a single parameter",
+      "duration": 5
+    },
+    {
+      "title": "sorts Moments from earliest to latest",
+      "fullTitle": "momentous sort.ascending sorts Moments from earliest to latest",
+      "duration": 4
+    },
+    {
+      "title": "sorts Moments from latest to earliest",
+      "fullTitle": "momentous sort.descending sorts Moments from latest to earliest",
+      "duration": 4
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded down to the start of the nearest year",
+      "fullTitle": "momentous startOfYear returns a clone of the passed moment, rounded down to the start of the nearest year",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous startOfYear does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded down to the start of the nearest month",
+      "fullTitle": "momentous startOfMonth returns a clone of the passed moment, rounded down to the start of the nearest month",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous startOfMonth does not modify the original moment",
+      "duration": 1
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded down to the start of the nearest week",
+      "fullTitle": "momentous startOfWeek returns a clone of the passed moment, rounded down to the start of the nearest week",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous startOfWeek does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded down to the start of the nearest day",
+      "fullTitle": "momentous startOfDay returns a clone of the passed moment, rounded down to the start of the nearest day",
+      "duration": 1
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous startOfDay does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded down to the start of the nearest hour",
+      "fullTitle": "momentous startOfHour returns a clone of the passed moment, rounded down to the start of the nearest hour",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous startOfHour does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded down to the start of the nearest minute",
+      "fullTitle": "momentous startOfMinute returns a clone of the passed moment, rounded down to the start of the nearest minute",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous startOfMinute does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "returns a clone of the passed moment, rounded down to the start of the nearest second",
+      "fullTitle": "momentous startOfSecond returns a clone of the passed moment, rounded down to the start of the nearest second",
+      "duration": 0
+    },
+    {
+      "title": "does not modify the original moment",
+      "fullTitle": "momentous startOfSecond does not modify the original moment",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and object literal",
+      "fullTitle": "momentous sub accepts a moment instance and object literal",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous sub does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous sub partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts an object literal and a moment instance",
+      "fullTitle": "momentous subBy accepts an object literal and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous subBy does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous subBy partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of years to subtract",
+      "fullTitle": "momentous sub.years accepts a moment instance and a number of years to subtract",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous sub.years does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous sub.years partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts a moment instance and a number of months to subtract",
+      "fullTitle": "momentous sub.months accepts a moment instance and a number of months to subtract",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous sub.months does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous sub.months partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of days to subtract",
+      "fullTitle": "momentous sub.days accepts a moment instance and a number of days to subtract",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous sub.days does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous sub.days partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts a moment instance and a number of hours to subtract",
+      "fullTitle": "momentous sub.hours accepts a moment instance and a number of hours to subtract",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous sub.hours does not mutate the original moment",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous sub.hours partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of minutes to subtract",
+      "fullTitle": "momentous sub.minutes accepts a moment instance and a number of minutes to subtract",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous sub.minutes does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous sub.minutes partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of seconds to subtract",
+      "fullTitle": "momentous sub.seconds accepts a moment instance and a number of seconds to subtract",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous sub.seconds does not mutate the original moment",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous sub.seconds partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a moment instance and a number of seconds to subtract",
+      "fullTitle": "momentous sub.msec accepts a moment instance and a number of seconds to subtract",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous sub.msec does not mutate the original moment",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous sub.msec partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a number of years to subtract and a moment instance",
+      "fullTitle": "momentous subBy.years accepts a number of years to subtract and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous subBy.years does not mutate the original moment",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous subBy.years partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a number of months and a moment instance",
+      "fullTitle": "momentous subBy.months accepts a number of months and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous subBy.months does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous subBy.months partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a number of days to subtract and a moment instance",
+      "fullTitle": "momentous subBy.days accepts a number of days to subtract and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous subBy.days does not mutate the original moment",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous subBy.days partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a number of hours to subtract and a moment instance",
+      "fullTitle": "momentous subBy.hours accepts a number of hours to subtract and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous subBy.hours does not mutate the original moment",
+      "duration": 1
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous subBy.hours partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a number of minutes to subtract and a moment instance",
+      "fullTitle": "momentous subBy.minutes accepts a number of minutes to subtract and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous subBy.minutes does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous subBy.minutes partially applies a single parameter",
+      "duration": 0
+    },
+    {
+      "title": "accepts a number of seconds to subtract and a moment instance",
+      "fullTitle": "momentous subBy.seconds accepts a number of seconds to subtract and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous subBy.seconds does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous subBy.seconds partially applies a single parameter",
+      "duration": 1
+    },
+    {
+      "title": "accepts a number of milliseconds to subtract and a moment instance",
+      "fullTitle": "momentous subBy.msec accepts a number of milliseconds to subtract and a moment instance",
+      "duration": 0
+    },
+    {
+      "title": "does not mutate the original moment",
+      "fullTitle": "momentous subBy.msec does not mutate the original moment",
+      "duration": 0
+    },
+    {
+      "title": "partially applies a single parameter",
+      "fullTitle": "momentous subBy.msec partially applies a single parameter",
+      "duration": 0
     }
   ]
 }

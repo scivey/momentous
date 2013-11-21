@@ -1,0 +1,4463 @@
+<html>
+<head>
+	<meta id="view-meta" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">	
+	<title>API | Momentous</title>
+<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+</head>
+<body>
+	<div id="page-frame">
+		<div id="site-header">
+			<h1>Momentous</h1>
+			<div class="header-links">
+				<span class="link-wrapper-span">
+				
+					
+						<a href="index.html">Home</a>
+					
+
+				
+					
+						<a href="overview.html">Overview</a>
+					
+
+				
+					
+						<a class="active-head-link" href="api.html">API</a>
+					
+
+				
+					
+						<a href="spec.html">Specs</a>
+					
+
+				
+				</span>
+			</div>
+		</div>
+		<div id="body-frame">
+			
+				<h2>API</h2>
+			
+			
+<div class="api-frame">
+<div class="api-list-index">
+		<ul>
+		
+		<li>
+			<a href="#add.days">add.days</a>
+		</li>
+		
+		<li>
+			<a href="#add.hours">add.hours</a>
+		</li>
+		
+		<li>
+			<a href="#add.lit">add.lit</a>
+		</li>
+		
+		<li>
+			<a href="#add.minutes">add.minutes</a>
+		</li>
+		
+		<li>
+			<a href="#add.months">add.months</a>
+		</li>
+		
+		<li>
+			<a href="#add.msec">add.msec</a>
+		</li>
+		
+		<li>
+			<a href="#add.seconds">add.seconds</a>
+		</li>
+		
+		<li>
+			<a href="#add.years">add.years</a>
+		</li>
+		
+		<li>
+			<a href="#addBy.days">addBy.days</a>
+		</li>
+		
+		<li>
+			<a href="#addBy.hours">addBy.hours</a>
+		</li>
+		
+		<li>
+			<a href="#addBy.lit">addBy.lit</a>
+		</li>
+		
+		<li>
+			<a href="#addBy.minutes">addBy.minutes</a>
+		</li>
+		
+		<li>
+			<a href="#addBy.months">addBy.months</a>
+		</li>
+		
+		<li>
+			<a href="#addBy.msec">addBy.msec</a>
+		</li>
+		
+		<li>
+			<a href="#addBy.seconds">addBy.seconds</a>
+		</li>
+		
+		<li>
+			<a href="#addBy.years">addBy.years</a>
+		</li>
+		
+		<li>
+			<a href="#allAfter">allAfter</a>
+		</li>
+		
+		<li>
+			<a href="#allBefore">allBefore</a>
+		</li>
+		
+		<li>
+			<a href="#ascending">ascending</a>
+		</li>
+		
+		<li>
+			<a href="#closestAfter">closestAfter</a>
+		</li>
+		
+		<li>
+			<a href="#closestBefore">closestBefore</a>
+		</li>
+		
+		<li>
+			<a href="#closestTo">closestTo</a>
+		</li>
+		
+		<li>
+			<a href="#descending">descending</a>
+		</li>
+		
+		<li>
+			<a href="#earliest">earliest</a>
+		</li>
+		
+		<li>
+			<a href="#endOf">endOf</a>
+		</li>
+		
+		<li>
+			<a href="#endOfDay">endOfDay</a>
+		</li>
+		
+		<li>
+			<a href="#endOfHour">endOfHour</a>
+		</li>
+		
+		<li>
+			<a href="#endOfMinute">endOfMinute</a>
+		</li>
+		
+		<li>
+			<a href="#endOfMoment">endOfMoment</a>
+		</li>
+		
+		<li>
+			<a href="#endOfMonth">endOfMonth</a>
+		</li>
+		
+		<li>
+			<a href="#endOfSecond">endOfSecond</a>
+		</li>
+		
+		<li>
+			<a href="#endOfWeek">endOfWeek</a>
+		</li>
+		
+		<li>
+			<a href="#endOfYear">endOfYear</a>
+		</li>
+		
+		<li>
+			<a href="#farthestAfter">farthestAfter</a>
+		</li>
+		
+		<li>
+			<a href="#farthestBefore">farthestBefore</a>
+		</li>
+		
+		<li>
+			<a href="#farthestFrom">farthestFrom</a>
+		</li>
+		
+		<li>
+			<a href="#isAfter">isAfter</a>
+		</li>
+		
+		<li>
+			<a href="#isBefore">isBefore</a>
+		</li>
+		
+		<li>
+			<a href="#isBetween">isBetween</a>
+		</li>
+		
+		<li>
+			<a href="#isMomentBetween">isMomentBetween</a>
+		</li>
+		
+		<li>
+			<a href="#latest">latest</a>
+		</li>
+		
+		<li>
+			<a href="#nRandomAround">nRandomAround</a>
+		</li>
+		
+		<li>
+			<a href="#nRandomBetween">nRandomBetween</a>
+		</li>
+		
+		<li>
+			<a href="#nStepsAfter">nStepsAfter</a>
+		</li>
+		
+		<li>
+			<a href="#nStepsBefore">nStepsBefore</a>
+		</li>
+		
+		<li>
+			<a href="#randomAround">randomAround</a>
+		</li>
+		
+		<li>
+			<a href="#randomBetween">randomBetween</a>
+		</li>
+		
+		<li>
+			<a href="#range">range</a>
+		</li>
+		
+		<li>
+			<a href="#rangeBy">rangeBy</a>
+		</li>
+		
+		<li>
+			<a href="#rangeByExclusive">rangeByExclusive</a>
+		</li>
+		
+		<li>
+			<a href="#rangeExclusive">rangeExclusive</a>
+		</li>
+		
+		<li>
+			<a href="#startOf">startOf</a>
+		</li>
+		
+		<li>
+			<a href="#startOfDay">startOfDay</a>
+		</li>
+		
+		<li>
+			<a href="#startOfHour">startOfHour</a>
+		</li>
+		
+		<li>
+			<a href="#startOfMinute">startOfMinute</a>
+		</li>
+		
+		<li>
+			<a href="#startOfMoment">startOfMoment</a>
+		</li>
+		
+		<li>
+			<a href="#startOfMonth">startOfMonth</a>
+		</li>
+		
+		<li>
+			<a href="#startOfSecond">startOfSecond</a>
+		</li>
+		
+		<li>
+			<a href="#startOfWeek">startOfWeek</a>
+		</li>
+		
+		<li>
+			<a href="#startOfYear">startOfYear</a>
+		</li>
+		
+		<li>
+			<a href="#stepsAfterBy">stepsAfterBy</a>
+		</li>
+		
+		<li>
+			<a href="#stepsAfterMoment">stepsAfterMoment</a>
+		</li>
+		
+		<li>
+			<a href="#stepsBeforeBy">stepsBeforeBy</a>
+		</li>
+		
+		<li>
+			<a href="#stepsBeforeMoment">stepsBeforeMoment</a>
+		</li>
+		
+		<li>
+			<a href="#sub.days">sub.days</a>
+		</li>
+		
+		<li>
+			<a href="#sub.hours">sub.hours</a>
+		</li>
+		
+		<li>
+			<a href="#sub.lit">sub.lit</a>
+		</li>
+		
+		<li>
+			<a href="#sub.minutes">sub.minutes</a>
+		</li>
+		
+		<li>
+			<a href="#sub.months">sub.months</a>
+		</li>
+		
+		<li>
+			<a href="#sub.msec">sub.msec</a>
+		</li>
+		
+		<li>
+			<a href="#sub.seconds">sub.seconds</a>
+		</li>
+		
+		<li>
+			<a href="#sub.years">sub.years</a>
+		</li>
+		
+		<li>
+			<a href="#subBy.days">subBy.days</a>
+		</li>
+		
+		<li>
+			<a href="#subBy.hours">subBy.hours</a>
+		</li>
+		
+		<li>
+			<a href="#subBy.lit">subBy.lit</a>
+		</li>
+		
+		<li>
+			<a href="#subBy.minutes">subBy.minutes</a>
+		</li>
+		
+		<li>
+			<a href="#subBy.months">subBy.months</a>
+		</li>
+		
+		<li>
+			<a href="#subBy.msec">subBy.msec</a>
+		</li>
+		
+		<li>
+			<a href="#subBy.seconds">subBy.seconds</a>
+		</li>
+		
+		<li>
+			<a href="#subBy.years">subBy.years</a>
+		</li>
+		
+	</ul>
+</div>
+<div class="api-list">
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="add.days">
+				
+			<h3>add.days(targetMoment, numDays)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment and a number of days, return a clone of the target with that number of days added.</p>
+
+<p>Alternately, given only a target moment, return a stateless function which accepts a number of days and returns a clone of the target with that many days added.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and add time to.
+						</p>
+					</li>
+					
+					<li>
+						<code>numDays</code>: 
+						Number
+						<p>
+						The number of days to add.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numDays` added to it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="add.hours">
+				
+			<h3>add.hours(targetMoment, numHours)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment and a number of hours, return a clone of the target with that number of hours added.</p>
+
+<p>Alternately, given only a target moment, return a stateless function which accepts a number of hours and returns a clone of the target with that many hours added.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and add time to.
+						</p>
+					</li>
+					
+					<li>
+						<code>numHours</code>: 
+						Number
+						<p>
+						The number of hours to add.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numHours` added to it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="add.lit">
+				
+			<h3>add.lit(targetMoment, objectLit)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment and an object literal, return a clone of the target with that object literal applied to the clone's <code>#add</code> method..</p>
+
+<p>Alternately, given only a target moment, return a stateless function which accepts an object literal and returns a clone of the target with #add applied to the object.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and add time to.
+						</p>
+					</li>
+					
+					<li>
+						<code>objectLit</code>: 
+						Object
+						<p>
+						An object literal with key-value pairs corresponding to the additions to make to `targetMoment`.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with its #add method applied to `objectLit`.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="add.minutes">
+				
+			<h3>add.minutes(targetMoment, numMinutes)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment and a number of minutes, return a clone of the target with that number of minutes added.</p>
+
+<p>Alternately, given only a target moment, return a stateless function which accepts a number of minutes and returns a clone of the target with that many minutes added.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and add time to.
+						</p>
+					</li>
+					
+					<li>
+						<code>numMinutes</code>: 
+						Number
+						<p>
+						The number of minutes to add.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numMinutes` added to it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="add.months">
+				
+			<h3>add.months(targetMoment, numMonths)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment and a number of months, return a clone of the target with that number of months added.</p>
+
+<p>Alternately, given only a target moment, return a stateless function which accepts a number of months and returns a clone of the target with that many months added.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and add time to.
+						</p>
+					</li>
+					
+					<li>
+						<code>numMonths</code>: 
+						Number
+						<p>
+						The number of months to add.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numMonths` added to it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="add.msec">
+				
+			<h3>add.msec(targetMoment, numMSec)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment and a number of milliseconds, return a clone of the target with that number of milliseconds added.</p>
+
+<p>Alternately, given only a target moment, return a stateless function which accepts a number of milliseconds and returns a clone of the target with that many milliseconds added.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and add time to.
+						</p>
+					</li>
+					
+					<li>
+						<code>numMSec</code>: 
+						Number
+						<p>
+						The number of milliseconds to add.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numMSec` added to it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="add.seconds">
+				
+			<h3>add.seconds(targetMoment, numSeconds)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment and a number of seconds, return a clone of the target with that number of seconds added.</p>
+
+<p>Alternately, given only a target moment, return a stateless function which accepts a number of seconds and returns a clone of the target with that many seconds added.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and add time to.
+						</p>
+					</li>
+					
+					<li>
+						<code>numSeconds</code>: 
+						Number
+						<p>
+						The number of seconds to add.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numSeconds` added to it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="add.years">
+				
+			<h3>add.years(targetMoment, numYears)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment and a number of years, return a clone of the target with that number of years added.</p>
+
+<p>Alternately, given only a target moment, return a stateless function which accepts a number of years and returns a clone of the target with that many years added.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and add time to.
+						</p>
+					</li>
+					
+					<li>
+						<code>numYears</code>: 
+						Number
+						<p>
+						The number of years to add.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numYears` added to it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="addBy.days">
+				
+			<h3>addBy.days(numDays, targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a number of days and a target moment, return a clone of the target with that number of days added.</p>
+
+<p>Alternately, given only <code>numDays</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numDays</code> added.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>numDays</code>: 
+						Number
+						<p>
+						The number of days to add.
+						</p>
+					</li>
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and add time to.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numDays` added to it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="addBy.hours">
+				
+			<h3>addBy.hours(numHours, targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a number of hours and a target moment, return a clone of the target with that number of hours added.</p>
+
+<p>Alternately, given only <code>numHours</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numHours</code> added.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>numHours</code>: 
+						Number
+						<p>
+						The number of hours to add.
+						</p>
+					</li>
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and add time to.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numHours` added to it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="addBy.lit">
+				
+			<h3>addBy.lit(objectLit, targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given an object literal and a target moment, return a clone of the target with the clone's <code>#add</code> method applied to the literal.</p>
+
+<p>Alternately, given only an object literal, return a stateless function which accepts any moment referenceand returns a clone its <code>#add</code> method applied to the object.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>objectLit</code>: 
+						Object
+						<p>
+						An object literal with key-value pairs corresponding to the additions to make to `targetMoment`.
+						</p>
+					</li>
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and add time to.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with its `#add` method applied to `objectLit`.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="addBy.minutes">
+				
+			<h3>addBy.minutes(numMinutes, targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a number of minutes and a target moment, return a clone of the target with that number of minutes added.</p>
+
+<p>Alternately, given only <code>numMinutes</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numMinutes</code> added.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>numMinutes</code>: 
+						Number
+						<p>
+						The number of minutes to add.
+						</p>
+					</li>
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and add time to.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numMinutes` added to it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="addBy.months">
+				
+			<h3>addBy.months(numMonths, targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a number of months and a target moment, return a clone of the target with that number of months added.</p>
+
+<p>Alternately, given only <code>numMonths</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numMonths</code> added.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>numMonths</code>: 
+						Number
+						<p>
+						The number of months to add.
+						</p>
+					</li>
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and add time to.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numMonths` added to it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="addBy.msec">
+				
+			<h3>addBy.msec(numMilliseconds, targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a number of milliseconds and a target moment, return a clone of the target with that number of milliseconds added.</p>
+
+<p>Alternately, given only <code>numMilliseconds</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numMilliseconds</code> added.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>numMilliseconds</code>: 
+						Number
+						<p>
+						The number of milliseconds to add.
+						</p>
+					</li>
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and add time to.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numMilliseconds` added to it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="addBy.seconds">
+				
+			<h3>addBy.seconds(numSeconds, targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a number of seconds and a target moment, return a clone of the target with that number of seconds added.</p>
+
+<p>Alternately, given only <code>numSeconds</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numSeconds</code> added.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>numSeconds</code>: 
+						Number
+						<p>
+						The number of seconds to add.
+						</p>
+					</li>
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and add time to.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numSeconds` added to it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="addBy.years">
+				
+			<h3>addBy.years(numYears, targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a number of years and a target moment, return a clone of the target with that number of years added.</p>
+
+<p>Alternately, given only <code>numYears</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numYears</code> added.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>numYears</code>: 
+						Number
+						<p>
+						The number of years to add.
+						</p>
+					</li>
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and add time to.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numYears` added to it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="allAfter">
+				
+			<h3>allAfter(compareAgainst, momentList...)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a comparison moment and a list of other moments, return clones of all moments with dates after the comparison date.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>compareAgainst</code>: 
+						Moment
+						<p>
+						A moment to compare the other moments against.
+						</p>
+					</li>
+					
+					<li>
+						<code>momentList...</code>: 
+						Array
+						<p>
+						An array of moments to filter, or a sequence of individual moments (splatted).
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Array
+						<p>
+							An array of clones of all moments occurring after the comparison moment.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="allBefore">
+				
+			<h3>allBefore(compareAgainst, momentList...)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a comparison moment and a list of other moments, return clones of all moments with dates before the comparison date.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>compareAgainst</code>: 
+						Moment
+						<p>
+						A moment to compare the other moments against.
+						</p>
+					</li>
+					
+					<li>
+						<code>momentList...</code>: 
+						Array
+						<p>
+						An array of moments to filter, or a sequence of individual moments (splatted).
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Array
+						<p>
+							An array of clones of all moments occurring before the comparison moment.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="ascending">
+				
+			<h3>ascending(momentList)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given an array of moments or a sequence of single moments, return an array of cloned moments sorted in order of earliest to latest.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>momentList</code>: 
+						Array
+						<p>
+						An array of moments to sort, or a sequence of single moments (splatted).
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Array
+						<p>
+							An array of cloned moments sorted in order of earliest -> latest.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="closestAfter">
+				
+			<h3>closestAfter(compareAgainst, momentList...)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a comparison moment and a list of other moments, filter the list down to those moments occurring after the comparison and then return the one closest in time.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>compareAgainst</code>: 
+						Moment
+						<p>
+						A moment to compare the other moments against.
+						</p>
+					</li>
+					
+					<li>
+						<code>momentList...</code>: 
+						Array
+						<p>
+						An array of moments to select from.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							The single moment closest in time to the comparison moment, out of all moments occurring after the comparison.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="closestBefore">
+				
+			<h3>closestBefore(compareAgainst, momentList...)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a comparison moment and a list of other moments, filter the list down to those moments occurring before the comparison and then return the one closest in time.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>compareAgainst</code>: 
+						Moment
+						<p>
+						A moment to compare the other moments against.
+						</p>
+					</li>
+					
+					<li>
+						<code>momentList...</code>: 
+						Array
+						<p>
+						An array of moments to select from.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							The single moment closest in time to the comparison moment, out of all moments occurring before the comparison.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="closestTo">
+				
+			<h3>closestTo(compareAgainst, momentList...)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a comparison moment and a list of other moments, return the single moment closest in time to the comparison moment.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>compareAgainst</code>: 
+						Moment
+						<p>
+						A moment to compare agsint.
+						</p>
+					</li>
+					
+					<li>
+						<code>momentList...</code>: 
+						Array
+						<p>
+						An array of moments to select from.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							The single moment closest in time to the comparison moment.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="descending">
+				
+			<h3>descending(momentList)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given an array of moments or a sequence of single moments, return an array of cloned moments sorted in order of latest to earliest.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>momentList</code>: 
+						Array
+						<p>
+						An array of moments to sort, or a sequence of single moments (splatted).
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Array
+						<p>
+							An array of cloned moments sorted in order of latest -> earliest.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="earliest">
+				
+			<h3>earliest(momentList)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a list of moments, return a clone of the moment with the earliest date.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>momentList</code>: 
+						Array
+						<p>
+						An array of moments, or a sequence of individual moments (splatted).
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the earliest moment.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="endOf">
+				
+			<h3>endOf(unitString, targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a string representing a unit of time and a target moment, return a clone with its value for that unit rounded up.</p>
+
+<p>Alternately, given only a unit string, return a stateless function which accepts a moment and return a clone rounded up to the nearest whole value for that unit.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>unitString</code>: 
+						String
+						<p>
+						The unit to round up.
+						</p>
+					</li>
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						The moment to clone and round up.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with its value rounded up to the nearest `unitString`.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="endOfDay">
+				
+			<h3>endOfDay(targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment, return a clone rounded up to the end of its current day.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and round up.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target rounded up to the end of its current day.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="endOfHour">
+				
+			<h3>endOfHour(targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment, return a clone rounded up to the end of its current hour.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and round up.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target rounded up to the end of its current hour.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="endOfMinute">
+				
+			<h3>endOfMinute(targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment, return a clone rounded up to the end of its current minute.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and round up.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target rounded up to the end of its current minute.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="endOfMoment">
+				
+			<h3>endOfMoment(targetMoment, unitString)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Give a target moment and a string representing a unit of time, return a clone with its value for that unit rounded up.</p>
+
+<p>Alternately, given only a target moment, return a stateless function which accepts a unit string and returns a clone of the moment rounded up to the nearest whole value for that unit.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						The moment to clone and round up.
+						</p>
+					</li>
+					
+					<li>
+						<code>unitString</code>: 
+						String
+						<p>
+						The unit to round up.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with its value rounded up to the nearest `unitString`.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="endOfMonth">
+				
+			<h3>endOfMonth(targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment, return a clone rounded up to the end of its current month.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and round up.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target rounded up to the end of its current month.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="endOfSecond">
+				
+			<h3>endOfSecond(targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment, return a clone rounded up to the end of its current second.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and round up.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target rounded up to the end of its current second.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="endOfWeek">
+				
+			<h3>endOfWeek(targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment, return a clone rounded up to the end of its current week.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and round up.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target rounded up to the end of its current week.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="endOfYear">
+				
+			<h3>endOfYear(targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment, return a clone rounded up to the end of its current year.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and round up.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target rounded up to the end of its current year.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="farthestAfter">
+				
+			<h3>farthestAfter(compareAgainst, momentList...)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a comparison moment and a list of other moments, filter the list down to those moments occurring after the comparison and then return the one farthest in time.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>compareAgainst</code>: 
+						Moment
+						<p>
+						A moment to compare the other moments against.
+						</p>
+					</li>
+					
+					<li>
+						<code>momentList...</code>: 
+						Array
+						<p>
+						An array of moments to select from.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							The single moment farthest in time to the comparison moment, out of all moments occurring after the comparison.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="farthestBefore">
+				
+			<h3>farthestBefore(compareAgainst, momentList...)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a comparison moment and a list of other moments, filter the list down to those moments occurring before the comparison and then return the one farthest in time.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>compareAgainst</code>: 
+						Moment
+						<p>
+						A moment to compare the other moments against.
+						</p>
+					</li>
+					
+					<li>
+						<code>momentList...</code>: 
+						Array
+						<p>
+						An array of moments to select from.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							The single moment farthest in time to the comparison moment, out of all moments occurring before the comparison.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="farthestFrom">
+				
+			<h3>farthestFrom(compareAgainst, momentList...)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a comparison moment and a list of other moments, return the single moment farthest in time from the comparison moment.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>compareAgainst</code>: 
+						Moment
+						<p>
+						A moment to compare against.
+						</p>
+					</li>
+					
+					<li>
+						<code>momentList...</code>: 
+						Array
+						<p>
+						An array of moments to select from.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							The single moment farthest in time from the comparison moment.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="isAfter">
+				
+			<h3>isAfter(compareAgainst, compare)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given two moments, return true if the second moment occurs after the first.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>compareAgainst</code>: 
+						Moment
+						<p>
+						The moment to test against.
+						</p>
+					</li>
+					
+					<li>
+						<code>compare</code>: 
+						Moment
+						<p>
+						The moment to test.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Boolean
+						<p>
+							True if `compare` occurs after `compareAgainst`
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="isBefore">
+				
+			<h3>isBefore(compareAgainst, compare)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given two moments, return true if the second moment occurs before the first.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>compareAgainst</code>: 
+						Moment
+						<p>
+						The moment to test against.
+						</p>
+					</li>
+					
+					<li>
+						<code>compare</code>: 
+						Moment
+						<p>
+						The moment to test.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Boolean
+						<p>
+							True if `compare` occurs before `compareAgainst`
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="isBetween">
+				
+			<h3>isBetween(start, end, maybeBetween)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given three moments, return true if the third moment occurs in the range between the first and second.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>start</code>: 
+						Moment
+						<p>
+						A moment representing the start of the range.
+						</p>
+					</li>
+					
+					<li>
+						<code>end</code>: 
+						Moment
+						<p>
+						A moment representing the end of the range.
+						</p>
+					</li>
+					
+					<li>
+						<code>maybeBetween</code>: 
+						Moment
+						<p>
+						The moment to test.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Boolean
+						<p>
+							True if `maybeBetween` occurs between `start` and `end`; otherwise `false`.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="isMomentBetween">
+				
+			<h3>isMomentBetween(maybeBetween, start, end)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given three moments, return true if the first moment occurs in the range between the second and third.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>maybeBetween</code>: 
+						Moment
+						<p>
+						The moment to test.
+						</p>
+					</li>
+					
+					<li>
+						<code>start</code>: 
+						Moment
+						<p>
+						A moment representing the start of the range.
+						</p>
+					</li>
+					
+					<li>
+						<code>end</code>: 
+						Moment
+						<p>
+						A moment representing the end of the range.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Boolean
+						<p>
+							True if `maybeBetween` occurs between `start` and `end`; otherwise `false`.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="latest">
+				
+			<h3>latest(momentList)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a list of moments, return a clone of the moment with the latest date.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>momentList</code>: 
+						Array
+						<p>
+						An array of moments, or a sequence of individual moments (splatted).
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the latest moment.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="nRandomAround">
+				
+			<h3>nRandomAround(count, midPoint, maxOffset)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a number of moments to generate, a midpoint moment and a maximum offset, return an array of that number of random moments within that offset of the midpoint.</p>
+
+<p>Alternately, given only a number, return a function which accepts a midpoint and a maximum offset returns an array of that number of random moments within that offset of the midpoint.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>count</code>: 
+						Number
+						<p>
+						The number of moments to generate.
+						</p>
+					</li>
+					
+					<li>
+						<code>midPoint</code>: 
+						Moment
+						<p>
+						The moment at the center of the range of possible random moments. 
+						</p>
+					</li>
+					
+					<li>
+						<code>maxOffset</code>: 
+						Object
+						<p>
+						An object with key-value pairs corresponding to the maximum offset from the midpoint.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Array
+						<p>
+							A `count`-length array of random moments within `maxOffset` of `midPoint`.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="nRandomBetween">
+				
+			<h3>nRandomBetween(count, moment1, moment2)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a number of moments to generate and two moment instances as endpoints, return a random moment somewhere between the two.</p>
+
+<p>Alternately, given only a number, return a function which accepts two moment endpoints and returns an array of that number of random moments between the two points.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>count</code>: 
+						Number
+						<p>
+						The number of random moments to return.
+						</p>
+					</li>
+					
+					<li>
+						<code>moment1</code>: 
+						Moment
+						<p>
+						The first moment of the range. It doesn't have to come before moment2.
+						</p>
+					</li>
+					
+					<li>
+						<code>moment2</code>: 
+						Moment
+						<p>
+						The second moment of the range. It doesn't have to come after moment1.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Array
+						<p>
+							An array of `count` random moments between `moment1` and `moment2`.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="nStepsAfter">
+				
+			<h3>nStepsAfter(nSteps, step, startMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a number of steps, an object specifying the step size, and a start-point moment, generate an array of moments in the range of <code>startPoint</code> (exclusive) -> (<code>startPoint + (</code>nSteps<code>*</code>stepSize`)) (inclusive).</p>
+
+<p>Alternately, given only a number of steps, return a function which accepts a step size and a starting moment and returns the corresponding range.  That function can also accept just a step size, in which case it returns a function which accepts a starting moment and returns the corresponding range.</p>
+
+<p>Alternately, given only a number of steps and a step size, return a function which accepts a starting moment and returns the corresponding range.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>nSteps</code>: 
+						Number
+						<p>
+						The number of moments to generate
+						</p>
+					</li>
+					
+					<li>
+						<code>step</code>: 
+						Object
+						<p>
+						An object with key-value pairs representing the time gap between steps.
+						</p>
+					</li>
+					
+					<li>
+						<code>startMoment</code>: 
+						Moment
+						<p>
+						A moment which the generated moments increment away from. It is not included in the output.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Array
+						<p>
+							An array of new moments corresponding to the given range.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="nStepsBefore">
+				
+			<h3>nStepsBefore(nSteps, step, endMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a number of steps, an object specifying the step size, and an end-point moment, generate an array of moments in the range of (<code>endPoint - (</code>nSteps<code>*</code>stepSize<code>)) (inclusive) -&gt;</code>endPoint` (exclusive).</p>
+
+<p>Alternately, given only a number of steps, return a function which accepts a step size and an end moment and returns the corresponding range.  That function can also accept just a step size, in which case it returns a function which accepts an ending moment and returns the corresponding range.</p>
+
+<p>Alternately, given only a number of steps and a step size, return a function which accepts an end moment and returns the corresponding range.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>nSteps</code>: 
+						Number
+						<p>
+						The number of moments to generate
+						</p>
+					</li>
+					
+					<li>
+						<code>step</code>: 
+						Object
+						<p>
+						An object with key-value pairs representing the time gap between steps.
+						</p>
+					</li>
+					
+					<li>
+						<code>endMoment</code>: 
+						Moment
+						<p>
+						A moment which the generated moments increment towards. It is not included in the output.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Array
+						<p>
+							An array of new moments corresponding to the given range.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="randomAround">
+				
+			<h3>randomAround(midPoint, maxOffset)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a moment and a maximum offset, return a random moment within that offset of the passed moment.</p>
+
+<p>Alternately, given only a moment, return a function which accepts a maximum offset and returns a random moment within that offset of the previously passed moment.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>midPoint</code>: 
+						Moment
+						<p>
+						The moment at the center of the range of possible random moments. 
+						</p>
+					</li>
+					
+					<li>
+						<code>maxOffset</code>: 
+						Object
+						<p>
+						An object with key-value pairs corresponding to the maximum offset from the midpoint.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A random moment within `maxOffset` of `midPoint`.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="randomBetween">
+				
+			<h3>randomBetween(moment1, moment2)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given two moment instances as endpoints, return a random moment somewhere between the two.</p>
+
+<p>Alternately, given a single moment, return a function which accepts a second moment and returns a random point between that and the first.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>moment1</code>: 
+						Moment
+						<p>
+						The first moment of the range. It doesn't have to come before moment2.
+						</p>
+					</li>
+					
+					<li>
+						<code>moment2</code>: 
+						Moment
+						<p>
+						The second moment of the range. It doesn't have to come after moment1.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A new moment instance at a random point in time between the two endpoints.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="range">
+				
+			<h3>range(startMoment, endMoment, step)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a start moment, an end moment, and an object specifying the step size, generate an array of moment objects representing every step from the start of the range (inclusive) to the end of the range (exclusive).</p>
+
+<p>Alternately, given only a start moment, return a function which accepts an end moment and a step size and returns the corresponding range of moments.  That function can also accept just an end moment, in which case it returns a function which accepts a step size and returns a range of moments.</p>
+
+<p>Alternately, given only start and end moments, return a function which accepts a step size object and returns the corresponding range of moments.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>startMoment</code>: 
+						Moment
+						<p>
+						The start of the range, which is cloned and included in the output.
+						</p>
+					</li>
+					
+					<li>
+						<code>endMoment</code>: 
+						Moment
+						<p>
+						The end of the range, which _is not_ included in the output.
+						</p>
+					</li>
+					
+					<li>
+						<code>step</code>: 
+						Object
+						<p>
+						An object giving the step size between moments in the the same format as #add, i.e. `{days: 1, hours: 2}`.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Array
+						<p>
+							An array of new moments corresponding to the given range.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="rangeBy">
+				
+			<h3>rangeBy(step, startMoment, endMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given an object specifying step size, a start moment, and an end moment, generate an array of moment objects representing every step from the start of the range (inclusive) to the end of the range (exclusive).</p>
+
+<p>Alternately, given only a step size, return a function which accepts a start and end moment and returns the range between those moments with the step size passed.  That function can also accept just a start moment, in which case it returns a function which accepts an end moment and returns a range of moments.</p>
+
+<p>Alternately, given only a step size and start moment, return a function which accepts an end moment and returns the corresponding range of moments.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>step</code>: 
+						Object
+						<p>
+						An object giving the step size between moments in the the same format as #add, i.e. `{days: 1, hours: 2}`.
+						</p>
+					</li>
+					
+					<li>
+						<code>startMoment</code>: 
+						Moment
+						<p>
+						The start of the range, which is cloned and included in the output.
+						</p>
+					</li>
+					
+					<li>
+						<code>endMoment</code>: 
+						Moment
+						<p>
+						The end of the range, which _is not_ included in the output.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Array
+						<p>
+							An array of new moments corresponding to the given range.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="rangeByExclusive">
+				
+			<h3>rangeByExclusive(step, startMoment, endMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given an object specifying step size, a start moment, and an end moment, generate an array of moment objects representing every step from the start of the range (exclusive) to the end of the range (exclusive).</p>
+
+<p>Alternately, given only a step size, return a function which accepts a start and end moment and returns the range between those moments with the step size passed.  That function can also accept just a start moment, in which case it returns a function which accepts an end moment and returns a range of moments.</p>
+
+<p>Alternately, given only a step size and start moment, return a function which accepts an end moment and returns the corresponding range of moments.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>step</code>: 
+						Object
+						<p>
+						An object giving the step size between moments in the the same format as #add, i.e. `{days: 1, hours: 2}`.
+						</p>
+					</li>
+					
+					<li>
+						<code>startMoment</code>: 
+						Moment
+						<p>
+						The start of the range, which _is not_ included in the output.
+						</p>
+					</li>
+					
+					<li>
+						<code>endMoment</code>: 
+						Moment
+						<p>
+						The end of the range, which _is not_ included in the output.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Array
+						<p>
+							An array of new moments corresponding to the given range.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="rangeExclusive">
+				
+			<h3>rangeExclusive(startMoment, endMoment, step)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a start moment, an end moment, and an object specifying the step size, generate an array of moment objects representing every step from the start of the range (exclusive) to the end of the range (exclusive).</p>
+
+<p>Alternately, given only a start moment, return a function which accepts an end moment and a step size and returns the corresponding range of moments.  That function can also accept just an end moment, in which case it returns a function which accepts a step size and returns a range of moments.</p>
+
+<p>Alternately, given only start and end moments, return a function which accepts a step size object and returns the corresponding range of moments.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>startMoment</code>: 
+						Moment
+						<p>
+						The start of the range, which _is not_included in the output.
+						</p>
+					</li>
+					
+					<li>
+						<code>endMoment</code>: 
+						Moment
+						<p>
+						The end of the range, which _is not_ included in the output.
+						</p>
+					</li>
+					
+					<li>
+						<code>step</code>: 
+						Object
+						<p>
+						An object giving the step size between moments in the the same format as #add, i.e. `{days: 1, hours: 2}`.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Array
+						<p>
+							An array of new moments corresponding to the given range.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="startOf">
+				
+			<h3>startOf(unitString, targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a string representing a unit of time and a target moment, return a clone rounded down to the nearest whole value of that unit.</p>
+
+<p>Alternately, given only a unit string, return a stateless function which accepts a moment and returns a clone rounded down to the nearest whole value of that unit.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>unitString</code>: 
+						String
+						<p>
+						The unit to round down.
+						</p>
+					</li>
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						The moment to clone and round down.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with its value rounded down to the nearest whole `unitString`.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="startOfDay">
+				
+			<h3>startOfDay(targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment, return a clone rounded down to the beginning of its current day.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and round down.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target rounded down to the beginning of its current day.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="startOfHour">
+				
+			<h3>startOfHour(targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment, return a clone rounded down to the beginning of its current hour.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and round down.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target rounded down to the beginning of its current hour.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="startOfMinute">
+				
+			<h3>startOfMinute(targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment, return a clone rounded down to the beginning of its current minute.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and round down.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target rounded down to the beginning of its current minute.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="startOfMoment">
+				
+			<h3>startOfMoment(targetMoment, unitString)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment and a string representing a unit of time, return a clone rounded down to the nearest whole value of that unit.</p>
+
+<p>Alternately, given only a target moment, return a stateless function which accepts a unit string and returns a clone of the moment rounded down to the nearest whole value of that unit.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						The moment to clone and round down.
+						</p>
+					</li>
+					
+					<li>
+						<code>unitString</code>: 
+						String
+						<p>
+						The unit to round down.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with its value rounded down to the nearest whole `unitString`.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="startOfMonth">
+				
+			<h3>startOfMonth(targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment, return a clone rounded down to the beginning of its current month.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and round down.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target rounded down to the beginning of its current month.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="startOfSecond">
+				
+			<h3>startOfSecond(targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment, return a clone rounded down to the beginning of its current second.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and round down.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target rounded down to the beginning of its current second.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="startOfWeek">
+				
+			<h3>startOfWeek(targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment, return a clone rounded down to the beginning of its current week.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and round down.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target rounded down to the beginning of its current week.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="startOfYear">
+				
+			<h3>startOfYear(targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment, return a clone rounded down to the beginning of its current year.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and round down.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target rounded down to the beginning of its current year.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="stepsAfterBy">
+				
+			<h3>stepsAfterBy(step, nSteps, startMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given an object specifying the step size, a number of steps, and a start-point moment, generate an array of moments in the range of <code>startPoint</code> (exclusive) -> (<code>startPoint + (</code>nSteps<code>*</code>stepSize`)) (inclusive).</p>
+
+<p>Alternately, given only a step size, return a function which accepts a number of steps and a start moment and returns the corresponding range.  That function can also accept just a number of steps, in which case it returns a function which accepts a start moment and returns the corresponding range.</p>
+
+<p>Alternately, given only a step size and number of steps, return a function which accepts a start moment and returns the corresponding range.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>step</code>: 
+						Object
+						<p>
+						An object with key-value pairs representing the time gap between steps.
+						</p>
+					</li>
+					
+					<li>
+						<code>nSteps</code>: 
+						Number
+						<p>
+						The number of moments to generate
+						</p>
+					</li>
+					
+					<li>
+						<code>startMoment</code>: 
+						Moment
+						<p>
+						A moment which the generated moments increment away from. It is not included in the output.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Array
+						<p>
+							An array of new moments corresponding to the given range.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="stepsAfterMoment">
+				
+			<h3>stepsAfterMoment(startMoment, step, nSteps)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a start-point moment, an object specifying the step size, and a number of steps generate an array of moments in the range of <code>startPoint</code> (exclusive) -> (<code>startPoint + (</code>nSteps<code>*</code>stepSize`)) (inclusive).</p>
+
+<p>Alternately, given only a starting moment, return a function which accepts a step size and a number of steps and returns the corresponding range.  That function can also accept just a step size, in which case it returns a function which accepts a number of steps and returns the corresponding range.</p>
+
+<p>Alternately, given only a starting moment and a step size, return a function which accepts a number of steps and returns the corresponding range.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>startMoment</code>: 
+						Moment
+						<p>
+						A moment which the generated moments increment away from. It is not included in the output.
+						</p>
+					</li>
+					
+					<li>
+						<code>step</code>: 
+						Object
+						<p>
+						An object with key-value pairs representing the time gap between steps.
+						</p>
+					</li>
+					
+					<li>
+						<code>nSteps</code>: 
+						Number
+						<p>
+						The number of moments to generate
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Array
+						<p>
+							An array of new moments corresponding to the given range.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="stepsBeforeBy">
+				
+			<h3>stepsBeforeBy(step, nSteps, endMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given an object specifying the step size, a number of steps, and an end-point moment, generate an array of moments in the range of (<code>endPoint - (</code>nSteps<code>*</code>stepSize<code>)) (inclusive) -&gt;</code>endPoint` (exclusive).</p>
+
+<p>Alternately, given only a step size, return a function which accepts a number of steps and an end moment and returns the corresponding range.  That function can also accept just a number of steps, in which case it returns a function which accepts an ending moment and returns the corresponding range.</p>
+
+<p>Alternately, given only a step size and number of steps, return a function which accepts an end moment and returns the corresponding range.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>step</code>: 
+						Object
+						<p>
+						An object with key-value pairs representing the time gap between steps.
+						</p>
+					</li>
+					
+					<li>
+						<code>nSteps</code>: 
+						Number
+						<p>
+						The number of moments to generate
+						</p>
+					</li>
+					
+					<li>
+						<code>endMoment</code>: 
+						Moment
+						<p>
+						A moment which the generated moments increment towards. It is not included in the output.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Array
+						<p>
+							An array of new moments corresponding to the given range.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="stepsBeforeMoment">
+				
+			<h3>stepsBeforeMoment(startMoment, step, nSteps)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given an end-point moment, an object specifying the step size, and a number of steps generate an array of moments in the range of (<code>endPoint - (</code>nSteps<code>*</code>stepSize<code>)) (inclusive) -&gt;</code>endPoint` (exclusive).</p>
+
+<p>Alternately, given only an ending moment, return a function which accepts a step size and a number of steps and returns the corresponding range.  That function can also accept just a step size, in which case it returns a function which accepts a number of steps and returns the corresponding range.</p>
+
+<p>Alternately, given only an ending moment and a step size, return a function which accepts a number of steps and returns the corresponding range.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>startMoment</code>: 
+						Moment
+						<p>
+						A moment which the generated moments increment away from. It is not included in the output.
+						</p>
+					</li>
+					
+					<li>
+						<code>step</code>: 
+						Object
+						<p>
+						An object with key-value pairs representing the time gap between steps.
+						</p>
+					</li>
+					
+					<li>
+						<code>nSteps</code>: 
+						Number
+						<p>
+						The number of moments to generate
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Array
+						<p>
+							An array of new moments corresponding to the given range.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="sub.days">
+				
+			<h3>sub.days(targetMoment, numDays)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment and a number of days, return a clone of the target with that number of days subtracted.</p>
+
+<p>Alternately, given only a target moment, return a stateless function which accepts a number of days and returns a clone of the target with that many days subtracted.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and subtract time from.
+						</p>
+					</li>
+					
+					<li>
+						<code>numDays</code>: 
+						Number
+						<p>
+						The number of days to subtract.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numDays` subtracted from it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="sub.hours">
+				
+			<h3>sub.hours(targetMoment, numHours)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment and a number of hours, return a clone of the target with that number of hours subtracted.</p>
+
+<p>Alternately, given only a target moment, return a stateless function which accepts a number of hours and  a clone of the target with that many hours subtracted.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and subtract time from.
+						</p>
+					</li>
+					
+					<li>
+						<code>numHours</code>: 
+						Number
+						<p>
+						The number of hours to subtract.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numHours` subtracted from it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="sub.lit">
+				
+			<h3>sub.lit(targetMoment, objectLit)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment and an object literal, return a clone of the target with that object literal applied to the clone's <code>#subtract</code> method..</p>
+
+<p>Alternately, given only a target moment, return a stateless function which accepts an object literal and returns a clone of the target with #subtract applied to the object.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and subtract time from.
+						</p>
+					</li>
+					
+					<li>
+						<code>objectLit</code>: 
+						Object
+						<p>
+						An object literal with key-value pairs corresponding to the subtractions to make from `targetMoment`.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with its #subtract method applied to `objectLit`.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="sub.minutes">
+				
+			<h3>sub.minutes(targetMoment, numMinutes)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment and a number of minutes, return a clone of the target with that number of minutes subtracted.</p>
+
+<p>Alternately, given only a target moment, return a stateless function which accepts a number of minutes and returns a clone of the target with that many minutes subtracted.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and subtract time from.
+						</p>
+					</li>
+					
+					<li>
+						<code>numMinutes</code>: 
+						Number
+						<p>
+						The number of minutes to subtract.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numMinutes` subtracted from it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="sub.months">
+				
+			<h3>sub.months(targetMoment, numMonths)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment and a number of months, return a clone of the target with that number of months subtracted.</p>
+
+<p>Alternately, given only a target moment, return a stateless function which accepts a number of months and returns a clone of the target with that many months subtracted.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and subtract time from.
+						</p>
+					</li>
+					
+					<li>
+						<code>numMonths</code>: 
+						Number
+						<p>
+						The number of months to subtract.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numMonths` subtracted from it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="sub.msec">
+				
+			<h3>sub.msec(targetMoment, numMSec)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment and a number of milliseconds, return a clone of the target with that number of milliseconds subtracted.</p>
+
+<p>Alternately, given only a target moment, return a stateless function which accepts a number of milliseconds and returns a clone of the target with that many milliseconds subtracted.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and subtract time from.
+						</p>
+					</li>
+					
+					<li>
+						<code>numMSec</code>: 
+						Number
+						<p>
+						The number of milliseconds to subtract.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numMSec` subtracted from it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="sub.seconds">
+				
+			<h3>sub.seconds(targetMoment, numSeconds)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment and a number of seconds, return a clone of the target with that number of seconds subtracted.</p>
+
+<p>Alternately, given only a target moment, return a stateless function which accepts a number of seconds and returns a clone of the target with that many seconds subtracted.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and subtract time from.
+						</p>
+					</li>
+					
+					<li>
+						<code>numSeconds</code>: 
+						Number
+						<p>
+						The number of seconds to subtract.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numSeconds` subtracted from it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="sub.years">
+				
+			<h3>sub.years(targetMoment, numYears)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a target moment and a number of years, return a clone of the target with that number of years subtracted.</p>
+
+<p>Alternately, given only a target moment, return a stateless function which accepts a number of years and returns a clone of the target with that many years subtracted.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and subtract time from.
+						</p>
+					</li>
+					
+					<li>
+						<code>numYears</code>: 
+						Number
+						<p>
+						The number of milliseconds to subtract.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numYears` subtracted from it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="subBy.days">
+				
+			<h3>subBy.days(numDays, targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a number of days and a target moment, return a clone of the target with that number of days subtracted.</p>
+
+<p>Alternately, given only <code>numDays</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numDays</code> subtracted.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>numDays</code>: 
+						Number
+						<p>
+						The number of days to subtracted.
+						</p>
+					</li>
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and subtract time from.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numDays` subtracted from it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="subBy.hours">
+				
+			<h3>subBy.hours(numHours, targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a number of hours and a target moment, return a clone of the target with that number of hours subtracted.</p>
+
+<p>Alternately, given only <code>numHours</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numHours</code> subtracted.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>numHours</code>: 
+						Number
+						<p>
+						The number of hours to subtracted.
+						</p>
+					</li>
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and subtract time from.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numHours` subtracted from it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="subBy.lit">
+				
+			<h3>subBy.lit(objectLit, targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given an object literal and a target moment, return a clone of the target with the clone's <code>#subtract</code> method applied to the literal.</p>
+
+<p>Alternately, given only an object literal, return a stateless function which accepts any moment reference and returns a clone with its <code>#subtract</code> method applied to the object.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>objectLit</code>: 
+						Object
+						<p>
+						An object literal with key-value pairs corresponding to the subtractions to make from `targetMoment`.
+						</p>
+					</li>
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and subtract time from.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with its `#subtract` method applied to `objectLit`.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="subBy.minutes">
+				
+			<h3>subBy.minutes(numMinutes, targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a number of minutes and a target moment, return a clone of the target with that number of minutes subtracted.</p>
+
+<p>Alternately, given only <code>numMinutes</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numMinutes</code> subtracted.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>numMinutes</code>: 
+						Number
+						<p>
+						The number of minutes to subtracted.
+						</p>
+					</li>
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and subtract time from.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numMinutes` subtracted from it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="subBy.months">
+				
+			<h3>subBy.months(numMonths, targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a number of months and a target moment, return a clone of the target with that number of months subtracted.</p>
+
+<p>Alternately, given only <code>numMonths</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numMonths</code> subtracted.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>numMonths</code>: 
+						Number
+						<p>
+						The number of months to subtracted.
+						</p>
+					</li>
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and subtract time from.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numMonths` subtracted from it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="subBy.msec">
+				
+			<h3>subBy.msec(numMSec, targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a number of milliseconds and a target moment, return a clone of the target with that number of milliseconds subtracted.</p>
+
+<p>Alternately, given only <code>numMilliseconds</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numMilliseconds</code> subtracted.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>numMSec</code>: 
+						Number
+						<p>
+						The number of milliseconds to subtracted.
+						</p>
+					</li>
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and subtract time from.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numMSec` subtracted from it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="subBy.seconds">
+				
+			<h3>subBy.seconds(numSeconds, targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a number of seconds and a target moment, return a clone of the target with that number of seconds subtracted.</p>
+
+<p>Alternately, given only <code>numSeconds</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numSeconds</code> subtracted.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>numSeconds</code>: 
+						Number
+						<p>
+						The number of seconds to subtracted.
+						</p>
+					</li>
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and subtract time from.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numSeconds` subtracted from it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+	<div class="api-list-item">
+		<div class="api-item-title">
+		<a name="subBy.years">
+				
+			<h3>subBy.years(numYears, targetMoment)
+			</h3>
+
+		</a>
+		</div>
+		<div class="api-list-item-body">
+			<div class="api-item-description">
+				<p>Given a number of years and a target moment, return a clone of the target with that number of years subtracted.</p>
+
+<p>Alternately, given only <code>numYears</code>, return a stateless function which accepts any moment reference and returns a clone with <code>numYears</code> subtracted.</p>
+			</div>
+			<h5 class="api-item-subtitle">Parameters</h5>
+			<ul class="api-item-list api-item-params">
+				
+					
+					<li>
+						<code>numYears</code>: 
+						Number
+						<p>
+						The number of years to subtracted.
+						</p>
+					</li>
+					
+					<li>
+						<code>targetMoment</code>: 
+						Moment
+						<p>
+						A moment to clone and subtract time from.
+						</p>
+					</li>
+					
+				
+			</ul>
+			<h5 class="api-item-subtitle">Returns</h5>
+			<ul class="api-item-list api-item-returns">
+				<li>
+					
+						Moment
+						<p>
+							A clone of the target with `numYears` subtracted from it.
+						</p>
+					
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
+</div>
+</div>
+		</div>
+	</div>
+</body>
+</html>

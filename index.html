@@ -1,0 +1,149 @@
+<html>
+<head>
+	<meta id="view-meta" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">	
+	<title>Momentous | scivey</title>
+<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+</head>
+<body>
+	<div id="page-frame">
+		<div id="site-header">
+			<h1>Momentous</h1>
+			<div class="header-links">
+				<span class="link-wrapper-span">
+				
+					
+						<a class="active-head-link" href="index.html">Home</a>
+					
+
+				
+					
+						<a href="overview.html">Overview</a>
+					
+
+				
+					
+						<a href="api.html">API</a>
+					
+
+				
+					
+						<a href="spec.html">Specs</a>
+					
+
+				
+				</span>
+			</div>
+		</div>
+		<div id="body-frame">
+			
+				<span class="no-title-span"></span>
+			
+			<div class="basic-content-frame">
+<p><strong>Momentous</strong> is a functionally-oriented utility library for manipulating <a href="http://www.momentjs.com">Moment.js</a>-format date and time objects. It is especially suited to list processing, but can also manipulate individual Moment instances.</p>
+<p>The methods in <strong>Momentous</strong> have partial application built-in, and have left- and right-handed variants wherever it makes sense.</p>
+<p>That means this works:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> moment <span class="keyword operator">=</span> <span class="function call">require</span>(<span class="string">"moment"</span>);
+<span class="keyword">var</span> momentous <span class="keyword operator">=</span> <span class="function call">require</span>(<span class="string">"momentous"</span>);
+
+<span class="keyword">var</span> todayAt8AM <span class="keyword operator">=</span> <span class="function call">moment</span>().<span class="function call">hours</span>(<span class="constant numeric">8</span>).<span class="function call">startOf</span>(<span class="string">"hour"</span>);
+<span class="keyword">var</span> timeFrom8AM <span class="keyword operator">=</span> momentous.<span class="function call">add</span>(todayAt8AM);
+
+<span class="keyword">var</span> threeHrs5Mins17SecsLater <span class="keyword operator">=</span> <span class="function call">timeFrom8AM</span>({hours: <span class="constant numeric">3</span>,
+                                            minutes: <span class="constant numeric">5</span>,
+                                            seconds: <span class="constant numeric">17</span>});
+
+momentous.<span class="support method">log</span>(threeHrs5Mins17SecsLater)
+<span class="comment">// 2013-11-20 T11:05:17</span></code></pre>
+<p>And this also works:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> now <span class="keyword operator">=</span> <span class="function call">moment</span>();
+<span class="keyword">var</span> add1Month17Days <span class="keyword operator">=</span> momentous.<span class="function call">addBy</span>({months: <span class="constant numeric">1</span>, days: <span class="constant numeric">17</span>});
+
+<span class="keyword">var</span> july5 <span class="keyword operator">=</span> <span class="function call">moment</span>(<span class="string">"2013-07-05"</span>);
+<span class="keyword">var</span> sometimeLater <span class="keyword operator">=</span> <span class="function call">add1Month17Days</span>(july5);
+
+momentous.<span class="support method">log</span>(<span class="string">"YYYY-MM-DD"</span>, sometimeLater);
+<span class="comment">// 2013-08-22</span></code></pre>
+<p>All methods produce clones of existing Moments, and never mutate the originals.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> now <span class="keyword operator">=</span> <span class="function call">moment</span>();
+<span class="keyword">var</span> later <span class="keyword operator">=</span> momentous.<span class="function call">add</span>(now, {hours: <span class="constant numeric">5</span>});
+
+momentous.<span class="support method">log</span>(later);
+<span class="comment">// 2013-11-20 T19:39:53</span>
+
+momentous.<span class="support method">log</span>(now);
+<span class="comment">// 2013-11-20 T14:39:53</span></code></pre>
+<p><strong>Momentous</strong> includes powerful methods for generating sequences of dates:</p>
+<pre><code class="lang-javascript">
+<span class="keyword">var</span> dates <span class="keyword operator">=</span> momentous.<span class="function call">range</span>(<span class="string">"2013-10-10"</span>, 
+                            <span class="string">"2013-10-26"</span>,
+                            {days: <span class="constant numeric">3</span>});
+
+momentous.<span class="support method">log</span>(<span class="string">"MMM-DD"</span>, dates);
+<span class="comment">//    [Oct-10, Oct-13, Oct-16, </span>
+<span class="comment">//    Oct-19, Oct-22, Oct-25]</span></code></pre>
+<p>... which can be used to generate moment instances representing any kind of time interval:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> now <span class="keyword operator">=</span> <span class="function call">moment</span>()
+<span class="keyword">var</span> inTwoMins <span class="keyword operator">=</span> momentous.<span class="function call">add</span>(now, 
+                        {minutes: <span class="constant numeric">2</span>});
+
+<span class="keyword">var</span> every17Secs <span class="keyword operator">=</span> momentous.<span class="function call">range</span>(now,
+                            inTwoMins,
+                            { seconds:<span class="constant numeric">17</span> });
+
+momentous.<span class="support method">log</span>(every17Secs)
+<span class="comment">// [ 20-Nov 20:34:10, 20-Nov 20:34:27,</span>
+<span class="comment">//    20-Nov 20:34:44, 20-Nov 20:35:01, </span>
+<span class="comment">//    20-Nov 20:35:18, 20-Nov 20:35:35, </span>
+<span class="comment">//    20-Nov 20:35:52, 20-Nov 20:36:09 ]</span></code></pre>
+<p><strong>Momentous</strong> can also generate random dates within an interval:</p>
+<pre><code class="lang-javascript">
+<span class="keyword">var</span> randomDate <span class="keyword operator">=</span> momentous.<span class="function call">randBetween</span>(<span class="string">"2000-09-01"</span>, <span class="string">"2010-05-01"</span>)
+momentous.<span class="support method">log</span>(<span class="string">"YYYY MMM DD"</span>, randomDate);
+<span class="comment">// [ 2003 Aug 10 ]</span>
+
+<span class="keyword">var</span> moreRandoms <span class="keyword operator">=</span> momentous.<span class="function call">nRandBetween</span>(<span class="constant numeric">5</span>, <span class="string">"2000-09-01"</span>, <span class="string">"2010-05-01"</span>)
+momentous.<span class="support method">log</span>(<span class="string">"YYYY MMM DD"</span>, moreRandoms);
+<span class="comment">//    [ 2004 Oct 30, 2003 May 09, 2009 Mar 03, </span>
+<span class="comment">//    2007 Sep 17, 2006 Jun 21 ]</span></code></pre>
+<p>Or within a given range of a seed date:</p>
+<pre><code class="lang-javascript">
+<span class="keyword">var</span> randomDate <span class="keyword operator">=</span> momentous.<span class="function call">randAround</span>(<span class="string">"2013-05-14"</span>, {days: <span class="constant numeric">10</span>})
+
+momentous.<span class="support method">log</span>(<span class="string">"YYYY MMM DD"</span>, randomDate);
+<span class="comment">// [ 2013 May 06 ]</span>
+
+<span class="keyword">var</span> moreRandoms <span class="keyword operator">=</span> momentous.<span class="function call">nRandAround</span>(<span class="constant numeric">4</span>, <span class="string">"2013-05-14"</span>, {months: <span class="constant numeric">2</span>})
+<span class="comment">// [ 2013 Jun 25, 2013 Jul 06,</span>
+<span class="comment">//    2013 Apr 14, 2013 Apr 11 ]</span></code></pre>
+<p>The range functions have built-in partial application and left- and right-handed versions, too:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> makeDayRange <span class="keyword operator">=</span> momentous.<span class="function call">rangeBy</span>({days: <span class="constant numeric">1</span>});
+
+<span class="keyword">var</span> today <span class="keyword operator">=</span> <span class="function call">now</span>();
+<span class="keyword">var</span> inFourDays <span class="keyword operator">=</span> momentous.<span class="function call">add</span>(today, {days: <span class="constant numeric">4</span>});
+
+<span class="keyword">var</span> nextFewDays <span class="keyword operator">=</span> <span class="function call">makeDayRange</span>(today, inFourDays);
+momentous.<span class="support method">log</span>(<span class="string">"YYYY-MMM-DD"</span>, nextFewDays);
+
+<span class="comment">// [ 2013-Nov-20, 2013-Nov-21,</span>
+<span class="comment">//    2013-Nov-22, 2013-Nov-23]</span></code></pre>
+<p>... and so do the random functions:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> randWithin10Days <span class="keyword operator">=</span> momentous.<span class="function call">randWithin</span>({days: <span class="constant numeric">10</span>});
+<span class="keyword">var</span> today <span class="keyword operator">=</span> <span class="function call">moment</span>();
+momentous.<span class="support method">log</span>(<span class="string">"YYYY-MMM-DD"</span>, today);
+<span class="comment">// [ 2013-Nov-20 ]</span>
+
+<span class="keyword">var</span> randMoment <span class="keyword operator">=</span> <span class="function call">randWithin10Days</span>(today);
+momentous.<span class="support method">log</span>(<span class="string">"YYYY-MMM-DD"</span>, randMoment);
+<span class="comment">// [ 2013-Nov-16 ]</span></code></pre>
+<p>... as do many of the utility functions:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> dateLogger <span class="keyword operator">=</span> momentous.<span class="support method">log</span>(<span class="string">"e, DD MMMM YYYY"</span>);
+<span class="function call">dateLogger</span>(<span class="function call">moment</span>());
+<span class="comment">// "[ 20 November 2013 ]"</span></code></pre>
+<p><strong>Momentous</strong>&#39;s behavior is verified by over <a href="./spec.html">over 200 unit tests</a> pre-commit, and its API is <a href="./api.html">fully documented</a>.</p>
+<p><a href="./overview.html">Read the overview ==&gt;</a></p>
+
+</div>
+		</div>
+	</div>
+</body>
+</html>

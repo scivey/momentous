@@ -50,6 +50,16 @@ readJSON indir("doxed.json"), (err, data) ->
 				name: el.ctx.name
 				type: el.ctx.method
 				string: el.ctx.string
+			if el.ctx.receiver?
+				_rcv = el.ctx.receiver
+				if _rcv is "_uA"
+					_outs.ident.name = "add.#{_outs.ident.name}"
+				else if _rcv is "_uS"
+					_outs.ident.name = "sub.#{_outs.ident.name}"
+				else if _rcv is "_subBy"
+					_outs.ident.name = "subBy.#{_outs.ident.name}"
+				else if _rcv is "_addBy"
+					_outs.ident.name = "addBy.#{_outs.ident.name}"
 		else
 			_outs.ident =
 				name: 'unknown'
@@ -58,16 +68,19 @@ readJSON indir("doxed.json"), (err, data) ->
 		_outs
 
 	mapped3 = _.sortBy mapped3, (el) -> el.ident.name
-	toRender =
-		items: mapped3
-		title: "API"
-		projectTitle: "inmedia"
-		linkName: "API"
 
-	#console.log mapped3
-	musty = require indir("superstache.coffee")
-	musty.render "dox", toRender, (err, html) ->
-		fs.writeFile indir("../api.html"), html, (err) ->
-			console.log "done"
+	fs.writeFile "./mapped3.json", JSON.stringify(mapped3), (err) -> console.log("wrote json.")
 
-###
+	readJSON indir("projManifest.json"), (err, data) ->
+
+		toRender =
+			items: mapped3
+			title: "API"
+			projectTitle: data.projectTitle
+			linkName: "API"
+
+		#console.log mapped3
+		musty = require indir("superstache.coffee")
+		musty.render "dox", toRender, (err, html) ->
+			fs.writeFile indir("../api.html"), html, (err) ->
+				console.log "done"

@@ -24,33 +24,35 @@ loadHandle = (fName, cb) ->
 		tmpl = Handlebars.compile(res)
 		cb null, tmpl
 
-readJSON indir("spec.json"), (err, data) ->
-	mapped = _.chain(data.tests)
-		.map( _.clone )
-		.map( (el) -> 
-			splitTitle = el.fullTitle.split(" ")
-			el.topFam = splitTitle[0]
-			el.subFam = splitTitle[1]
-			el.testDesc = splitTitle.slice(2).join(" ")
-			el
-			)
-		.groupBy( "subFam" )
-		.pairs()
-		.map( (el) -> {suite: el[0], tests: el[1]} )
-		.value()
+readJSON indir("projManifest.json"), (err, manData) ->
 
-	toRender =
-		title: "Specs"
-		projectTitle: "inmedia"
-		stats:
-			total: data.stats.tests
-			passes: data.stats.passes
-		linkName: "Specs"
-		githubSpecsLink: "https://github.com/scivey/inmedia/tree/master/spec"
-		testSuites: mapped
+	readJSON indir("spec.json"), (err, data) ->
+		mapped = _.chain(data.tests)
+			.map( _.clone )
+			.map( (el) -> 
+				splitTitle = el.fullTitle.split(" ")
+				el.topFam = splitTitle[0]
+				el.subFam = splitTitle[1]
+				el.testDesc = splitTitle.slice(2).join(" ")
+				el
+				)
+			.groupBy( "subFam" )
+			.pairs()
+			.map( (el) -> {suite: el[0], tests: el[1]} )
+			.value()
 
-	#console.log mapped[0]
-	musty = require indir("superstache.coffee")
-	musty.render "spec", toRender, (err, html) ->
-		fs.writeFile indir("../spec.html"), html, (err) ->
-			console.log "done"
+		toRender =
+			title: "Specs"
+			projectTitle: manData.projectTitle
+			stats:
+				total: data.stats.tests
+				passes: data.stats.passes
+			linkName: "Specs"
+			githubSpecsLink: manData.ghSpecLink
+			testSuites: mapped
+
+		#console.log mapped[0]
+		musty = require indir("superstache.coffee")
+		musty.render "spec", toRender, (err, html) ->
+			fs.writeFile indir("../spec.html"), html, (err) ->
+				console.log "done"
