@@ -25,7 +25,7 @@ randoms = do ->
 		randomizedDiff
 
 	_randomizeSignedDiff = (maxDiff) ->
-		diff = randomizeAbsDiff(maxDiff)
+		diff = _randomizeAbsDiff(maxDiff)
 		sign = Math.random()
 		if sign < 0.5
 			diff *= -1
@@ -37,7 +37,7 @@ randoms = do ->
 		startMoment = _momentCheck(startMoment)
 		endMoment = _momentCheck(endMoment)
 		resolution = "ms"
-		diff = randomizeAbsDiff(startMoment.diff(endMoment, resolution))
+		diff = _randomizeAbsDiff(startMoment.diff(endMoment, resolution))
 
 		if startMoment.isBefore(endMoment)
 			return startMoment.clone().add(resolution, diff)
@@ -81,7 +81,7 @@ randoms = do ->
 		middleMoment = _momentCheck(middleMoment)
 		maxDiff = middleMoment.diff( middleMoment.clone().add(offset) )
 
-		diff = randomizeSignedDiff(maxDiff)
+		diff = _randomizeSignedDiff(maxDiff)
 		middleMoment.clone().add(diff)
 
 	###*
