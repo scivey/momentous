@@ -113,12 +113,10 @@ randoms = do ->
 	###
 	_outs.nRandomAround = partial3 nRandomAround
 
-	_outs.randBetween = randomBetween
-	_outs.randomBetween = randomBetween
-	_outs.nRandBetween = nRandomBetween
-	_outs.nRandomBetween = nRandomBetween
-	_outs.randAround = randomAround
-	_outs.nRandomAround = nRandomAround
+	_outs.randBetween = _outs.randomBetween
+	_outs.nRandBetween = _outs.nRandomBetween
+	_outs.randAround = _outs.randomAround
+	_outs.nRandAround = _outs.nRandomAround
 	_outs
 
 module.exports = randoms
