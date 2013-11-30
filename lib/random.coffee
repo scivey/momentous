@@ -114,7 +114,9 @@ randoms = do ->
 	_outs.nRandomAround = partial3 nRandomAround
 
 	_outs.randBetween = randomBetween
-	_outs.nRandBeween = nRandomBetween
+	_outs.randomBetween = randomBetween
+	_outs.nRandBetween = nRandomBetween
+	_outs.nRandomBetween = nRandomBetween
 	_outs.randAround = randomAround
 	_outs.nRandomAround = nRandomAround
 	_outs

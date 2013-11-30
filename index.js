@@ -45,7 +45,7 @@
 
   _.extend(momentous, helpers);
 
-  randoms = require(inLib("randoms.js"));
+  randoms = require(inLib("random.js"));
 
   _.extend(momentous, randoms);
 
