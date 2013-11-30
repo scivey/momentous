@@ -33,7 +33,7 @@ _.extend momentous.sort, sorters
 helpers = require inLib("helpers.js")
 _.extend momentous, helpers
 
-randoms = require inLib("randoms.js")
+randoms = require inLib("random.js")
 _.extend momentous, randoms
 
 misc = require inLib("misc.js")
